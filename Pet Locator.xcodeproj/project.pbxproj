@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
+		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
+		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
+		88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C941B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib */; };
+		88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */; };
 		88F9E5D31B38D0C7009D68D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D21B38D0C7009D68D9 /* main.m */; };
 		88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */; };
 		88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */; };
 		88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F9E5DF1B38D0C8009D68D9 /* LaunchScreen.xib */; };
 		88F9E5ED1B38D0C8009D68D9 /* Pet_LocatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5EC1B38D0C8009D68D9 /* Pet_LocatorTests.m */; };
 		88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5F71B38D180009D68D9 /* MisMascotas.m */; };
+		88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FCB9221B39E32400233CFF /* Bienvenida.m */; };
+		88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB9241B39E34A00233CFF /* Bienvenida_iPhone.xib */; };
+		88FCB9271B39E43B00233CFF /* Bienvenida_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB9261B39E43B00233CFF /* Bienvenida_iPhone5.xib */; };
+		88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB9281B39E45C00233CFF /* Bienvenida_iPhone6.xib */; };
+		88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB92A1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib */; };
+		88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB92C1B39E4A000233CFF /* Bienvenida_iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
+		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
+		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
+		88C02C941B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6plus.xib; path = Views/MisMascotas/MisMascotas_iPhone6plus.xib; sourceTree = "<group>"; };
+		88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPad.xib; path = Views/MisMascotas/MisMascotas_iPad.xib; sourceTree = "<group>"; };
 		88F9E5CD1B38D0C7009D68D9 /* Pet Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F9E5D11B38D0C7009D68D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F9E5D21B38D0C7009D68D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +54,13 @@
 		88F9E5EC1B38D0C8009D68D9 /* Pet_LocatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pet_LocatorTests.m; sourceTree = "<group>"; };
 		88F9E5F61B38D180009D68D9 /* MisMascotas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MisMascotas.h; path = Views/MisMascotas/MisMascotas.h; sourceTree = "<group>"; };
 		88F9E5F71B38D180009D68D9 /* MisMascotas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MisMascotas.m; path = Views/MisMascotas/MisMascotas.m; sourceTree = "<group>"; };
+		88FCB9211B39E32400233CFF /* Bienvenida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bienvenida.h; path = Views/Bienvenida/Bienvenida.h; sourceTree = "<group>"; };
+		88FCB9221B39E32400233CFF /* Bienvenida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Bienvenida.m; path = Views/Bienvenida/Bienvenida.m; sourceTree = "<group>"; };
+		88FCB9241B39E34A00233CFF /* Bienvenida_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone.xib; path = Views/Bienvenida/Bienvenida_iPhone.xib; sourceTree = "<group>"; };
+		88FCB9261B39E43B00233CFF /* Bienvenida_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone5.xib; path = Views/Bienvenida/Bienvenida_iPhone5.xib; sourceTree = "<group>"; };
+		88FCB9281B39E45C00233CFF /* Bienvenida_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone6.xib; path = Views/Bienvenida/Bienvenida_iPhone6.xib; sourceTree = "<group>"; };
+		88FCB92A1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone6plus.xib; path = Views/Bienvenida/Bienvenida_iPhone6plus.xib; sourceTree = "<group>"; };
+		88FCB92C1B39E4A000233CFF /* Bienvenida_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPad.xib; path = Views/Bienvenida/Bienvenida_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +81,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88C02C8D1B39AE8400DEF83A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88C02C981B39B1C900DEF83A /* MisMascotas */,
+				88FCB9211B39E32400233CFF /* Bienvenida.h */,
+				88FCB9221B39E32400233CFF /* Bienvenida.m */,
+				88FCB9241B39E34A00233CFF /* Bienvenida_iPhone.xib */,
+				88FCB9261B39E43B00233CFF /* Bienvenida_iPhone5.xib */,
+				88FCB9281B39E45C00233CFF /* Bienvenida_iPhone6.xib */,
+				88FCB92A1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib */,
+				88FCB92C1B39E4A000233CFF /* Bienvenida_iPad.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		88C02C981B39B1C900DEF83A /* MisMascotas */ = {
+			isa = PBXGroup;
+			children = (
+				88F9E5F61B38D180009D68D9 /* MisMascotas.h */,
+				88F9E5F71B38D180009D68D9 /* MisMascotas.m */,
+				88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */,
+				88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */,
+				88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */,
+				88C02C941B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib */,
+				88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */,
+			);
+			name = MisMascotas;
+			sourceTree = "<group>";
+		};
 		88F9E5C41B38D0C7009D68D9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,8 +133,7 @@
 			children = (
 				88F9E5D41B38D0C7009D68D9 /* AppDelegate.h */,
 				88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */,
-				88F9E5F61B38D180009D68D9 /* MisMascotas.h */,
-				88F9E5F71B38D180009D68D9 /* MisMascotas.m */,
+				88C02C8D1B39AE8400DEF83A /* Views */,
 				88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */,
 				88F9E5DF1B38D0C8009D68D9 /* LaunchScreen.xib */,
 				88F9E5D01B38D0C7009D68D9 /* Supporting Files */,
@@ -197,7 +248,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */,
+				88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */,
+				88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */,
+				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
+				88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */,
+				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
 				88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */,
+				88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */,
+				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
+				88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */,
+				88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */,
+				88FCB9271B39E43B00233CFF /* Bienvenida_iPhone5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
 				88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */,
 				88F9E5D31B38D0C7009D68D9 /* main.m in Sources */,
@@ -406,6 +468,7 @@
 				88F9E5F21B38D0C8009D68D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88F9E5F31B38D0C8009D68D9 /* Build configuration list for PBXNativeTarget "Pet LocatorTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +477,7 @@
 				88F9E5F51B38D0C8009D68D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
