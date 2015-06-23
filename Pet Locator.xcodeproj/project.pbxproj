@@ -12,6 +12,7 @@
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
 		88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C941B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib */; };
 		88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */; };
+		88DE45761B3A091C0021B866 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE45751B3A091C0021B866 /* QuartzCore.framework */; };
 		88F9E5D31B38D0C7009D68D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D21B38D0C7009D68D9 /* main.m */; };
 		88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */; };
 		88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */; };
@@ -42,6 +43,7 @@
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
 		88C02C941B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6plus.xib; path = Views/MisMascotas/MisMascotas_iPhone6plus.xib; sourceTree = "<group>"; };
 		88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPad.xib; path = Views/MisMascotas/MisMascotas_iPad.xib; sourceTree = "<group>"; };
+		88DE45751B3A091C0021B866 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88F9E5CD1B38D0C7009D68D9 /* Pet Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F9E5D11B38D0C7009D68D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F9E5D21B38D0C7009D68D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DE45761B3A091C0021B866 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +116,7 @@
 		88F9E5C41B38D0C7009D68D9 = {
 			isa = PBXGroup;
 			children = (
+				88DE45751B3A091C0021B866 /* QuartzCore.framework */,
 				88F9E5CF1B38D0C7009D68D9 /* Pet Locator */,
 				88F9E5E91B38D0C8009D68D9 /* Pet LocatorTests */,
 				88F9E5CE1B38D0C7009D68D9 /* Products */,

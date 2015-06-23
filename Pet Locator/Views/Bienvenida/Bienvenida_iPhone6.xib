@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Bienvenida">
             <connections>
+                <outlet property="img_presentation1" destination="uWb-lG-68c" id="7MI-PT-oH0"/>
+                <outlet property="perro" destination="tpb-Bi-84G" id="GPd-fh-Wfm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="qC4-cs-fKz"/>
             </connections>
         </placeholder>
@@ -13,8 +15,32 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo_2_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="uWb-lG-68c">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bienvenido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHo-Gy-H8e">
+                    <rect key="frame" x="110" y="25" width="255" height="75"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tpb-Bi-84G">
+                    <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="IEJ-0z-sNT">
+                            <rect key="frame" x="13" y="8" width="75" height="75"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
+    <resources>
+        <image name="fondo_2_iPhone" width="640" height="960"/>
+        <image name="logo" width="446" height="425"/>
+    </resources>
 </document>

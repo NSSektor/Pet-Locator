@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Bienvenida : UIViewController
+@interface Bienvenida : UIViewController{
+    
+    IBOutlet UIView* perro;
+    IBOutlet UIImageView* img_presentation1;
+    UIButton* btn_yasoyusuario;
+    UIButton* btn_nuevousuario;
+    UIActivityIndicatorView *actividad;
+    NSTimer *contadorTimer;
+}
+
+-(IBAction)actualizarimagen:(id)sender;
 
 @end

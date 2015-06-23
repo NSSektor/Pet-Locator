@@ -8,6 +8,11 @@
 
 #import "AppDelegate.h"
 
+#import "Bienvenida.h"
+
+NSString* dispositivo;
+NSString* documentsDirectory;
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +22,63 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    documentsDirectory = [paths objectAtIndex:0];
+
+    NSString *contents = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/ConfigFile.txt", documentsDirectory] usedEncoding:nil error:nil];
+    NSString* mensaje = [NSString stringWithFormat:@"%@", @"Error"];
+
+    if (contents != nil && ![contents isEqualToString:@"Error"]) {
+        NSArray *chunks2 = [contents componentsSeparatedByString: @"|"];
+        if ([chunks2 count]==2){
+     /*       GlobalUsu = [NSString stringWithFormat:@"%@", [chunks2 objectAtIndex:0]];
+            Globalpass = [NSString stringWithFormat:@"%@", [chunks2 objectAtIndex:1]];
+            ViewName = @"MisMascotas";
+            mensaje = @"OK";*/
+        }
+    }
+    
+    contents = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/url_paypal.txt", documentsDirectory] usedEncoding:nil error:nil];
+    if (contents != nil && ![contents isEqualToString:@""]) {
+       /* ViewName = @"PagoPaypal";
+        url_paypal = contents;
+        mensaje = @"PayPal";*/
+    }
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    dispositivo = @"iPhone";
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (screenSize.height == 568.0f)
+            dispositivo = @"iPhone5";
+        else if (screenSize.height == 667.0f)
+            dispositivo = @"iPhone6";
+        else if (screenSize.height == 736.0f)
+            dispositivo = @"iPhone6plus";
+    } else
+        dispositivo = @"iPad";
+        
+    if ([mensaje isEqualToString:@"Error"]) {
+        Bienvenida*  viewController = [[Bienvenida alloc] initWithNibName:[NSString stringWithFormat:@"Bienvenida_%@", dispositivo] bundle:nil];
+        self.window.rootViewController = viewController;
+        
+    }
+    else if ([mensaje isEqualToString:@"PayPal"]){
+    /*    PagoPaypal*  viewController = [[PagoPaypal alloc] initWithNibName:@"PagoPaypal" bundle:nil];
+        self.window.rootViewController = viewController;*/
+    }
+    else{
+  /*      actualizar_tabla = YES;
+        MisMascotas *viewController = [[MisMascotas alloc] initWithNibName:ViewName bundle:nil];
+        self.window.rootViewController = viewController;*/
+    }
+    
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

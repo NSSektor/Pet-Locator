@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Bienvenida">
             <connections>
+                <outlet property="img_presentation1" destination="PUz-ME-Ng2" id="dzW-YS-6oh"/>
+                <outlet property="perro" destination="nBJ-aI-Rtb" id="Nn9-et-sok"/>
                 <outlet property="view" destination="iN0-l3-epB" id="4eM-oB-rJw"/>
             </connections>
         </placeholder>
@@ -13,8 +15,32 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo_2_iPhone" translatesAutoresizingMaskIntoConstraints="NO" id="PUz-ME-Ng2">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBJ-aI-Rtb">
+                    <rect key="frame" x="10" y="0.0" width="150" height="150"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3zv-ZJ-ZKO">
+                            <rect key="frame" x="25" y="25" width="100" height="100"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bienvenido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-xQ-Afh">
+                    <rect key="frame" x="160" y="25" width="598" height="100"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="114"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
         </view>
     </objects>
+    <resources>
+        <image name="fondo_2_iPhone" width="640" height="960"/>
+        <image name="logo" width="446" height="425"/>
+    </resources>
 </document>
