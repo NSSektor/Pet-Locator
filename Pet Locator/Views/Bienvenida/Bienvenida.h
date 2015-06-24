@@ -20,4 +20,6 @@
 
 -(IBAction)actualizarimagen:(id)sender;
 
+-(IBAction)Login:(id)sender;
+
 @end

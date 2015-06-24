@@ -8,6 +8,7 @@
 
 #import "Bienvenida.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Login.h"
 
 extern NSString* dispositivo;
 NSString* img_1;
@@ -77,10 +78,10 @@ int contador_bienvenida;
     [btn_yasoyusuario setTitleColor:[UIColor whiteColor]  forState:UIControlStateNormal ];
     btn_yasoyusuario.backgroundColor = [UIColor colorWithRed:132.0/255.0 green: 189.0/255.0 blue:0.0/255.0 alpha:1.0];
     btn_yasoyusuario.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:17];
- //   [btn_yasoyusuario addTarget:self action:@selector(Login:) forControlEvents:UIControlEventTouchUpInside];
+    [btn_yasoyusuario addTarget:self action:@selector(Login:) forControlEvents:UIControlEventTouchUpInside];
     [contenedor_botones addSubview:btn_yasoyusuario];
     
-    [btn_yasoyusuario.layer setCornerRadius:2];
+    [btn_yasoyusuario.layer setCornerRadius:5];
     [btn_yasoyusuario.layer setMasksToBounds:YES];
     
     btn_nuevousuario = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, contenedor_botones.frame.size.width, 30)];
@@ -91,7 +92,7 @@ int contador_bienvenida;
 //    [btn_nuevousuario addTarget:self action:@selector(Registro:) forControlEvents:UIControlEventTouchUpInside];
     [contenedor_botones addSubview:btn_nuevousuario];
     
-    [btn_nuevousuario.layer setCornerRadius:2];
+    [btn_nuevousuario.layer setCornerRadius:5];
     [btn_nuevousuario.layer setMasksToBounds:YES];
     
     contadorTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(actualizarimagen:) userInfo:nil repeats:YES];
@@ -145,7 +146,14 @@ int contador_bienvenida;
     
     [UIView commitAnimations];
 }
-/*
+
+-(IBAction)Login:(id)sender{
+    
+    Login *view = [[Login alloc] initWithNibName:[NSString stringWithFormat:@"Login_%@",dispositivo] bundle:nil];
+    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:view animated:YES completion:nil];
+    
+}/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
