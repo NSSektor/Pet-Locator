@@ -11,6 +11,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "Bienvenida.h"
+#import "MisMascotas.h"
 
 NSString* dispositivo;
 NSString* documentsDirectory;

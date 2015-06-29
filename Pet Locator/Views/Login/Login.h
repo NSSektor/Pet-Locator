@@ -11,9 +11,12 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 
-@interface Login : UIViewController
+@interface Login : UIViewController{
+    
+    
+}
 
-@property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+
 
 
 @end

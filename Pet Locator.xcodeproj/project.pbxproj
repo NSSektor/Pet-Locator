@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */; };
+		881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */; };
+		881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */; };
 		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
 		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
@@ -46,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8819658F1B3C9B2B00A92208 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCollectionViewCell.h; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCollectionViewCell.m; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell_iPhone6.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell_iPhone6.xib; sourceTree = "<group>"; };
 		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
 		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
@@ -181,6 +188,10 @@
 			children = (
 				88F9E5D41B38D0C7009D68D9 /* AppDelegate.h */,
 				88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */,
+				8819658F1B3C9B2B00A92208 /* CustomCollectionViewCell.h */,
+				881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */,
+				881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */,
+				881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */,
 				88C02C8D1B39AE8400DEF83A /* Views */,
 				88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */,
 				88F9E5DF1B38D0C8009D68D9 /* LaunchScreen.xib */,
@@ -299,6 +310,7 @@
 				88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */,
 				88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */,
 				88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */,
+				881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */,
 				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
 				88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */,
 				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
@@ -308,6 +320,7 @@
 				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
 				88DE45831B3B14DD0021B866 /* Login_iPhone6plus.xib in Resources */,
 				88DE457D1B3B14740021B866 /* Login_iPhone.xib in Resources */,
+				881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */,
 				88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */,
 				88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */,
 				88DE45851B3B14FC0021B866 /* Login_iPad.xib in Resources */,
@@ -332,6 +345,7 @@
 				88DE457A1B3B14040021B866 /* Login.m in Sources */,
 				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
+				881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */,
 				88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */,
 				88F9E5D31B38D0C7009D68D9 /* main.m in Sources */,
 			);

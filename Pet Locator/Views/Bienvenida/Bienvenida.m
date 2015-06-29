@@ -36,44 +36,26 @@ int contador_bienvenida;
     [perro.layer setMasksToBounds:YES];
     
     
-    img_1 = @"fondo_1_iPhone";
-    img_2 = @"fondo_2_iPhone";
-    img_3 = @"fondo_3_iPhone";
-    img_4 = @"fondo_4_iPhone";
+    img_1 = @"Image1";
+    img_2 = @"Image2";
+    img_3 = @"Image3";
+    img_4 = @"Image4";
     
-    if ([dispositivo isEqualToString:@"iPhone5"]) {
-        img_1 = @"fondo_1_iPhone5";
-        img_2 = @"fondo_2_iPhone5";
-        img_3 = @"fondo_3_iPhone5";
-        img_4 = @"fondo_4_iPhone5";
-    }
-    if ([dispositivo isEqualToString:@"iPhone6"]) {
-        img_1 = @"fondo_1_iPhone6";
-        img_2 = @"fondo_2_iPhone6";
-        img_3 = @"fondo_3_iPhone6";
-        img_4 = @"fondo_4_iPhone6";
-    }
-    if ([dispositivo isEqualToString:@"iPhone6plus"]) {
-        img_1 = @"fondo_1_iPhone6plus";
-        img_2 = @"fondo_2_iPhone6plus";
-        img_3 = @"fondo_3_iPhone6plus";
-        img_4 = @"fondo_4_iPhone6plus";
-    }
-    if ([dispositivo isEqualToString:@"iPad"]) {
-        img_1 = @"fondo_1_iPad";
-        img_2 = @"fondo_2_iPad";
-        img_3 = @"fondo_3_iPad";
-        img_4 = @"fondo_4_iPad";
-    }
+
     
     img_presentation1.image = [UIImage imageNamed:img_1];
     contador_bienvenida++;
     
-    UIView* contenedor_botones = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2 - ((self.view.frame.size.width - 60) / 2) , (self.view.frame.size.height / 3) *2, (self.view.frame.size.width - 60), 80)];
+    CGFloat height_botones = 30;
+    if ([dispositivo isEqualToString:@"iPad"])
+        height_botones = 50;
+        
+    
+    UIView* contenedor_botones = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.size.width / 2 - ((self.view.frame.size.width - 60) / 2) , (self.view.frame.size.height / 3) *2, (self.view.frame.size.width - 60), (height_botones * 2) + 20)];
     contenedor_botones.backgroundColor = [UIColor clearColor];
     [self.view addSubview:contenedor_botones];
     
-    btn_yasoyusuario = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, contenedor_botones.frame.size.width, 30)];
+    btn_yasoyusuario = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, contenedor_botones.frame.size.width, height_botones)];
     [btn_yasoyusuario setTitle:@"Ya soy usuario" forState:UIControlStateNormal];
     [btn_yasoyusuario setTitleColor:[UIColor whiteColor]  forState:UIControlStateNormal ];
     btn_yasoyusuario.backgroundColor = [UIColor colorWithRed:132.0/255.0 green: 189.0/255.0 blue:0.0/255.0 alpha:1.0];
@@ -84,7 +66,7 @@ int contador_bienvenida;
     [btn_yasoyusuario.layer setCornerRadius:5];
     [btn_yasoyusuario.layer setMasksToBounds:YES];
     
-    btn_nuevousuario = [[UIButton alloc] initWithFrame:CGRectMake(0, 50, contenedor_botones.frame.size.width, 30)];
+    btn_nuevousuario = [[UIButton alloc] initWithFrame:CGRectMake(0, height_botones + 20, contenedor_botones.frame.size.width, height_botones)];
     [btn_nuevousuario setTitle:@"Nuevo usuario" forState:UIControlStateNormal];
     [btn_nuevousuario setTitleColor:[UIColor whiteColor]  forState:UIControlStateNormal ];
     btn_nuevousuario.backgroundColor = [UIColor darkGrayColor];
@@ -153,7 +135,13 @@ int contador_bienvenida;
     view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:view animated:YES completion:nil];
     
-}/*
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

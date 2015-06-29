@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MisMascotas : UIViewController
+@interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>{
+    
+    NSMutableArray *label_array;
+    UIRefreshControl* refreshControl;
+    
+}
+
+@property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 @end
