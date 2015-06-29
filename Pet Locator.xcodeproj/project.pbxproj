@@ -10,6 +10,8 @@
 		881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */; };
 		881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */; };
 		881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */; };
+		883ED6A81B41F1FD004D831A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6A71B41F1FD004D831A /* Reachability.m */; };
+		883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6AD1B41F2B2004D831A /* SYSoapTool.m */; };
 		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
 		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
@@ -53,6 +55,10 @@
 		881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCollectionViewCell.m; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell_iPhone6.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell_iPhone6.xib; sourceTree = "<group>"; };
+		883ED6A61B41F1FD004D831A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability/Reachability.h; sourceTree = "<group>"; };
+		883ED6A71B41F1FD004D831A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability/Reachability.m; sourceTree = "<group>"; };
+		883ED6AC1B41F2B2004D831A /* SYSoapTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSoapTool.h; path = Classes/SYSoapTool/SYSoapTool.h; sourceTree = "<group>"; };
+		883ED6AD1B41F2B2004D831A /* SYSoapTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSoapTool.m; path = Classes/SYSoapTool/SYSoapTool.m; sourceTree = "<group>"; };
 		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
 		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
@@ -110,6 +116,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		883ED6A91B41F210004D831A /* CustomCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8819658F1B3C9B2B00A92208 /* CustomCollectionViewCell.h */,
+				881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */,
+				881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */,
+				881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */,
+			);
+			name = CustomCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		883ED6AA1B41F21A004D831A /* Clasess */ = {
+			isa = PBXGroup;
+			children = (
+				883ED6AF1B41F2C0004D831A /* SYSoapTool */,
+				883ED6AB1B41F229004D831A /* Reachability */,
+				883ED6A91B41F210004D831A /* CustomCollectionViewCell */,
+			);
+			name = Clasess;
+			sourceTree = "<group>";
+		};
+		883ED6AB1B41F229004D831A /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				883ED6A61B41F1FD004D831A /* Reachability.h */,
+				883ED6A71B41F1FD004D831A /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		883ED6AF1B41F2C0004D831A /* SYSoapTool */ = {
+			isa = PBXGroup;
+			children = (
+				883ED6AC1B41F2B2004D831A /* SYSoapTool.h */,
+				883ED6AD1B41F2B2004D831A /* SYSoapTool.m */,
+			);
+			name = SYSoapTool;
+			sourceTree = "<group>";
+		};
 		88C02C8D1B39AE8400DEF83A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,10 +233,7 @@
 			children = (
 				88F9E5D41B38D0C7009D68D9 /* AppDelegate.h */,
 				88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */,
-				8819658F1B3C9B2B00A92208 /* CustomCollectionViewCell.h */,
-				881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */,
-				881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */,
-				881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */,
+				883ED6AA1B41F21A004D831A /* Clasess */,
 				88C02C8D1B39AE8400DEF83A /* Views */,
 				88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */,
 				88F9E5DF1B38D0C8009D68D9 /* LaunchScreen.xib */,
@@ -345,6 +387,8 @@
 				88DE457A1B3B14040021B866 /* Login.m in Sources */,
 				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
+				883ED6A81B41F1FD004D831A /* Reachability.m in Sources */,
+				883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */,
 				881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */,
 				88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */,
 				88F9E5D31B38D0C7009D68D9 /* main.m in Sources */,

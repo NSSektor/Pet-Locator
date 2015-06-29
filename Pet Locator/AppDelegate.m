@@ -15,6 +15,38 @@
 
 NSString* dispositivo;
 NSString* documentsDirectory;
+NSString* GlobalString;
+NSString* GlobalUsu;
+NSString* Globalpass;
+BOOL admin_usr;
+NSString* id_usr;
+
+
+NSMutableArray* MAid_mascota;
+NSMutableArray* MAid_tracker;
+NSMutableArray* MAimei;
+NSMutableArray* MAnombre_mascotas;
+NSMutableArray* MAespecie_mascotas;
+NSMutableArray* MAraza_mascotas;
+NSMutableArray* MAimagen_mascotas;
+NSMutableArray* MAaniversario;
+NSMutableArray* MAedad;
+NSMutableArray* MAalta;
+NSMutableArray* MAestatus;
+NSMutableArray* MAid_geocerca;
+NSMutableArray* MAgeocerca;
+NSMutableArray* MAicono_geocerca;
+NSMutableArray* MAfecha;
+NSMutableArray* MAlatitud;
+NSMutableArray* MAlongitud;
+NSMutableArray* MAvelocidad;
+NSMutableArray* MAangulo;
+NSMutableArray* MAmovimiento;
+NSMutableArray* MAradio;
+NSMutableArray* MAubicacion;
+NSMutableArray* MAevento;
+NSMutableArray* MAbateria;
+NSMutableArray* MAcargando;
 
 @interface AppDelegate ()
 
