@@ -13,6 +13,7 @@
 #import "Reachability.h"
 
 #import "Bienvenida.h"
+#import "MenuPrincipal.h"
 
 
 @interface Login : UIViewController<UITextFieldDelegate,SOAPToolDelegate, NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -27,7 +28,6 @@
     __weak IBOutlet UIButton *btn_usuario_nuevo;
     __weak IBOutlet UIButton *btn_olvidar;
     __weak IBOutlet UIButton *btn_ayuda;
-    __weak IBOutlet UIActivityIndicatorView *actividad;
     __weak IBOutlet UIButton* btn_device_token;
     IBOutlet UITableView* autocompleteTableView;
     

@@ -15,6 +15,7 @@ extern NSString* GlobalUsu;
 extern NSString* Globalpass;
 extern NSString* id_usr;
 extern NSString* dispositivo;
+extern NSString* url_webservice;
 NSString*  mensaje_mascota;
 
 extern BOOL admin_usr;
@@ -129,7 +130,6 @@ extern NSMutableArray* MAcargando;
     txt_usuario.placeholder = @"Usuario";
     txt_usuario.keyboardType = UIKeyboardTypeEmailAddress;
     txt_usuario.autocorrectionType = UITextAutocorrectionTypeNo;
-    txt_usuario.textColor = [UIColor whiteColor];
     txt_usuario.delegate = self;
     txt_usuario.clearButtonMode = UITextFieldViewModeWhileEditing;
     
@@ -137,11 +137,10 @@ extern NSMutableArray* MAcargando;
     txt_pass.secureTextEntry = YES;
     txt_pass.autocorrectionType = UITextAutocorrectionTypeNo;
     txt_pass.delegate = self;
-    txt_pass.textColor = [UIColor whiteColor];
     txt_pass.clearButtonMode = UITextFieldViewModeWhileEditing;
 
     [btn_check addTarget:self action:@selector(check:) forControlEvents:UIControlEventTouchUpInside];
-    [btn_check setImage:[UIImage imageNamed:@"checkbox-unchecked-gray-md"] forState:UIControlStateNormal];
+    [btn_check setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
     
     [btn_iniciar_sesion addTarget:self action:@selector(InIciarSesion:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -149,6 +148,49 @@ extern NSMutableArray* MAcargando;
     
     [btn_usuario_nuevo addTarget:self action:@selector(Bienvenida:) forControlEvents:UIControlEventTouchUpInside];
     
+    autocompletar_usuarios = [[NSMutableArray alloc]init];
+    // Do any additional setup after loading the view from its nib.
+    [btn_device_token addTarget:self action:@selector(ShowDeviceToken:) forControlEvents:UIControlEventTouchUpInside];
+    
+    check = NO;
+    if (![Globalpass isEqualToString:@""] && ![GlobalUsu isEqualToString:@""]) {
+        txt_pass.text = Globalpass;
+        txt_usuario.text = GlobalUsu;
+        [btn_check setImage:[UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+        check = YES;
+    }
+   
+    MAid_mascota            = [[NSMutableArray alloc]init];
+    MAid_tracker               = [[NSMutableArray alloc]init];
+    MAimei                        = [[NSMutableArray alloc]init];
+    MAnombre_mascotas = [[NSMutableArray alloc]init];
+    MAespecie_mascotas = [[NSMutableArray alloc]init];
+    MAraza_mascotas      = [[NSMutableArray alloc]init];
+    MAimagen_mascotas = [[NSMutableArray alloc]init];
+    MAaniversario             = [[NSMutableArray alloc]init];
+    MAedad                      = [[NSMutableArray alloc]init];
+    MAalta                        = [[NSMutableArray alloc]init];
+    MAestatus                  = [[NSMutableArray alloc]init];
+    MAid_geocerca          = [[NSMutableArray alloc]init];
+    MAgeocerca               = [[NSMutableArray alloc]init];
+    MAicono_geocerca     = [[NSMutableArray alloc]init];
+    MAfecha                     = [[NSMutableArray alloc]init];
+    MAlatitud                    = [[NSMutableArray alloc]init];
+    MAlongitud                 = [[NSMutableArray alloc]init];
+    MAvelocidad               = [[NSMutableArray alloc]init];
+    MAangulo                   = [[NSMutableArray alloc]init];
+    MAmovimiento            = [[NSMutableArray alloc]init];
+    MAradio                      = [[NSMutableArray alloc]init];
+    MAubicacion               = [[NSMutableArray alloc]init];
+    MAevento                   = [[NSMutableArray alloc]init];
+    MAbateria                   = [[NSMutableArray alloc]init];
+    MAcargando               = [[NSMutableArray alloc]init];
+    
+    soapTool = [[SYSoapTool alloc]init];
+    soapTool.delegate = self;
+    
+    
+ 
     fileName_Cookies = [NSString stringWithFormat:@"%@/ConfigFile_Cookies.txt", documentsDirectory];
     MAUsuarios  = [[NSMutableArray alloc]initWithContentsOfFile:fileName_Cookies];
     if (MAUsuarios==nil || [MAUsuarios count]==0) {
@@ -169,7 +211,7 @@ extern NSMutableArray* MAcargando;
     [self.view addSubview:contenedor_animacion];
     
     UIActivityIndicatorView* actividad_global = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    actividad_global.color = [UIColor colorWithRed:234.0/255.0 green:34.0/255.0 blue:36.0/255.0 alpha:1];
+    actividad_global.color = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
     actividad_global.hidesWhenStopped = TRUE;
     CGRect newFrames = actividad_global.frame;
     newFrames.origin.x = (contenedor_animacion.frame.size.width / 2) -13;
@@ -213,9 +255,46 @@ extern NSMutableArray* MAcargando;
 }
 
 -(IBAction)InIciarSesion:(id)sender{
-    NSString* error = @"";
+    
+    admin_usr = NO;
+    NSString* error_ = @"";
     if (returnValue == NotReachable)
-        error = @"No existe conexión a internet";
+        error_ = @"No existe conexión a internet";
+    
+    if ([txt_pass.text isEqualToString:[(@"") stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
+        error_ = @"Debe de insertar una contraseña";
+        [txt_pass becomeFirstResponder];
+    }
+    if ([[txt_usuario.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:(@"")]){
+        error_ = @"Debe de insertar un usuario";
+        [txt_usuario becomeFirstResponder];
+    }
+    /*   else if ([txt_contrasenia text].length<4)
+     msg_error = @"La contraseña debe tener entre 4 y 8 caracteres";*/
+    
+  /*  if ([error_ isEqualToString:@""]) {
+        NSLog(@"%@",DeviceToken);
+        
+        DeviceToken = [[UAirship shared] deviceToken];
+        
+        if ([DeviceToken isKindOfClass:[NSNull class]] || DeviceToken==NULL || DeviceToken == nil) {
+            DeviceToken = @"";
+        }*/
+    
+    if ([error_ isEqualToString:@""]) {
+    
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:txt_usuario.text ,txt_pass.text, @"1234567890", @"I",nil];
+        
+        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];
+        contenedor_animacion.hidden = NO;
+    }
+    else{
+        [[[UIAlertView alloc]initWithTitle:@"Pet Locator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
+        error_ = [NSString stringWithFormat:@"%@", @""];
+    }
+    
+    
 }
 
 -(void)retriveFromSYSoapTool:(NSMutableArray *)_data{
@@ -352,6 +431,7 @@ extern NSMutableArray* MAcargando;
                                             otherButtonTitles:nil];
     if (code <0) {
         [message show];
+        contenedor_animacion.hidden = YES;
     }
     else{
         for (int i = 0; i<[MAimagen_mascotas count]; i++) {
@@ -489,25 +569,10 @@ extern NSMutableArray* MAcargando;
         }
     }
     [MAUsuariostem writeToFile:fileName_Cookies atomically:YES];
-    
-    /*
-    
-    NSString* view_name = @"MisMascotas";
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        if (screenSize.height == 568.0f)
-            view_name = [view_name stringByAppendingString:@"_iPhone5"];
-        else if (screenSize.height == 667.0f)
-            view_name = [view_name stringByAppendingString:@"_iPhone6"];
-        else if (screenSize.height == 736.0f)
-            view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
-    }
-    else
-        view_name = [view_name stringByAppendingString:@"_iPad"];
-    [MAimagen_mascotas addObject:@"gregar_perro.png"];
-    MisMascotas *view = [[MisMascotas alloc] initWithNibName:view_name bundle:nil];
+    contenedor_animacion.hidden = YES;
+    MenuPrincipal *view = [[MenuPrincipal alloc] initWithNibName:[NSString stringWithFormat:@"MenuPrincipal_%@", dispositivo] bundle:nil];
     view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:view animated:YES completion:nil];*/
+    [self presentViewController:view animated:YES completion:nil];
 }
 
 -(IBAction)Olvidar:(id)sender{
@@ -547,11 +612,11 @@ extern NSMutableArray* MAcargando;
 
 - (IBAction)check:(id)sender {
     if (!check) {
-        [btn_check setImage:[UIImage imageNamed:@"checkbox_icon_black.png"] forState:UIControlStateNormal];
+        [btn_check setImage:[UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
         check = YES;
     }
     else{
-        [btn_check setImage:[UIImage imageNamed:@"unchecked_checkbox_icon_black.png"] forState:UIControlStateNormal];
+        [btn_check setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
         check = NO;
     }
 }

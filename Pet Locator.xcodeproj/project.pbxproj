@@ -26,6 +26,12 @@
 		88DE45851B3B14FC0021B866 /* Login_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DE45841B3B14FC0021B866 /* Login_iPad.xib */; };
 		88DE45871B3B15F00021B866 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE45861B3B15F00021B866 /* FBSDKCoreKit.framework */; };
 		88DE45891B3B1E430021B866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE45881B3B1E430021B866 /* FBSDKLoginKit.framework */; };
+		88EC3DB01B431C6C00946A50 /* MenuPrincipal.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EC3DAE1B431C6C00946A50 /* MenuPrincipal.m */; };
+		88EC3DB31B431D9E00946A50 /* MenuPrincipal_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EC3DB21B431D9E00946A50 /* MenuPrincipal_iPhone.xib */; };
+		88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F01B44492F002D1E7B /* MenuPrincipal_iPhone5.xib */; };
+		88EE75F51B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F41B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib */; };
+		88EE75F71B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F61B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib */; };
+		88EE75F91B44575E002D1E7B /* MenuPrincipal_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F81B44575E002D1E7B /* MenuPrincipal_iPad.xib */; };
 		88F9E5D31B38D0C7009D68D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D21B38D0C7009D68D9 /* main.m */; };
 		88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F9E5D51B38D0C7009D68D9 /* AppDelegate.m */; };
 		88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F9E5DD1B38D0C8009D68D9 /* Images.xcassets */; };
@@ -74,6 +80,13 @@
 		88DE45841B3B14FC0021B866 /* Login_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Login_iPad.xib; path = Views/Login/Login_iPad.xib; sourceTree = "<group>"; };
 		88DE45861B3B15F00021B866 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		88DE45881B3B1E430021B866 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		88EC3DAD1B431C6C00946A50 /* MenuPrincipal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPrincipal.h; path = Views/MenuPrincipal/MenuPrincipal.h; sourceTree = "<group>"; };
+		88EC3DAE1B431C6C00946A50 /* MenuPrincipal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuPrincipal.m; path = Views/MenuPrincipal/MenuPrincipal.m; sourceTree = "<group>"; };
+		88EC3DB21B431D9E00946A50 /* MenuPrincipal_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone.xib; sourceTree = "<group>"; };
+		88EE75F01B44492F002D1E7B /* MenuPrincipal_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone5.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone5.xib; sourceTree = "<group>"; };
+		88EE75F41B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone6.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone6.xib; sourceTree = "<group>"; };
+		88EE75F61B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone6plus.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone6plus.xib; sourceTree = "<group>"; };
+		88EE75F81B44575E002D1E7B /* MenuPrincipal_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPad.xib; path = Views/MenuPrincipal/MenuPrincipal_iPad.xib; sourceTree = "<group>"; };
 		88F9E5CD1B38D0C7009D68D9 /* Pet Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pet Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F9E5D11B38D0C7009D68D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F9E5D21B38D0C7009D68D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -161,6 +174,7 @@
 				88DE457B1B3B14570021B866 /* Login */,
 				88C02C981B39B1C900DEF83A /* MisMascotas */,
 				88DE45771B3A11B00021B866 /* Bienvenida */,
+				88EE75EF1B444913002D1E7B /* MenuPrincipal */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -205,6 +219,20 @@
 				88DE45841B3B14FC0021B866 /* Login_iPad.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		88EE75EF1B444913002D1E7B /* MenuPrincipal */ = {
+			isa = PBXGroup;
+			children = (
+				88EC3DAD1B431C6C00946A50 /* MenuPrincipal.h */,
+				88EC3DAE1B431C6C00946A50 /* MenuPrincipal.m */,
+				88EC3DB21B431D9E00946A50 /* MenuPrincipal_iPhone.xib */,
+				88EE75F01B44492F002D1E7B /* MenuPrincipal_iPhone5.xib */,
+				88EE75F41B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib */,
+				88EE75F61B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib */,
+				88EE75F81B44575E002D1E7B /* MenuPrincipal_iPad.xib */,
+			);
+			name = MenuPrincipal;
 			sourceTree = "<group>";
 		};
 		88F9E5C41B38D0C7009D68D9 = {
@@ -349,7 +377,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				88DE45811B3B14BD0021B866 /* Login_iPhone6.xib in Resources */,
+				88EE75F51B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib in Resources */,
 				88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */,
+				88EE75F91B44575E002D1E7B /* MenuPrincipal_iPad.xib in Resources */,
 				88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */,
 				88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */,
 				881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */,
@@ -358,6 +388,9 @@
 				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
 				88DE457F1B3B149C0021B866 /* Login_iPhone5.xib in Resources */,
 				88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */,
+				88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */,
+				88EC3DB31B431D9E00946A50 /* MenuPrincipal_iPhone.xib in Resources */,
+				88EE75F71B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib in Resources */,
 				88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */,
 				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
 				88DE45831B3B14DD0021B866 /* Login_iPhone6plus.xib in Resources */,
@@ -385,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88DE457A1B3B14040021B866 /* Login.m in Sources */,
+				88EC3DB01B431C6C00946A50 /* MenuPrincipal.m in Sources */,
 				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
 				883ED6A81B41F1FD004D831A /* Reachability.m in Sources */,

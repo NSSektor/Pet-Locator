@@ -12,14 +12,17 @@
 
 #import "Bienvenida.h"
 #import "MisMascotas.h"
+#import "MenuPrincipal.h"
 
 NSString* dispositivo;
 NSString* documentsDirectory;
 NSString* GlobalString;
 NSString* GlobalUsu;
 NSString* Globalpass;
+NSString* url_webservice;
 BOOL admin_usr;
 NSString* id_usr;
+BOOL actualizar_tabla;
 
 
 NSMutableArray* MAid_mascota;
@@ -57,7 +60,7 @@ NSMutableArray* MAcargando;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    actualizar_tabla = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -71,12 +74,13 @@ NSMutableArray* MAcargando;
     if (contents != nil && ![contents isEqualToString:@"Error"]) {
         NSArray *chunks2 = [contents componentsSeparatedByString: @"|"];
         if ([chunks2 count]==2){
-     /*       GlobalUsu = [NSString stringWithFormat:@"%@", [chunks2 objectAtIndex:0]];
+            GlobalUsu = [NSString stringWithFormat:@"%@", [chunks2 objectAtIndex:0]];
             Globalpass = [NSString stringWithFormat:@"%@", [chunks2 objectAtIndex:1]];
-            ViewName = @"MisMascotas";
-            mensaje = @"OK";*/
+            mensaje = @"OK";
         }
     }
+    
+    url_webservice = [NSString stringWithFormat:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
     
     contents = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/url_paypal.txt", documentsDirectory] usedEncoding:nil error:nil];
     if (contents != nil && ![contents isEqualToString:@""]) {
@@ -96,7 +100,7 @@ NSMutableArray* MAcargando;
     } else
         dispositivo = @"iPad";
         
-    if ([mensaje isEqualToString:@"Error"]) {
+    if ([mensaje isEqualToString:@"Error"] || [mensaje isEqualToString:@"OK"]) {
         Bienvenida*  viewController = [[Bienvenida alloc] initWithNibName:[NSString stringWithFormat:@"Bienvenida_%@", dispositivo] bundle:nil];
         self.window.rootViewController = viewController;
         
@@ -106,9 +110,9 @@ NSMutableArray* MAcargando;
         self.window.rootViewController = viewController;*/
     }
     else{
-  /*      actualizar_tabla = YES;
-        MisMascotas *viewController = [[MisMascotas alloc] initWithNibName:ViewName bundle:nil];
-        self.window.rootViewController = viewController;*/
+        actualizar_tabla = YES;
+        MenuPrincipal *viewController = [[MenuPrincipal alloc] initWithNibName:[NSString stringWithFormat:@"MenuPrincipal_%@", dispositivo] bundle:nil];
+        self.window.rootViewController = viewController;
     }
     
     
