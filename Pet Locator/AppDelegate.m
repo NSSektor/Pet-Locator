@@ -14,6 +14,8 @@
 #import "MisMascotas.h"
 #import "MenuPrincipal.h"
 
+@import GoogleMaps;
+
 NSString* dispositivo;
 NSString* documentsDirectory;
 NSString* GlobalString;
@@ -60,6 +62,9 @@ NSMutableArray* MAcargando;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [GMSServices provideAPIKey:@"AIzaSyBYG98x3J7wd8ktdQZmkYWjLX5A_ucRs4k"];
+    
     actualizar_tabla = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -100,7 +105,7 @@ NSMutableArray* MAcargando;
     } else
         dispositivo = @"iPad";
         
-    if ([mensaje isEqualToString:@"Error"] || [mensaje isEqualToString:@"OK"]) {
+    if ([mensaje isEqualToString:@"Error"]) {
         Bienvenida*  viewController = [[Bienvenida alloc] initWithNibName:[NSString stringWithFormat:@"Bienvenida_%@", dispositivo] bundle:nil];
         self.window.rootViewController = viewController;
         

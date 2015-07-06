@@ -31,7 +31,7 @@ extern NSString* dispositivo;
     [lbl_alerta_regreso_a_casa.layer setMasksToBounds:YES];
     
     btn_mis_mascotas = [[UIButton alloc] initWithFrame:contenedor_mis_mascotas.frame];
-    [contenedor_menu_principal addSubview:btn_mis_mascotas];
+    [panel addSubview:btn_mis_mascotas];
     [btn_mis_mascotas addTarget:self action:@selector(MisMascotas:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -42,9 +42,13 @@ extern NSString* dispositivo;
 }
 
 -(IBAction)MisMascotas:(id)sender{
-    MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas%@",dispositivo] bundle:nil];
+    MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@",dispositivo] bundle:nil];
     view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:view animated:YES completion:nil];
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 /*

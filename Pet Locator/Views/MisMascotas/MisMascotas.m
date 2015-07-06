@@ -8,6 +8,7 @@
 
 #import "MisMascotas.h"
 #import "CustomCollectionViewCell.h"
+#import "UltimaPosicion.h"
 
 extern NetworkStatus returnValue;
 extern NSString* documentsDirectory;
@@ -48,9 +49,50 @@ extern NSMutableArray* MAevento;
 extern NSMutableArray* MAbateria;
 extern NSMutableArray* MAcargando;
 
+NSString* nombre_perro;
+NSString* raza_perro;
+NSString* aniversario_perro;
+NSString* fotografia_perro;
+NSString* latitud_perro;
+NSString* longitud_perro;
+NSString* edad_perro;
+NSString* id_mascota;
+NSString* bateria;
+NSString* fecha_gps;
+NSString* ubicacion;
+NSString* id_geocerca_asignada;
+NSString* evento;
+
 
 @interface MisMascotas (){
     SYSoapTool *soapTool;
+    NSMutableArray* MAid_mascota_tem;
+    NSMutableArray* MAid_tracker_tem;
+    NSMutableArray* MAimei_tem;
+    NSMutableArray* MAnombre_mascotas_tem;
+    NSMutableArray* MAespecie_mascotas_tem;
+    NSMutableArray* MAraza_mascotas_tem;
+    NSMutableArray* MAimagen_mascotas_tem;
+    NSMutableArray* MAaniversario_tem;
+    NSMutableArray* MAedad_tem;
+    NSMutableArray* MAalta_tem;
+    NSMutableArray* MAestatus_tem;
+    NSMutableArray* MAid_geocerca_tem;
+    NSMutableArray* MAgeocerca_tem;
+    NSMutableArray* MAicono_geocerca_tem;
+    NSMutableArray* MAfecha_tem;
+    NSMutableArray* MAlatitud_tem;
+    NSMutableArray* MAlongitud_tem;
+    NSMutableArray* MAvelocidad_tem;
+    NSMutableArray* MAangulo_tem;
+    NSMutableArray* MAmovimiento_tem;
+    NSMutableArray* MAradio_tem;
+    NSMutableArray* MAubicacion_tem;
+    NSMutableArray* MAevento_tem;
+    NSMutableArray* MAbateria_tem;
+    NSMutableArray* MAcargando_tem;
+    NSString* texto_busqueda;
+    BOOL actualiza_imagenes;
 }
 
 @end
@@ -72,6 +114,8 @@ extern NSMutableArray* MAcargando;
     [hostReachable startNotifier];
     
     // now patiently wait for the notification
+    
+    
     
     
 }
@@ -118,17 +162,16 @@ extern NSMutableArray* MAcargando;
             break;
         }
     }
+    
+    if (actualizar_tabla==YES) {
+        contenedor_animacion.hidden = YES;
+        [self Actualizar];
+    }
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    label_array = [[NSMutableArray alloc] init];
-    
-    for(int i = 0; i<23; i++){
-        [label_array addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-                   
-    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
@@ -140,12 +183,16 @@ extern NSMutableArray* MAcargando;
     
     
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell_iPhone6" bundle:[NSBundle mainBundle]]
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell" bundle:[NSBundle mainBundle]]
         forCellWithReuseIdentifier:@"CollectionCell"];
     
+    
+    
     refreshControl = [[UIRefreshControl alloc]init];
-    [self.collectionView addSubview:refreshControl];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
+    self.collectionView.alwaysBounceVertical = YES;
     
     soapTool = [[SYSoapTool alloc]init];
     soapTool.delegate = self;
@@ -156,7 +203,8 @@ extern NSMutableArray* MAcargando;
     [self.view addSubview:contenedor_animacion];
     
     actividad_global = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    actividad_global.color = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
+   // actividad_global.color = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
+    actividad_global.color = [UIColor darkGrayColor];
     actividad_global.hidesWhenStopped = TRUE;
     CGRect newFrames = actividad_global.frame;
     newFrames.origin.x = (contenedor_animacion.frame.size.width / 2) -13;
@@ -167,18 +215,231 @@ extern NSMutableArray* MAcargando;
     [actividad_global startAnimating];
     [contenedor_animacion addSubview:actividad_global];
     
-    if (actualizar_tabla==YES) {
-        contenedor_animacion.hidden = YES;
-        [self Actualizar];
-    }
+    searchBar_.delegate = self;
     
+    texto_busqueda = @"";
+    
+    [self LeeArchivos];
+    
+    actualiza_imagenes = NO;
+    
+}
+
+-(void)EscribeArchivos{
+    NSString* FileName = [NSString stringWithFormat:@"%@/MAid_mascota.txt", documentsDirectory];
+    [MAid_mascota writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAid_tracker.txt", documentsDirectory];
+    [MAid_tracker writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAimei.txt", documentsDirectory];
+    [MAimei writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAnombre_mascotas.txt", documentsDirectory];
+    [MAnombre_mascotas writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAespecie_mascotas.txt", documentsDirectory];
+    [MAespecie_mascotas writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAraza_mascotas.txt", documentsDirectory];
+    [MAraza_mascotas writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAimagen_mascotas.txt", documentsDirectory];
+    [MAimagen_mascotas writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAaniversario.txt", documentsDirectory];
+    [MAaniversario writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAedad.txt", documentsDirectory];
+    [MAedad writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAalta.txt", documentsDirectory];
+    [MAalta writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAestatus.txt", documentsDirectory];
+    [MAestatus writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAid_geocerca.txt", documentsDirectory];
+    [MAid_geocerca writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAgeocerca.txt", documentsDirectory];
+    [MAgeocerca writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAicono_geocerca.txt", documentsDirectory];
+    [MAicono_geocerca writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAfecha.txt", documentsDirectory];
+    [MAfecha writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAlatitud.txt", documentsDirectory];
+    [MAlatitud writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAlongitud.txt", documentsDirectory];
+    [MAlongitud writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAvelocidad.txt", documentsDirectory];
+    [MAvelocidad writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAangulo.txt", documentsDirectory];
+    [MAangulo writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAmovimiento.txt", documentsDirectory];
+    [MAmovimiento writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAradio.txt", documentsDirectory];
+    [MAradio writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAubicacion.txt", documentsDirectory];
+    [MAubicacion writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAevento.txt", documentsDirectory];
+    [MAevento writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAbateria.txt", documentsDirectory];
+    [MAbateria writeToFile:FileName atomically:YES];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAcargando.txt", documentsDirectory];
+    [MAcargando writeToFile:FileName atomically:YES];
+    
+    [self LeeArchivos];
+}
+
+-(void)LimpiaArreglosTemporales{
+    MAid_mascota_tem = [[NSMutableArray alloc]init];
+    MAid_tracker_tem = [[NSMutableArray alloc]init];
+    MAimei_tem = [[NSMutableArray alloc]init];
+    MAnombre_mascotas_tem = [[NSMutableArray alloc]init];
+    MAespecie_mascotas_tem = [[NSMutableArray alloc]init];
+    MAraza_mascotas_tem = [[NSMutableArray alloc]init];
+    MAimagen_mascotas_tem = [[NSMutableArray alloc]init];
+    MAaniversario_tem = [[NSMutableArray alloc]init];
+    MAedad_tem = [[NSMutableArray alloc]init];
+    MAalta_tem = [[NSMutableArray alloc]init];
+    MAestatus_tem = [[NSMutableArray alloc]init];
+    MAid_geocerca_tem = [[NSMutableArray alloc]init];
+    MAgeocerca_tem = [[NSMutableArray alloc]init];
+    MAicono_geocerca_tem = [[NSMutableArray alloc]init];
+    MAfecha_tem = [[NSMutableArray alloc]init];
+    MAlatitud_tem = [[NSMutableArray alloc]init];
+    MAlongitud_tem = [[NSMutableArray alloc]init];
+    MAvelocidad_tem = [[NSMutableArray alloc]init];
+    MAangulo_tem = [[NSMutableArray alloc]init];
+    MAmovimiento_tem = [[NSMutableArray alloc]init];
+    MAradio_tem = [[NSMutableArray alloc]init];
+    MAubicacion_tem = [[NSMutableArray alloc]init];
+    MAevento_tem = [[NSMutableArray alloc]init];
+    MAbateria_tem = [[NSMutableArray alloc]init];
+    MAcargando_tem = [[NSMutableArray alloc]init];
+}
+
+-(void)LeeArchivos{
+    [self LimpiaArreglosTemporales];
+    NSString* FileName = [NSString stringWithFormat:@"%@/MAid_mascota.txt", documentsDirectory];
+    MAid_mascota = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAid_mascota_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAid_tracker.txt", documentsDirectory];
+    MAid_tracker = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAid_tracker_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAimei.txt", documentsDirectory];
+    MAimei = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAimei_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAnombre_mascotas.txt", documentsDirectory];
+    MAnombre_mascotas = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAnombre_mascotas_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAespecie_mascotas.txt", documentsDirectory];
+    MAespecie_mascotas = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAespecie_mascotas_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAraza_mascotas.txt", documentsDirectory];
+    MAraza_mascotas = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAraza_mascotas_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAimagen_mascotas.txt", documentsDirectory];
+    MAimagen_mascotas = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAimagen_mascotas_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAaniversario.txt", documentsDirectory];
+    MAaniversario = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAaniversario_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAedad.txt", documentsDirectory];
+    MAedad = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAedad_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAalta.txt", documentsDirectory];
+    MAalta = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAalta_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAestatus.txt", documentsDirectory];
+    MAestatus = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAestatus_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAid_geocerca.txt", documentsDirectory];
+    MAid_geocerca = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAid_geocerca_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAgeocerca.txt", documentsDirectory];
+    MAgeocerca = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAgeocerca_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAicono_geocerca.txt", documentsDirectory];
+    MAicono_geocerca = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAicono_geocerca_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAfecha.txt", documentsDirectory];
+    MAfecha = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAfecha_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAlatitud.txt", documentsDirectory];
+    MAlatitud = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAlatitud_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAlongitud.txt", documentsDirectory];
+    MAlongitud = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAlongitud_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAvelocidad.txt", documentsDirectory];
+    MAvelocidad = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAvelocidad_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAangulo.txt", documentsDirectory];
+    MAangulo = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAangulo_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAmovimiento.txt", documentsDirectory];
+    MAmovimiento = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAmovimiento_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAradio.txt", documentsDirectory];
+    MAradio = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAradio_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAubicacion.txt", documentsDirectory];
+    MAubicacion = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAubicacion_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAevento.txt", documentsDirectory];
+    MAevento = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAevento_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAbateria.txt", documentsDirectory];
+    MAbateria = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAbateria_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    FileName = [NSString stringWithFormat:@"%@/MAcargando.txt", documentsDirectory];
+    MAcargando = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    MAcargando_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
 }
 
 -(void)Actualizar{
     contenedor_animacion.hidden = NO;
     NSString* error_ = @"";
     if (returnValue == NotReachable)
-        error_ = @"No existe conexión a internet";
+        error_ = @"No existe conexión a internet para realizar la petición, intente más tarde";
     
     if ([error_ isEqualToString:@""]) {
         
@@ -191,6 +452,7 @@ extern NSMutableArray* MAcargando;
     else{
         [[[UIAlertView alloc]initWithTitle:@"Pet Locator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
         error_ = [NSString stringWithFormat:@"%@", @""];
+        contenedor_animacion.hidden = YES;
         [refreshControl endRefreshing];
     }
 }
@@ -221,31 +483,32 @@ extern NSMutableArray* MAcargando;
 //xml
 -(void)parserDidStartDocument:(NSXMLParser *)parser {
     NSLog(@"The XML document is now being parsed.");
-    MAid_mascota            = [[NSMutableArray alloc]init];
-    MAid_tracker               = [[NSMutableArray alloc]init];
-    MAimei                        = [[NSMutableArray alloc]init];
-    MAnombre_mascotas = [[NSMutableArray alloc]init];
+    MAid_mascota       = [[NSMutableArray alloc]init];
+    MAid_tracker       = [[NSMutableArray alloc]init];
+    MAimei             = [[NSMutableArray alloc]init];
+    MAnombre_mascotas  = [[NSMutableArray alloc]init];
     MAespecie_mascotas = [[NSMutableArray alloc]init];
-    MAraza_mascotas      = [[NSMutableArray alloc]init];
-    MAimagen_mascotas = [[NSMutableArray alloc]init];
-    MAaniversario             = [[NSMutableArray alloc]init];
-    MAedad                      = [[NSMutableArray alloc]init];
-    MAalta                        = [[NSMutableArray alloc]init];
-    MAestatus                  = [[NSMutableArray alloc]init];
-    MAid_geocerca          = [[NSMutableArray alloc]init];
-    MAgeocerca               = [[NSMutableArray alloc]init];
-    MAicono_geocerca     = [[NSMutableArray alloc]init];
-    MAfecha                     = [[NSMutableArray alloc]init];
-    MAlatitud                    = [[NSMutableArray alloc]init];
-    MAlongitud                 = [[NSMutableArray alloc]init];
-    MAvelocidad               = [[NSMutableArray alloc]init];
-    MAangulo                   = [[NSMutableArray alloc]init];
-    MAmovimiento            = [[NSMutableArray alloc]init];
-    MAradio                      = [[NSMutableArray alloc]init];
-    MAubicacion               = [[NSMutableArray alloc]init];
-    MAevento                   = [[NSMutableArray alloc]init];
-    MAbateria                   = [[NSMutableArray alloc]init];
-    MAcargando               = [[NSMutableArray alloc]init];
+    MAraza_mascotas    = [[NSMutableArray alloc]init];
+    MAimagen_mascotas  = [[NSMutableArray alloc]init];
+    MAaniversario      = [[NSMutableArray alloc]init];
+    MAedad             = [[NSMutableArray alloc]init];
+    MAalta             = [[NSMutableArray alloc]init];
+    MAestatus          = [[NSMutableArray alloc]init];
+    MAid_geocerca      = [[NSMutableArray alloc]init];
+    MAgeocerca         = [[NSMutableArray alloc]init];
+    MAicono_geocerca   = [[NSMutableArray alloc]init];
+    MAfecha            = [[NSMutableArray alloc]init];
+    MAlatitud          = [[NSMutableArray alloc]init];
+    MAlongitud         = [[NSMutableArray alloc]init];
+    MAvelocidad        = [[NSMutableArray alloc]init];
+    MAangulo           = [[NSMutableArray alloc]init];
+    MAmovimiento       = [[NSMutableArray alloc]init];
+    MAradio            = [[NSMutableArray alloc]init];
+    MAubicacion        = [[NSMutableArray alloc]init];
+    MAevento           = [[NSMutableArray alloc]init];
+    MAbateria          = [[NSMutableArray alloc]init];
+    MAcargando         = [[NSMutableArray alloc]init];
+    actualiza_imagenes = YES;
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -361,29 +624,49 @@ extern NSMutableArray* MAcargando;
         [message show];
     }
     else{
-        for (int i = 0; i<[MAimagen_mascotas count]; i++) {
-            NSArray* words = [[MAimagen_mascotas objectAtIndex:i] componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSString* nospacestring = [words componentsJoinedByString:@""];
-            UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:nospacestring]]];
-            if (pImage==nil) {
-                pImage = [UIImage imageNamed:@"sin_foto.png"];
+        if (actualiza_imagenes == YES ) {
+            for (int i = 0; i<[MAimagen_mascotas count]; i++) {
+                
+                NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                NSString* foofile = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
+                
+                
+                NSArray* words = [[MAimagen_mascotas objectAtIndex:i] componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                NSString* nospacestring = [words componentsJoinedByString:@""];
+                UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:nospacestring]]];
+                if (pImage==nil) {
+                    pImage = [UIImage imageNamed:@"sin_foto.png"];
+                }
+                NSData *webData = UIImagePNGRepresentation(pImage);
+                
+                [webData writeToFile:foofile atomically:YES];
             }
-            NSData *webData = UIImagePNGRepresentation(pImage);
-            NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-            NSString* foofile = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
-            [webData writeToFile:foofile atomically:YES];
+            actualiza_imagenes = NO;
         }
+        
+        [self EscribeArchivos];
     }
+    
+    [self.collectionView reloadData];
+    
+    
+   /* MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@", dispositivo] bundle:nil];
+    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:view animated:YES completion:nil];*/
+    
     contenedor_animacion.hidden = YES;
     if (actividad_global.isHidden)
         actividad_global.hidden = NO;
     [refreshControl endRefreshing];
+    actualizar_tabla = NO;
+    
+    
 }
 
 #pragma mark - UICollectionView Datasource
 // 1
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return [label_array count];
+    return [MAid_mascota_tem count] + 1;
 }
 // 2
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -396,34 +679,84 @@ extern NSMutableArray* MAcargando;
     CustomCollectionViewCell* cell;
     
     cell = (CustomCollectionViewCell *)[cv dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier forIndexPath:indexPath];
-
-    cell.collectionLabel.text = [NSString stringWithFormat:@"%@", [label_array objectAtIndex:indexPath.row]];
+    
+    if(indexPath.row == [MAid_mascota_tem count]){
+        cell.mascota.hidden = YES;
+        cell.agregar.hidden = NO;
+    }else{
+        cell.agregar.hidden = YES;
+        cell.mascota.hidden = NO;
+        NSString* valor = [[MAimagen_mascotas_tem objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        valor = [valor stringByReplacingOccurrencesOfString:@"/n" withString:@""];
+        valor = [valor stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString* foofile = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
+        UIImage *pImage = [UIImage imageWithContentsOfFile:foofile];
+        [cell.img_mascota setImage:pImage];
+        
+        NSString* nivel_bateria = [NSString stringWithFormat:@"%@", [MAbateria_tem objectAtIndex:indexPath.row]];
+        int nivel_ = [nivel_bateria intValue];
+        if (nivel_<=25){
+            [cell.battery_1 setImage:[UIImage imageNamed:@"bateria_rojo_2.png"]];
+            [cell.battery_2 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+            [cell.battery_3 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+            [cell.battery_4 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+        }
+        else if (nivel_>=25  && nivel_ <=50){
+            [cell.battery_1 setImage:[UIImage imageNamed:@"bateria_naranja_2.png"]];
+            [cell.battery_2 setImage:[UIImage imageNamed:@"bateria_naranja_2.png"]];
+            [cell.battery_3 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+            [cell.battery_4 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+        }
+        else if (nivel_>50  && nivel_ <=75){
+            [cell.battery_1 setImage:[UIImage imageNamed:@"bateria_verde_1.png"]];
+            [cell.battery_2 setImage:[UIImage imageNamed:@"bateria_verde_1.png"]];
+            [cell.battery_3 setImage:[UIImage imageNamed:@"bateria_verde_1.png"]];
+            [cell.battery_4 setImage:[UIImage imageNamed:@"bateria_blanco_2.png"]];
+        }
+        cell.lbl_fecha.text = [NSString stringWithFormat:@"%@",[MAfecha_tem objectAtIndex:indexPath.row]];
+        cell.lbl_geocerca_asignada.text = [NSString stringWithFormat:@"%@",[[MAgeocerca_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        
+        [cell.img_geocerca setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",[[MAicono_geocerca_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]]];
+        cell.lbl_bateria.text = [NSString stringWithFormat:@"%@%@ %@",@"Bateria:",[[MAbateria_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]], @"%"];
+        cell.lbl_nombre.text = [NSString stringWithFormat:@"%@", [[MAnombre_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    }
+    
+    
     return cell;
     
-  /*
-    static NSString *simpleTableIdentifier = @"CollectionCell";
-    
-    
-    
-    CustomCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier forIndexPath:indexPath];
-    cell.collectionLabel.text = [label_array objectAtIndex:indexPath.row];
-    return cell;*/
 }
-// 4
-/*- (UICollectionReusableView *)collectionView:
- (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
- {
- return [[UICollectionReusableView alloc] init];
- }*/
-
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  //  NSLog(@"Clicked %d", indexPath.row);
-}
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.row == [MAid_mascota_tem count]){
+        //Agregar Perro
+    }
     
+    nombre_perro = [NSString stringWithFormat:@"%@", [[MAnombre_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    raza_perro = [NSString stringWithFormat:@"%@", [[MAraza_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    aniversario_perro = [NSString stringWithFormat:@"%@", [[MAaniversario_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    fotografia_perro  = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
+    latitud_perro = [NSString stringWithFormat:@"%@", [[MAlatitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    longitud_perro = [NSString stringWithFormat:@"%@", [[MAlongitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    edad_perro = [NSString stringWithFormat:@"%@", [[MAedad_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    id_mascota = [NSString stringWithFormat:@"%@", [[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    bateria = [NSString stringWithFormat:@"%@", [[MAbateria_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    fecha_gps = [NSString stringWithFormat:@"%@", [[MAfecha_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    ubicacion = [NSString stringWithFormat:@"%@", [[MAubicacion_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    evento = [NSString stringWithFormat:@"%@", [[MAevento_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    
+    id_geocerca_asignada = [NSString stringWithFormat:@"%@", [[MAid_geocerca_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    
+    
+    UltimaPosicion *view = [[UltimaPosicion alloc] initWithNibName:[NSString stringWithFormat:@"UltimaPosicion_%@",dispositivo] bundle:nil];
+    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:view animated:YES completion:nil];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 #pragma mark – UICollectionViewDelegateFlowLayout
@@ -442,6 +775,125 @@ extern NSMutableArray* MAcargando;
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    //hides keyboard when another part of layout was touched
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [self->searchBar_ setShowsCancelButton:YES animated:YES];
+}
+
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+  [self->searchBar_ setShowsCancelButton:NO animated:YES];
+    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    NSString* texto = self->searchBar_.text;
+    if([searchText isEqualToString:@""] || searchText==nil) {
+//        ArrayNombreFlotasSearch = [ArrayNombreFlotas copy];
+        [self LeeArchivos];
+        texto_busqueda = @"";
+        // [self.searchBar resignFirstResponder];
+    }
+    else {
+        [self LimpiaArreglosTemporales];
+        for (int i = 0; i<[MAid_mascota count]; i++) {
+            NSRange r = [[MAnombre_mascotas objectAtIndex:i] rangeOfString: texto options:NSCaseInsensitiveSearch];
+            if (r.length>0){
+                [MAid_mascota_tem addObject:[MAid_mascota objectAtIndex:i]];
+                [MAid_tracker_tem addObject:[MAid_tracker objectAtIndex:i]];
+                [MAimei_tem addObject:[MAimei objectAtIndex:i]];
+                [MAnombre_mascotas_tem addObject:[MAnombre_mascotas objectAtIndex:i]];
+                [MAespecie_mascotas_tem addObject:[MAespecie_mascotas objectAtIndex:i]];
+                [MAraza_mascotas_tem addObject:[MAraza_mascotas objectAtIndex:i]];
+                [MAimagen_mascotas_tem addObject:[MAimagen_mascotas objectAtIndex:i]];
+                [MAaniversario_tem addObject:[MAaniversario objectAtIndex:i]];
+                [MAedad_tem addObject:[MAedad objectAtIndex:i]];
+                [MAalta_tem addObject:[MAalta objectAtIndex:i]];
+                [MAestatus_tem addObject:[MAestatus objectAtIndex:i]];
+                [MAid_geocerca_tem addObject:[MAid_geocerca objectAtIndex:i]];
+                [MAgeocerca_tem addObject:[MAid_mascota objectAtIndex:i]];
+                [MAicono_geocerca_tem addObject:[MAicono_geocerca objectAtIndex:i]];
+                [MAfecha_tem addObject:[MAfecha objectAtIndex:i]];
+                [MAlatitud_tem addObject:[MAlatitud objectAtIndex:i]];
+                [MAlongitud_tem addObject:[MAlongitud objectAtIndex:i]];
+                [MAvelocidad_tem addObject:[MAvelocidad objectAtIndex:i]];
+                [MAangulo_tem addObject:[MAangulo objectAtIndex:i]];
+                [MAmovimiento_tem addObject:[MAmovimiento objectAtIndex:i]];
+                [MAradio_tem addObject:[MAradio objectAtIndex:i]];
+                [MAubicacion_tem addObject:[MAubicacion objectAtIndex:i]];
+                [MAevento_tem addObject:[MAevento objectAtIndex:i]];
+                [MAbateria_tem addObject:[MAbateria objectAtIndex:i]];
+                [MAcargando_tem addObject:[MAcargando objectAtIndex:i]];
+                
+                texto_busqueda = self->searchBar_.text;
+            }
+            
+        }
+    }
+    
+    [self.collectionView reloadData];
+}
+
+
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    self->searchBar_.text = @"";
+    texto_busqueda = @"";
+    [self LeeArchivos];
+    [self.collectionView reloadData];
+    [self->searchBar_ resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self LimpiaArreglosTemporales];
+    for (int i = 0; i<[MAid_mascota count]; i++) {
+        NSRange r = [[MAnombre_mascotas objectAtIndex:i] rangeOfString: texto_busqueda options:NSCaseInsensitiveSearch];
+        if (r.length>0){
+            [MAid_mascota_tem addObject:[MAid_mascota objectAtIndex:i]];
+            [MAid_tracker_tem addObject:[MAid_tracker objectAtIndex:i]];
+            [MAimei_tem addObject:[MAimei objectAtIndex:i]];
+            [MAnombre_mascotas_tem addObject:[MAnombre_mascotas objectAtIndex:i]];
+            [MAespecie_mascotas_tem addObject:[MAespecie_mascotas objectAtIndex:i]];
+            [MAraza_mascotas_tem addObject:[MAraza_mascotas objectAtIndex:i]];
+            [MAimagen_mascotas_tem addObject:[MAimagen_mascotas objectAtIndex:i]];
+            [MAaniversario_tem addObject:[MAaniversario objectAtIndex:i]];
+            [MAedad_tem addObject:[MAedad objectAtIndex:i]];
+            [MAalta_tem addObject:[MAalta objectAtIndex:i]];
+            [MAestatus_tem addObject:[MAestatus objectAtIndex:i]];
+            [MAid_geocerca_tem addObject:[MAid_geocerca objectAtIndex:i]];
+            [MAgeocerca_tem addObject:[MAid_mascota objectAtIndex:i]];
+            [MAicono_geocerca_tem addObject:[MAicono_geocerca objectAtIndex:i]];
+            [MAfecha_tem addObject:[MAfecha objectAtIndex:i]];
+            [MAlatitud_tem addObject:[MAlatitud objectAtIndex:i]];
+            [MAlongitud_tem addObject:[MAlongitud objectAtIndex:i]];
+            [MAvelocidad_tem addObject:[MAvelocidad objectAtIndex:i]];
+            [MAangulo_tem addObject:[MAangulo objectAtIndex:i]];
+            [MAmovimiento_tem addObject:[MAmovimiento objectAtIndex:i]];
+            [MAradio_tem addObject:[MAradio objectAtIndex:i]];
+            [MAubicacion_tem addObject:[MAubicacion objectAtIndex:i]];
+            [MAevento_tem addObject:[MAevento objectAtIndex:i]];
+            [MAbateria_tem addObject:[MAbateria objectAtIndex:i]];
+            [MAcargando_tem addObject:[MAcargando objectAtIndex:i]];
+            
+            texto_busqueda = self->searchBar_.text;
+        }
+        
+    }
+    [self.collectionView reloadData];
+    
+    [self->searchBar_ resignFirstResponder];
+}
+
 /*
 #pragma mark - Navigation
 

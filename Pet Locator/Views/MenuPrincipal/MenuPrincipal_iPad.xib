@@ -18,6 +18,7 @@
                 <outlet property="lbl_alerta_adoptame" destination="xp5-fz-aG8" id="btc-Vv-P7z"/>
                 <outlet property="lbl_alerta_regreso_a_casa" destination="2eF-ya-JG2" id="lGB-69-mi3"/>
                 <outlet property="lbl_perfil" destination="NQ4-KP-uau" id="5cr-qK-JGr"/>
+                <outlet property="panel" destination="YF2-Jm-c44" id="O3Q-NN-rto"/>
                 <outlet property="view" destination="iN0-l3-epB" id="E8r-mS-MHL"/>
             </connections>
         </placeholder>
@@ -29,6 +30,30 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TwC-3K-dcP">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6U-8b-aPD">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="462"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_4786" translatesAutoresizingMaskIntoConstraints="NO" id="DWQ-BS-KwQ">
+                                    <rect key="frame" x="-492" y="-85" width="1612" height="1048"/>
+                                </imageView>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLR-Zd-Hxw" userLabel="ViewBienvenido">
+                                    <rect key="frame" x="0.0" y="412" width="768" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bienvenido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcc-pb-Ytt">
+                                            <rect key="frame" x="10" y="0.0" width="758" height="50"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
+                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foto_perfil" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-G5-Dzu">
+                                    <rect key="frame" x="267" y="95" width="235" height="235"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usm-Y1-frZ">
                             <rect key="frame" x="10" y="28" width="53" height="34"/>
                             <state key="normal" image="btn_menu">
@@ -47,29 +72,14 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Fondo_menu" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-r9-1kR">
-                            <rect key="frame" x="0.0" y="80" width="768" height="496"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="4Hr-fI-v3s">
                             <rect key="frame" x="293" y="974" width="183" height="50"/>
                         </imageView>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-8g-6Ym" userLabel="ViewBienvenido">
-                            <rect key="frame" x="0.0" y="390" width="768" height="40"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bienvenido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs4-3u-lBE">
-                                    <rect key="frame" x="10" y="0.0" width="758" height="40"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YF2-Jm-c44" userLabel="Panel">
-                            <rect key="frame" x="0.0" y="429" width="768" height="545"/>
+                            <rect key="frame" x="0.0" y="462" width="768" height="512"/>
                             <subviews>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pdW-6f-DnY">
-                                    <rect key="frame" x="40" y="15" width="200" height="250"/>
+                                    <rect key="frame" x="40" y="4" width="200" height="250"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MisMascotas2" translatesAutoresizingMaskIntoConstraints="NO" id="O0w-fc-mr6">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
@@ -84,7 +94,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3J0-ID-88Y">
-                                    <rect key="frame" x="284" y="15" width="200" height="250"/>
+                                    <rect key="frame" x="284" y="4" width="200" height="250"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RegresarAcasa" translatesAutoresizingMaskIntoConstraints="NO" id="33I-ZQ-Jbx">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
@@ -106,9 +116,9 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTa-SY-FIC">
-                                    <rect key="frame" x="528" y="15" width="200" height="250"/>
+                                    <rect key="frame" x="528" y="4" width="200" height="250"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Adoptame" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-CI-XZO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Adoptame2" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-CI-XZO">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adoptame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYg-5Q-Oaa">
@@ -128,9 +138,9 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxp-Sh-FBa">
-                                    <rect key="frame" x="40" y="280" width="200" height="250"/>
+                                    <rect key="frame" x="40" y="258" width="200" height="250"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlogDeFido" translatesAutoresizingMaskIntoConstraints="NO" id="T5m-HI-tHd">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BlogDeFido2" translatesAutoresizingMaskIntoConstraints="NO" id="T5m-HI-tHd">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="El blog de Fido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQq-Gb-Wf0">
@@ -143,9 +153,9 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOc-Wr-0Oh">
-                                    <rect key="frame" x="284" y="280" width="200" height="250"/>
+                                    <rect key="frame" x="284" y="258" width="200" height="250"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VetAndCare" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-eh-ffs">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VetAndCare2" translatesAutoresizingMaskIntoConstraints="NO" id="nVi-eh-ffs">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vet and Care" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAm-i6-Mia">
@@ -158,7 +168,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Edb-Sa-yly">
-                                    <rect key="frame" x="528" y="280" width="200" height="250"/>
+                                    <rect key="frame" x="528" y="258" width="200" height="250"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tienda" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-mh-w9D">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
@@ -176,14 +186,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PetLocator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ4-KP-uau">
-                            <rect key="frame" x="50" y="345" width="668" height="40"/>
+                            <rect key="frame" x="50" y="362" width="668" height="40"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foto_perfil" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-G5-Dzu">
-                            <rect key="frame" x="267" y="95" width="235" height="235"/>
-                        </imageView>
                     </subviews>
                 </view>
             </subviews>
@@ -192,16 +199,16 @@
         </view>
     </objects>
     <resources>
-        <image name="Adoptame" width="200" height="250"/>
-        <image name="BlogDeFido" width="200" height="250"/>
-        <image name="Fondo_menu" width="591" height="394"/>
+        <image name="Adoptame2" width="200" height="250"/>
+        <image name="BlogDeFido2" width="200" height="250"/>
         <image name="MisMascotas2" width="200" height="250"/>
         <image name="RegresarAcasa" width="200" height="250"/>
         <image name="Tienda" width="200" height="250"/>
-        <image name="VetAndCare" width="200" height="250"/>
+        <image name="VetAndCare2" width="200" height="250"/>
         <image name="btn_menu" width="53" height="34"/>
         <image name="campana" width="65" height="65"/>
         <image name="foto_perfil" width="255" height="254"/>
+        <image name="img_4786" width="3504" height="2336"/>
         <image name="logo_horizontal" width="233" height="64"/>
     </resources>
 </document>

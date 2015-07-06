@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MisMascotas">
             <connections>
                 <outlet property="collectionView" destination="TXu-4E-3tG" id="aZP-Ex-Qbz"/>
+                <outlet property="searchBar_" destination="aLM-tO-O2D" id="dBp-Li-f5p"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oQS-5L-gQC"/>
             </connections>
         </placeholder>
@@ -34,15 +35,22 @@
                             <rect key="frame" x="0.0" y="60" width="320" height="44"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TXu-4E-3tG">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="74a-qp-C4S">
                             <rect key="frame" x="0.0" y="104" width="320" height="346"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="DSV-Te-ewa">
-                                <size key="itemSize" width="140" height="140"/>
-                                <size key="headerReferenceSize" width="5" height="5"/>
-                                <size key="footerReferenceSize" width="5" height="5"/>
-                                <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TXu-4E-3tG">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="346"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="DSV-Te-ewa">
+                                        <size key="itemSize" width="150" height="150"/>
+                                        <size key="headerReferenceSize" width="5" height="5"/>
+                                        <size key="footerReferenceSize" width="5" height="5"/>
+                                        <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="buL-3k-zTP">
                             <rect key="frame" x="105" y="450" width="110" height="30"/>
                         </imageView>

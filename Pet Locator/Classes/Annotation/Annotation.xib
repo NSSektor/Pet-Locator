@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="xwZ-bL-pWi" customClass="Annotation">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GLOBO1" translatesAutoresizingMaskIntoConstraints="NO" id="esW-qQ-OpE">
+                    <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura dsadasdkljsakldjaskldjaskldj" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOx-q6-Axa">
+                    <rect key="frame" x="10" y="7" width="227" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKY-av-EPc">
+                    <rect key="frame" x="10" y="26" width="220" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_0" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-Gq-uTZ">
+                    <rect key="frame" x="278" y="7" width="34" height="20"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Batería 100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3c-jd-53Z">
+                    <rect key="frame" x="237" y="26" width="75" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ubicación: xz cxcxcsfsfdsfdsfdfgdfgfhggfdgdgfdgdf ggdfgdfgd fgdfgdfgdfgdfgfgfggffdsfsdfsdfdasdasdkodlsñdkaslñdks aksdjskfjkslf" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="276" translatesAutoresizingMaskIntoConstraints="NO" id="Eaz-ZP-Ki4">
+                    <rect key="frame" x="10" y="45" width="276" height="35"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3z-Jr-BEW">
+                    <rect key="frame" x="286" y="45" width="35" height="35"/>
+                    <state key="normal" image="street">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn_street" destination="l3z-Jr-BEW" id="GiI-NR-4t1"/>
+                <outlet property="img_bateria" destination="6qy-Gq-uTZ" id="3H5-Wv-X0l"/>
+                <outlet property="lbl_bateria" destination="y3c-jd-53Z" id="sYn-qo-nro"/>
+                <outlet property="lbl_evento" destination="bOx-q6-Axa" id="PX9-9i-a2t"/>
+                <outlet property="lbl_fecha" destination="EKY-av-EPc" id="a6B-GZ-1Ca"/>
+                <outlet property="lbl_ubicacion" destination="Eaz-ZP-Ki4" id="vnP-tM-Agf"/>
+            </connections>
+        </view>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="uHM-Rf-XOb" customClass="Annotation">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GLOBO2" translatesAutoresizingMaskIntoConstraints="NO" id="Frz-C6-ohQ">
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_alerta_leida" translatesAutoresizingMaskIntoConstraints="NO" id="d6Y-e4-Loq">
+                    <rect key="frame" x="15" y="50" width="50" height="50"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWy-BX-9fB">
+                    <rect key="frame" x="75" y="45" width="176" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Fuera de la zona segura dsadasdkljsakldjaskldjaskldj" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="410" translatesAutoresizingMaskIntoConstraints="NO" id="z2b-L3-7l5">
+                    <rect key="frame" x="20" y="10" width="410" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ubicación: xz cxcxcsfsfdsfdsfdfgdfgfhggfdgdgfdgdf ggdfgdfgd fgdfgdfgdfgdfgfgfggffdsfsdfsdfdsfdfdsfdfds" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="355" translatesAutoresizingMaskIntoConstraints="NO" id="3hi-P7-eLZ">
+                    <rect key="frame" x="75" y="75" width="355" height="39"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="img_alerta" destination="d6Y-e4-Loq" id="wPl-Wh-Ljs"/>
+                <outlet property="lbl_evento_alerta" destination="z2b-L3-7l5" id="a7h-Ai-ja7"/>
+                <outlet property="lbl_fecha_alerta" destination="NWy-BX-9fB" id="NzO-XO-Uwc"/>
+                <outlet property="lbl_ubicacion_alerta" destination="3hi-P7-eLZ" id="ZZ0-op-NNg"/>
+            </connections>
+        </view>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="jo9-7z-ItW" customClass="Annotation">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GLOBO2" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-2t-Y1w">
+                    <rect key="frame" x="0.0" y="0.0" width="450" height="150"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-SW-SQw">
+                    <rect key="frame" x="380" y="68" width="50" height="50"/>
+                    <state key="normal" image="street">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura dsadasdkljsakldjaskldjaskldj" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-VT-36A">
+                    <rect key="frame" x="20" y="20" width="329" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek4-Kp-ZIn">
+                    <rect key="frame" x="20" y="49" width="319" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_0" translatesAutoresizingMaskIntoConstraints="NO" id="Amv-fW-rdh">
+                    <rect key="frame" x="388" y="10" width="34" height="20"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Batería 100%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhs-cs-sfp">
+                    <rect key="frame" x="347" y="38" width="75" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ubicación: xz cxcxcsfsfdsfdsfdfgdfgfhggfdgdgfdgdf ggdfgdfgd fgdfgdfgdfgdfgfgfggffdsfsdfsdfdasdasdkodlsñdkaslñdks aksdjskfjkslf" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="352" translatesAutoresizingMaskIntoConstraints="NO" id="5RI-cF-oaq">
+                    <rect key="frame" x="20" y="77" width="352" height="41"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn_street" destination="h1p-SW-SQw" id="PhU-gU-Y4d"/>
+                <outlet property="img_bateria" destination="Amv-fW-rdh" id="6um-yS-7vb"/>
+                <outlet property="lbl_bateria" destination="Qhs-cs-sfp" id="cV5-EM-kdE"/>
+                <outlet property="lbl_evento" destination="a3i-VT-36A" id="0tT-s2-krS"/>
+                <outlet property="lbl_fecha" destination="Ek4-Kp-ZIn" id="nkK-l7-0YN"/>
+                <outlet property="lbl_ubicacion" destination="5RI-cF-oaq" id="wYN-46-HvO"/>
+            </connections>
+        </view>
+        <view userInteractionEnabled="NO" contentMode="scaleToFill" id="WDh-9v-Im6" customClass="Annotation">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GLOBO1" translatesAutoresizingMaskIntoConstraints="NO" id="nZz-qy-y6T">
+                    <rect key="frame" x="0.0" y="0.0" width="330" height="140"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fuera de la zona segura" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2M-An-qld">
+                    <rect key="frame" x="53" y="37" width="265" height="25"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ubicación: xz cxcxcsfsfdsfdsfdfgdfgfhggfdgdgfdgdf ggdfgdfgd fgdfgdfgdfgdfgfgfggffdsfsdfsdf" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="OHD-O7-ml9">
+                    <rect key="frame" x="57" y="63" width="251" height="47"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_alerta_leida" translatesAutoresizingMaskIntoConstraints="NO" id="nNQ-dd-pr0">
+                    <rect key="frame" x="11" y="55" width="40" height="40"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Fuera de la zona segura dsadasdkljsakldjaskldjaskldj" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="299" translatesAutoresizingMaskIntoConstraints="NO" id="JDu-Q3-E9M">
+                    <rect key="frame" x="11" y="5" width="299" height="32"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                </label>
+            </subviews>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="img_alerta" destination="nNQ-dd-pr0" id="XUn-tc-ndk"/>
+                <outlet property="lbl_evento_alerta" destination="JDu-Q3-E9M" id="kiQ-jS-ACz"/>
+                <outlet property="lbl_fecha_alerta" destination="m2M-An-qld" id="UgL-Nw-iH0"/>
+                <outlet property="lbl_ubicacion_alerta" destination="OHD-O7-ml9" id="qwT-kC-tWT"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="GLOBO1" width="310" height="130"/>
+        <image name="GLOBO2" width="455" height="185"/>
+        <image name="bateria_0" width="185" height="107"/>
+        <image name="icono_alerta_leida" width="128" height="128"/>
+        <image name="street" width="50" height="50"/>
+    </resources>
+</document>

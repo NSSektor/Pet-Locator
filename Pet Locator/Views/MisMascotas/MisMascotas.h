@@ -11,13 +11,11 @@
 #import "SYSoapTool.h"
 #import "Reachability.h"
 
-@interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,SOAPToolDelegate, NSXMLParserDelegate>{
+@interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,SOAPToolDelegate, NSXMLParserDelegate,UISearchBarDelegate>{
     
     Reachability* internetReachable;
     Reachability* hostReachable;
     
-    
-    NSMutableArray *label_array;
     UIRefreshControl* refreshControl;
     
     ////xml///
@@ -30,6 +28,8 @@
     UIView* contenedor_animacion;
     UIActivityIndicatorView* actividad_global;
     
+    __weak IBOutlet UISearchBar* searchBar_;
+    
 }
 
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
@@ -37,5 +37,8 @@
 -(void) checkNetworkStatus:(NSNotification *)notice;
 -(void)FillArray;
 -(void)Actualizar;
+-(void)EscribeArchivos;
+-(void)LeeArchivos;
+-(void)LimpiaArreglosTemporales;
 
 @end

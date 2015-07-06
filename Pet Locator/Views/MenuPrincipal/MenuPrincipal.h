@@ -18,6 +18,7 @@
     __weak IBOutlet UIView* contenedor_blog_fido;
     __weak IBOutlet UIView* contenedor_vet_care;
     __weak IBOutlet UIView* contenedor_tienda;
+    __weak IBOutlet UIView* panel;
     
     UIButton* btn_mis_mascotas;
     UIButton* btn_regreso_a_casa;
