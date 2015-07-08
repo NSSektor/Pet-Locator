@@ -6,7 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MisMascotas">
             <connections>
+                <outlet property="btn_actualizar" destination="W7x-mz-H73" id="WSG-CA-yWL"/>
                 <outlet property="collectionView" destination="fQA-13-pel" id="PDp-kX-66v"/>
+                <outlet property="contenedor_menu" destination="Fj3-nG-D8i" id="poQ-LN-059"/>
+                <outlet property="contenedor_vista" destination="K50-2O-bRY" id="651-s4-U2A"/>
+                <outlet property="searchBar_" destination="N2p-4P-d70" id="ssm-EY-B7u"/>
+                <outlet property="tbl_menu" destination="8uf-J9-55O" id="raW-kj-bbV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="DRv-aa-om9"/>
             </connections>
         </placeholder>
@@ -15,6 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-nG-D8i">
+                    <rect key="frame" x="-250" y="0.0" width="250" height="1024"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TE-ji-1Xh">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="260"/>
+                            <color key="backgroundColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0VY-La-CfM">
+                            <rect key="frame" x="5" y="20" width="240" height="228"/>
+                        </imageView>
+                        <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8uf-J9-55O">
+                            <rect key="frame" x="0.0" y="260" width="250" height="764"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="separatorColor" red="0.2470588235" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2470588235" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K50-2O-bRY">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <subviews>
@@ -37,15 +66,29 @@
                             <rect key="frame" x="0.0" y="80" width="768" height="44"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-13-pel">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ka2-cL-1iT">
                             <rect key="frame" x="0.0" y="124" width="768" height="850"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Eab-2U-9Ff">
-                                <size key="itemSize" width="140" height="140"/>
-                                <size key="headerReferenceSize" width="5" height="5"/>
-                                <size key="footerReferenceSize" width="5" height="5"/>
-                                <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-13-pel">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="850"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Eab-2U-9Ff">
+                                        <size key="itemSize" width="370" height="370"/>
+                                        <size key="headerReferenceSize" width="5" height="5"/>
+                                        <size key="footerReferenceSize" width="5" height="5"/>
+                                        <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7x-mz-H73">
+                            <rect key="frame" x="654" y="24" width="106" height="42"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Actualizar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                 </view>
             </subviews>
@@ -56,6 +99,7 @@
     </objects>
     <resources>
         <image name="btn_menu" width="53" height="34"/>
+        <image name="logo" width="446" height="425"/>
         <image name="logo_horizontal" width="233" height="64"/>
     </resources>
 </document>

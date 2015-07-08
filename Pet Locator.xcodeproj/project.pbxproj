@@ -11,6 +11,30 @@
 		881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */; };
 		881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */; };
 		881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */; };
+		883D00B31B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00B21B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib */; };
+		883D00B51B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00B41B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib */; };
+		883D00B71B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00B61B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib */; };
+		883D00B91B4C516000815C4B /* UltimaPosicion_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00B81B4C516000815C4B /* UltimaPosicion_iPhone6.xib */; };
+		883D00BB1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00BA1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib */; };
+		883D00BD1B4C535200815C4B /* UltimaPosicion_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00BC1B4C535200815C4B /* UltimaPosicion_iPad.xib */; };
+		883D00C01B4C567D00815C4B /* Alertas.m in Sources */ = {isa = PBXBuildFile; fileRef = 883D00BF1B4C567D00815C4B /* Alertas.m */; };
+		883D00C31B4C6E0D00815C4B /* Alertas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00C21B4C6E0D00815C4B /* Alertas_iPhone.xib */; };
+		883D00C51B4C783A00815C4B /* Alertas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00C41B4C783A00815C4B /* Alertas_iPhone5.xib */; };
+		883D00C71B4C794A00815C4B /* Alertas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00C61B4C794A00815C4B /* Alertas_iPhone6.xib */; };
+		883D00C91B4C7A6800815C4B /* Alertas_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00C81B4C7A6800815C4B /* Alertas_iPad.xib */; };
+		883D00CB1B4C7AED00815C4B /* Alertas_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00CA1B4C7AED00815C4B /* Alertas_iPhone6plus.xib */; };
+		883D00CE1B4C7D4300815C4B /* DetalleAlerta.m in Sources */ = {isa = PBXBuildFile; fileRef = 883D00CD1B4C7D4300815C4B /* DetalleAlerta.m */; };
+		883D00D11B4C823F00815C4B /* DetalleAlerta_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00D01B4C823F00815C4B /* DetalleAlerta_iPhone.xib */; };
+		883D00D31B4C831B00815C4B /* DetalleAlerta_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00D21B4C831B00815C4B /* DetalleAlerta_iPhone5.xib */; };
+		883D00D51B4C840000815C4B /* DetalleAlerta_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00D41B4C840000815C4B /* DetalleAlerta_iPhone6.xib */; };
+		883D00D71B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00D61B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib */; };
+		883D00D91B4C85EB00815C4B /* DetalleAlerta_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00D81B4C85EB00815C4B /* DetalleAlerta_iPad.xib */; };
+		883D00DC1B4C89B100815C4B /* Historico.m in Sources */ = {isa = PBXBuildFile; fileRef = 883D00DB1B4C89B100815C4B /* Historico.m */; };
+		883D00DF1B4D915300815C4B /* Historico_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00DE1B4D915300815C4B /* Historico_iPhone.xib */; };
+		883D00E11B4D94E900815C4B /* Historico_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00E01B4D94E900815C4B /* Historico_iPhone5.xib */; };
+		883D00E31B4D9CC100815C4B /* Historico_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00E21B4D9CC100815C4B /* Historico_iPhone6.xib */; };
+		883D00E51B4D9D3100815C4B /* Historico_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00E41B4D9D3100815C4B /* Historico_iPhone6plus.xib */; };
+		883D00E71B4D9DA000815C4B /* Historico_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00E61B4D9DA000815C4B /* Historico_iPad.xib */; };
 		883ED6A81B41F1FD004D831A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6A71B41F1FD004D831A /* Reachability.m */; };
 		883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6AD1B41F2B2004D831A /* SYSoapTool.m */; };
 		884315561B4AE0840030DB6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884315551B4AE0840030DB6E /* Foundation.framework */; };
@@ -29,6 +53,12 @@
 		884315741B4AF7B40030DB6E /* Annotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315731B4AF7B40030DB6E /* Annotation.xib */; };
 		884315781B4B06430030DB6E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884315761B4B06430030DB6E /* CustomTableViewCell.m */; };
 		884315791B4B06430030DB6E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315771B4B06430030DB6E /* CustomTableViewCell.xib */; };
+		8843157D1B4B3BD60030DB6E /* BlogDeFido.m in Sources */ = {isa = PBXBuildFile; fileRef = 8843157C1B4B3BD60030DB6E /* BlogDeFido.m */; };
+		884315801B4B3C090030DB6E /* BlogDeFido_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8843157F1B4B3C090030DB6E /* BlogDeFido_iPhone.xib */; };
+		884315821B4B3F800030DB6E /* BlogDeFido_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315811B4B3F800030DB6E /* BlogDeFido_iPhone5.xib */; };
+		884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */; };
+		884315861B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */; };
+		884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */; };
 		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
 		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
@@ -81,6 +111,33 @@
 		881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCollectionViewCell.m; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell_iPhone6.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell_iPhone6.xib; sourceTree = "<group>"; };
+		883D00B21B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell_iPhone6plus.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell_iPhone6plus.xib; sourceTree = "<group>"; };
+		883D00B41B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell_iPad.xib; path = Classes/CustomCollectionViewCell/CustomCollectionViewCell_iPad.xib; sourceTree = "<group>"; };
+		883D00B61B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UltimaPosicion_iPhone5.xib; path = Views/UltimaPosicion/UltimaPosicion_iPhone5.xib; sourceTree = "<group>"; };
+		883D00B81B4C516000815C4B /* UltimaPosicion_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UltimaPosicion_iPhone6.xib; path = Views/UltimaPosicion/UltimaPosicion_iPhone6.xib; sourceTree = "<group>"; };
+		883D00BA1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UltimaPosicion_iPhone6plus.xib; path = Views/UltimaPosicion/UltimaPosicion_iPhone6plus.xib; sourceTree = "<group>"; };
+		883D00BC1B4C535200815C4B /* UltimaPosicion_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UltimaPosicion_iPad.xib; path = Views/UltimaPosicion/UltimaPosicion_iPad.xib; sourceTree = "<group>"; };
+		883D00BE1B4C567D00815C4B /* Alertas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alertas.h; path = Views/Alertas/Alertas.h; sourceTree = "<group>"; };
+		883D00BF1B4C567D00815C4B /* Alertas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alertas.m; path = Views/Alertas/Alertas.m; sourceTree = "<group>"; };
+		883D00C21B4C6E0D00815C4B /* Alertas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Alertas_iPhone.xib; path = Views/Alertas/Alertas_iPhone.xib; sourceTree = "<group>"; };
+		883D00C41B4C783A00815C4B /* Alertas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Alertas_iPhone5.xib; path = Views/Alertas/Alertas_iPhone5.xib; sourceTree = "<group>"; };
+		883D00C61B4C794A00815C4B /* Alertas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Alertas_iPhone6.xib; path = Views/Alertas/Alertas_iPhone6.xib; sourceTree = "<group>"; };
+		883D00C81B4C7A6800815C4B /* Alertas_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Alertas_iPad.xib; path = Views/Alertas/Alertas_iPad.xib; sourceTree = "<group>"; };
+		883D00CA1B4C7AED00815C4B /* Alertas_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Alertas_iPhone6plus.xib; path = Views/Alertas/Alertas_iPhone6plus.xib; sourceTree = "<group>"; };
+		883D00CC1B4C7D4300815C4B /* DetalleAlerta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetalleAlerta.h; path = Views/DetalleAlerta/DetalleAlerta.h; sourceTree = "<group>"; };
+		883D00CD1B4C7D4300815C4B /* DetalleAlerta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetalleAlerta.m; path = Views/DetalleAlerta/DetalleAlerta.m; sourceTree = "<group>"; };
+		883D00D01B4C823F00815C4B /* DetalleAlerta_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalleAlerta_iPhone.xib; path = Views/DetalleAlerta/DetalleAlerta_iPhone.xib; sourceTree = "<group>"; };
+		883D00D21B4C831B00815C4B /* DetalleAlerta_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalleAlerta_iPhone5.xib; path = Views/DetalleAlerta/DetalleAlerta_iPhone5.xib; sourceTree = "<group>"; };
+		883D00D41B4C840000815C4B /* DetalleAlerta_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalleAlerta_iPhone6.xib; path = Views/DetalleAlerta/DetalleAlerta_iPhone6.xib; sourceTree = "<group>"; };
+		883D00D61B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalleAlerta_iPhone6plus.xib; path = Views/DetalleAlerta/DetalleAlerta_iPhone6plus.xib; sourceTree = "<group>"; };
+		883D00D81B4C85EB00815C4B /* DetalleAlerta_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetalleAlerta_iPad.xib; path = Views/DetalleAlerta/DetalleAlerta_iPad.xib; sourceTree = "<group>"; };
+		883D00DA1B4C89B100815C4B /* Historico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Historico.h; path = Views/Historico/Historico.h; sourceTree = "<group>"; };
+		883D00DB1B4C89B100815C4B /* Historico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Historico.m; path = Views/Historico/Historico.m; sourceTree = "<group>"; };
+		883D00DE1B4D915300815C4B /* Historico_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Historico_iPhone.xib; path = Views/Historico/Historico_iPhone.xib; sourceTree = "<group>"; };
+		883D00E01B4D94E900815C4B /* Historico_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Historico_iPhone5.xib; path = Views/Historico/Historico_iPhone5.xib; sourceTree = "<group>"; };
+		883D00E21B4D9CC100815C4B /* Historico_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Historico_iPhone6.xib; path = Views/Historico/Historico_iPhone6.xib; sourceTree = "<group>"; };
+		883D00E41B4D9D3100815C4B /* Historico_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Historico_iPhone6plus.xib; path = Views/Historico/Historico_iPhone6plus.xib; sourceTree = "<group>"; };
+		883D00E61B4D9DA000815C4B /* Historico_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Historico_iPad.xib; path = Views/Historico/Historico_iPad.xib; sourceTree = "<group>"; };
 		883ED6A61B41F1FD004D831A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Reachability/Reachability.h; sourceTree = "<group>"; };
 		883ED6A71B41F1FD004D831A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability/Reachability.m; sourceTree = "<group>"; };
 		883ED6AC1B41F2B2004D831A /* SYSoapTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSoapTool.h; path = Classes/SYSoapTool/SYSoapTool.h; sourceTree = "<group>"; };
@@ -104,6 +161,13 @@
 		884315751B4B06430030DB6E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = Classes/CustomTableViewCell/CustomTableViewCell.h; sourceTree = "<group>"; };
 		884315761B4B06430030DB6E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = Classes/CustomTableViewCell/CustomTableViewCell.m; sourceTree = "<group>"; };
 		884315771B4B06430030DB6E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomTableViewCell.xib; path = Classes/CustomTableViewCell/CustomTableViewCell.xib; sourceTree = "<group>"; };
+		8843157B1B4B3BD50030DB6E /* BlogDeFido.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogDeFido.h; path = Views/BlogDeFido/BlogDeFido.h; sourceTree = "<group>"; };
+		8843157C1B4B3BD60030DB6E /* BlogDeFido.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogDeFido.m; path = Views/BlogDeFido/BlogDeFido.m; sourceTree = "<group>"; };
+		8843157F1B4B3C090030DB6E /* BlogDeFido_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone.xib; path = Views/BlogDeFido/BlogDeFido_iPhone.xib; sourceTree = "<group>"; };
+		884315811B4B3F800030DB6E /* BlogDeFido_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone5.xib; path = Views/BlogDeFido/BlogDeFido_iPhone5.xib; sourceTree = "<group>"; };
+		884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6.xib; sourceTree = "<group>"; };
+		884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6plus.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6plus.xib; sourceTree = "<group>"; };
+		884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPad.xib; path = Views/BlogDeFido/BlogDeFido_iPad.xib; sourceTree = "<group>"; };
 		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
 		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
@@ -216,6 +280,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		883D00C11B4C568700815C4B /* Alertas */ = {
+			isa = PBXGroup;
+			children = (
+				883D00BE1B4C567D00815C4B /* Alertas.h */,
+				883D00BF1B4C567D00815C4B /* Alertas.m */,
+				883D00C21B4C6E0D00815C4B /* Alertas_iPhone.xib */,
+				883D00C41B4C783A00815C4B /* Alertas_iPhone5.xib */,
+				883D00C61B4C794A00815C4B /* Alertas_iPhone6.xib */,
+				883D00CA1B4C7AED00815C4B /* Alertas_iPhone6plus.xib */,
+				883D00C81B4C7A6800815C4B /* Alertas_iPad.xib */,
+			);
+			name = Alertas;
+			sourceTree = "<group>";
+		};
+		883D00CF1B4C7D5700815C4B /* DetalleAlerta */ = {
+			isa = PBXGroup;
+			children = (
+				883D00CC1B4C7D4300815C4B /* DetalleAlerta.h */,
+				883D00CD1B4C7D4300815C4B /* DetalleAlerta.m */,
+				883D00D01B4C823F00815C4B /* DetalleAlerta_iPhone.xib */,
+				883D00D21B4C831B00815C4B /* DetalleAlerta_iPhone5.xib */,
+				883D00D41B4C840000815C4B /* DetalleAlerta_iPhone6.xib */,
+				883D00D61B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib */,
+				883D00D81B4C85EB00815C4B /* DetalleAlerta_iPad.xib */,
+			);
+			name = DetalleAlerta;
+			sourceTree = "<group>";
+		};
+		883D00DD1B4C89B900815C4B /* Historico */ = {
+			isa = PBXGroup;
+			children = (
+				883D00DA1B4C89B100815C4B /* Historico.h */,
+				883D00DB1B4C89B100815C4B /* Historico.m */,
+				883D00DE1B4D915300815C4B /* Historico_iPhone.xib */,
+				883D00E01B4D94E900815C4B /* Historico_iPhone5.xib */,
+				883D00E21B4D9CC100815C4B /* Historico_iPhone6.xib */,
+				883D00E41B4D9D3100815C4B /* Historico_iPhone6plus.xib */,
+				883D00E61B4D9DA000815C4B /* Historico_iPad.xib */,
+			);
+			name = Historico;
+			sourceTree = "<group>";
+		};
 		883ED6A91B41F210004D831A /* CustomCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +329,8 @@
 				881965901B3C9B2B00A92208 /* CustomCollectionViewCell.m */,
 				881965911B3C9B2B00A92208 /* CustomCollectionViewCell.xib */,
 				881965941B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib */,
+				883D00B21B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib */,
+				883D00B41B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib */,
 			);
 			name = CustomCollectionViewCell;
 			sourceTree = "<group>";
@@ -277,14 +385,32 @@
 			name = CustomTableViewCell;
 			sourceTree = "<group>";
 		};
+		8843157E1B4B3BE10030DB6E /* BlogDeFido */ = {
+			isa = PBXGroup;
+			children = (
+				8843157B1B4B3BD50030DB6E /* BlogDeFido.h */,
+				8843157C1B4B3BD60030DB6E /* BlogDeFido.m */,
+				8843157F1B4B3C090030DB6E /* BlogDeFido_iPhone.xib */,
+				884315811B4B3F800030DB6E /* BlogDeFido_iPhone5.xib */,
+				884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */,
+				884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */,
+				884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */,
+			);
+			name = BlogDeFido;
+			sourceTree = "<group>";
+		};
 		88C02C8D1B39AE8400DEF83A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				883D00CF1B4C7D5700815C4B /* DetalleAlerta */,
+				883D00C11B4C568700815C4B /* Alertas */,
 				88DE457B1B3B14570021B866 /* Login */,
+				88EE75EF1B444913002D1E7B /* MenuPrincipal */,
 				88C02C981B39B1C900DEF83A /* MisMascotas */,
 				88DE45771B3A11B00021B866 /* Bienvenida */,
-				88EE75EF1B444913002D1E7B /* MenuPrincipal */,
 				88F08E971B4AD38300221DE7 /* UltimaPosicion */,
+				883D00DD1B4C89B900815C4B /* Historico */,
+				8843157E1B4B3BE10030DB6E /* BlogDeFido */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -351,6 +477,10 @@
 				88F08E941B4AD37700221DE7 /* UltimaPosicion.h */,
 				88F08E951B4AD37700221DE7 /* UltimaPosicion.m */,
 				88F08E981B4AD3C100221DE7 /* UltimaPosicion_iPhone.xib */,
+				883D00B61B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib */,
+				883D00B81B4C516000815C4B /* UltimaPosicion_iPhone6.xib */,
+				883D00BA1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib */,
+				883D00BC1B4C535200815C4B /* UltimaPosicion_iPad.xib */,
 			);
 			name = UltimaPosicion;
 			sourceTree = "<group>";
@@ -500,32 +630,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884315861B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib in Resources */,
 				88DE45811B3B14BD0021B866 /* Login_iPhone6.xib in Resources */,
+				883D00C71B4C794A00815C4B /* Alertas_iPhone6.xib in Resources */,
+				883D00B71B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib in Resources */,
 				88EE75F51B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib in Resources */,
 				88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */,
+				883D00B31B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib in Resources */,
 				88EE75F91B44575E002D1E7B /* MenuPrincipal_iPad.xib in Resources */,
+				883D00C51B4C783A00815C4B /* Alertas_iPhone5.xib in Resources */,
 				884315741B4AF7B40030DB6E /* Annotation.xib in Resources */,
+				883D00CB1B4C7AED00815C4B /* Alertas_iPhone6plus.xib in Resources */,
 				88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */,
 				88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */,
 				881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */,
+				883D00B91B4C516000815C4B /* UltimaPosicion_iPhone6.xib in Resources */,
+				884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */,
 				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
 				88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */,
 				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
 				88DE457F1B3B149C0021B866 /* Login_iPhone5.xib in Resources */,
+				884315821B4B3F800030DB6E /* BlogDeFido_iPhone5.xib in Resources */,
+				883D00BB1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib in Resources */,
+				883D00BD1B4C535200815C4B /* UltimaPosicion_iPad.xib in Resources */,
 				88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */,
+				884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */,
+				883D00D71B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib in Resources */,
 				88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */,
+				883D00E71B4D9DA000815C4B /* Historico_iPad.xib in Resources */,
+				883D00B51B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib in Resources */,
+				883D00D11B4C823F00815C4B /* DetalleAlerta_iPhone.xib in Resources */,
 				88EC3DB31B431D9E00946A50 /* MenuPrincipal_iPhone.xib in Resources */,
 				88EE75F71B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib in Resources */,
+				883D00E11B4D94E900815C4B /* Historico_iPhone5.xib in Resources */,
+				883D00C91B4C7A6800815C4B /* Alertas_iPad.xib in Resources */,
 				88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */,
+				883D00E51B4D9D3100815C4B /* Historico_iPhone6plus.xib in Resources */,
+				883D00D51B4C840000815C4B /* DetalleAlerta_iPhone6.xib in Resources */,
 				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
 				88DE45831B3B14DD0021B866 /* Login_iPhone6plus.xib in Resources */,
+				884315801B4B3C090030DB6E /* BlogDeFido_iPhone.xib in Resources */,
 				88DE457D1B3B14740021B866 /* Login_iPhone.xib in Resources */,
 				881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */,
 				88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */,
+				883D00D91B4C85EB00815C4B /* DetalleAlerta_iPad.xib in Resources */,
 				88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */,
 				884315791B4B06430030DB6E /* CustomTableViewCell.xib in Resources */,
+				883D00E31B4D9CC100815C4B /* Historico_iPhone6.xib in Resources */,
+				883D00DF1B4D915300815C4B /* Historico_iPhone.xib in Resources */,
 				88DE45851B3B14FC0021B866 /* Login_iPad.xib in Resources */,
 				88FCB9271B39E43B00233CFF /* Bienvenida_iPhone5.xib in Resources */,
+				883D00C31B4C6E0D00815C4B /* Alertas_iPhone.xib in Resources */,
+				883D00D31B4C831B00815C4B /* DetalleAlerta_iPhone5.xib in Resources */,
 				88F08E991B4AD3C100221DE7 /* UltimaPosicion_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,13 +737,17 @@
 				88EC3DB01B431C6C00946A50 /* MenuPrincipal.m in Sources */,
 				884315781B4B06430030DB6E /* CustomTableViewCell.m in Sources */,
 				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
+				883D00C01B4C567D00815C4B /* Alertas.m in Sources */,
 				88F08E961B4AD37700221DE7 /* UltimaPosicion.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
 				883ED6A81B41F1FD004D831A /* Reachability.m in Sources */,
 				883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */,
 				884315711B4AF7210030DB6E /* Annotation.m in Sources */,
+				883D00DC1B4C89B100815C4B /* Historico.m in Sources */,
 				881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */,
+				8843157D1B4B3BD60030DB6E /* BlogDeFido.m in Sources */,
 				88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */,
+				883D00CE1B4C7D4300815C4B /* DetalleAlerta.m in Sources */,
 				88F9E5D31B38D0C7009D68D9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

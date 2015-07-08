@@ -37,5 +37,6 @@
 }
 
 -(IBAction)MisMascotas:(id)sender;
+-(IBAction)BlogDeFido:(id)sender;
 
 @end

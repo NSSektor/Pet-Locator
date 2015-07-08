@@ -6,8 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MisMascotas">
             <connections>
+                <outlet property="btn_actualizar" destination="WgT-wO-Hcz" id="0lN-cM-EE5"/>
+                <outlet property="btn_menu" destination="pdi-bv-dew" id="r1F-ac-cO6"/>
                 <outlet property="collectionView" destination="TXu-4E-3tG" id="aZP-Ex-Qbz"/>
+                <outlet property="contenedor_menu" destination="Arn-ef-1W2" id="MZ4-PC-87O"/>
+                <outlet property="contenedor_vista" destination="0Za-UH-knG" id="EnR-gW-aKM"/>
                 <outlet property="searchBar_" destination="aLM-tO-O2D" id="dBp-Li-f5p"/>
+                <outlet property="tbl_menu" destination="OjS-HG-pEW" id="zm7-tN-sK8"/>
                 <outlet property="view" destination="iN0-l3-epB" id="oQS-5L-gQC"/>
             </connections>
         </placeholder>
@@ -16,6 +21,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-ef-1W2">
+                    <rect key="frame" x="-160" y="0.0" width="160" height="480"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqa-RG-7YA">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="162"/>
+                            <color key="backgroundColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HJ4-ZD-Pco">
+                            <rect key="frame" x="5" y="20" width="150" height="142"/>
+                        </imageView>
+                        <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OjS-HG-pEW">
+                            <rect key="frame" x="0.0" y="165" width="160" height="315"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="separatorColor" red="0.2470588235" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2470588235" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Za-UH-knG">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <subviews>
@@ -31,6 +60,14 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgT-wO-Hcz">
+                            <rect key="frame" x="250" y="21" width="62" height="30"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <state key="normal" title="Actualizar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                         <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-tO-O2D">
                             <rect key="frame" x="0.0" y="60" width="320" height="44"/>
                             <textInputTraits key="textInputTraits"/>
@@ -64,6 +101,7 @@
     </objects>
     <resources>
         <image name="btn_menu" width="53" height="34"/>
+        <image name="logo" width="446" height="425"/>
         <image name="logo_horizontal" width="233" height="64"/>
     </resources>
 </document>

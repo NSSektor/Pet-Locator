@@ -69,9 +69,15 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-Rv-1a4">
-                            <rect key="frame" x="132" y="706" width="110" height="30"/>
-                        </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P2h-3y-NyO">
+                            <rect key="frame" x="0.0" y="706" width="414" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="PfB-f1-tWh">
+                                    <rect key="frame" x="152" y="0.0" width="110" height="30"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgM-ek-Z0G" userLabel="Panel">
                             <rect key="frame" x="0.0" y="358" width="414" height="348"/>
                             <subviews>

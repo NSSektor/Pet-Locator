@@ -45,6 +45,9 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petlocator_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ivG-UB-hCr">
+                            <rect key="frame" x="285" y="25" width="25" height="25"/>
+                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo_perro" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-qW-Tip">
                             <rect key="frame" x="0.0" y="55" width="320" height="200"/>
                         </imageView>
@@ -156,10 +159,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="270" y="238"/>
         </view>
     </objects>
     <resources>
         <image name="fondo_mensaje" width="289" height="289"/>
         <image name="fondo_perro" width="592" height="370"/>
+        <image name="petlocator_logo" width="112" height="107"/>
     </resources>
 </document>

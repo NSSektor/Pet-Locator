@@ -8,6 +8,7 @@
 
 #import "MisMascotas.h"
 #import "CustomCollectionViewCell.h"
+#import "CustomTableViewCell.h"
 #import "UltimaPosicion.h"
 
 extern NetworkStatus returnValue;
@@ -93,6 +94,10 @@ NSString* evento;
     NSMutableArray* MAcargando_tem;
     NSString* texto_busqueda;
     BOOL actualiza_imagenes;
+    CGSize size_collection_cell;
+    BOOL Show;
+    NSArray* array_menu;
+    NSArray* array_menu_img;
 }
 
 @end
@@ -175,17 +180,46 @@ NSString* evento;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
+    tbl_menu.dataSource = self;
+    tbl_menu.delegate = self;
+    
+    Show = NO;
+    
     //CollectionCell
     
     self.collectionView.backgroundColor = [UIColor clearColor];
     
   //  [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CollectionCell"];
     
+    if([dispositivo isEqualToString:@"iPhone"] || [dispositivo isEqualToString:@"iPhone5"]){
+        [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell" bundle:[NSBundle mainBundle]]
+              forCellWithReuseIdentifier:@"CollectionCell"];
+        size_collection_cell = CGSizeMake(150, 150);
+    }
+    else if([dispositivo isEqualToString:@"iPhone6"]){
+        [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell_iPhone6" bundle:[NSBundle mainBundle]]
+              forCellWithReuseIdentifier:@"CollectionCell"];
+        size_collection_cell = CGSizeMake(180, 180);
+    }
+    else if([dispositivo isEqualToString:@"iPhone6plus"]){
+        [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell_iPhone6plus" bundle:[NSBundle mainBundle]]
+              forCellWithReuseIdentifier:@"CollectionCell"];
+        size_collection_cell = CGSizeMake(196, 196);
+    }
+    else if([dispositivo isEqualToString:@"iPad"]){
+        [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell_iPad" bundle:[NSBundle mainBundle]]
+              forCellWithReuseIdentifier:@"CollectionCell"];
+        size_collection_cell = CGSizeMake(370, 370);
+    }
     
-    
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell" bundle:[NSBundle mainBundle]]
-        forCellWithReuseIdentifier:@"CollectionCell"];
-    
+    if (admin_usr==YES) {
+        array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Resumen", @"Ayuda", @"Cerrar sesión", nil ];
+        array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas.png", @"alertas.png", @"geocercas.png",@"icono_reporte.png", @"ayuda.png", @"cerrar_sesion.png", nil ];
+    }else{
+        array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Ayuda", @"Cerrar sesión", nil ];
+        array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas.png", @"alertas.png", @"geocercas.png",@"ayuda.png", @"cerrar_sesion.png", nil ];
+    }
+
     
     
     refreshControl = [[UIRefreshControl alloc]init];
@@ -196,6 +230,10 @@ NSString* evento;
     
     soapTool = [[SYSoapTool alloc]init];
     soapTool.delegate = self;
+    
+    [btn_actualizar addTarget:self action:@selector(Actualizar) forControlEvents:UIControlEventTouchUpInside];
+    
+    [btn_menu addTarget:self action:@selector(ShowMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     contenedor_animacion = [[UIView alloc]initWithFrame:self.view.frame];
     contenedor_animacion.backgroundColor = [UIColor colorWithRed:85.0/255.0 green:85.0/255.0 blue:85.0/255.0 alpha:0.5];
@@ -223,6 +261,35 @@ NSString* evento;
     
     actualiza_imagenes = NO;
     
+    contenedor_invisible = [[UIView alloc] initWithFrame:contenedor_vista.frame];
+    contenedor_invisible.backgroundColor = [UIColor clearColor];
+    contenedor_invisible.hidden = YES;
+    
+    [contenedor_vista addSubview:contenedor_invisible];
+    
+}
+
+-(IBAction)ShowMenu:(id)sender{
+    CGRect frame_panel_menu = contenedor_menu.frame;
+    CGRect frame_panel_vista = contenedor_vista.frame;
+    if (Show) {
+        contenedor_invisible.hidden = YES;
+        Show = NO;
+        frame_panel_menu.origin.x = - (contenedor_menu.frame.size.width);
+        frame_panel_vista.origin.x = 0;
+    }
+    else{
+        Show = YES;
+        contenedor_invisible.hidden = NO;
+        frame_panel_menu.origin.x = 0;
+        frame_panel_vista.origin.x = (contenedor_menu.frame.size.width);
+    }
+    
+    [UIView beginAnimations:Nil context:nil];
+    [UIView setAnimationDuration:0.9];
+    contenedor_vista.frame = frame_panel_vista;
+    contenedor_menu.frame = frame_panel_menu;
+    [UIView commitAnimations];
 }
 
 -(void)EscribeArchivos{
@@ -763,7 +830,136 @@ NSString* evento;
 
 // 1
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(150, 150);
+    return size_collection_cell;
+}
+
+
+#pragma mark - UITableViewDatasource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [array_menu count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *simpleTableIdentifier = @"TableCell";
+    CustomTableViewCell *cell;
+    
+    cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil)
+    {
+        NSString* NibName = @"CustomTableViewCell";
+
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:NibName owner:self options:nil];
+        if ([dispositivo isEqualToString:@"iPhone"] || [dispositivo isEqualToString:@"iPhone5"])
+            cell = [nib objectAtIndex:10];
+        else if ([dispositivo isEqualToString:@"iPhone6"] || [dispositivo isEqualToString:@"iPhone6plus"])
+            cell = [nib objectAtIndex:11];
+        else
+            cell = [nib objectAtIndex:12];
+        
+    }
+    cell.lbl_menu.text = [array_menu objectAtIndex:indexPath.row];
+    cell.img_menu.image = [UIImage imageNamed:[array_menu_img objectAtIndex:indexPath.row]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   /* if (indexPath.row == 0) {
+        [self ShowMenu:self];
+    }
+    if (indexPath.row == 1) {
+        NSString* view_name = @"Alertas";
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (screenSize.height == 568.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone5"];
+            else if (screenSize.height == 667.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6"];
+            else if (screenSize.height == 736.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
+        }
+        else
+            view_name = [view_name stringByAppendingString:@"_iPad"];
+        
+        
+        Alertas *view = [[Alertas alloc] initWithNibName:view_name bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+        
+    }
+    if (indexPath.row == 2) {
+        NSString* view_name = @"Geocercas";
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (screenSize.height == 568.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone5"];
+            else if (screenSize.height == 667.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6"];
+            else if (screenSize.height == 736.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
+        }
+        else
+            view_name = [view_name stringByAppendingString:@"_iPad"];
+        
+        
+        Geocercas *view = [[Geocercas alloc] initWithNibName:view_name bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+        
+    }
+    if (indexPath.row == 3 && admin_usr==NO) {
+        form_Ayuda = @"MisMascotas";
+        Ayuda *view = [[Ayuda alloc] initWithNibName:@"Ayuda" bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }
+    if (indexPath.row==3 && admin_usr == YES) {
+        NSString* view_name = @"Reporte";
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (screenSize.height == 568.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone5"];
+            else if (screenSize.height == 667.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6"];
+            else if (screenSize.height == 736.0f)
+                view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
+        }
+        else
+            view_name = [view_name stringByAppendingString:@"_iPad"];
+        
+        
+        Reporte *view = [[Reporte alloc] initWithNibName:view_name bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }
+    
+    if (indexPath.row == 4 && admin_usr==NO) {
+        metodo = @"Cerrar sesión";
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, DeviceToken, @"I",nil];
+        NSLog(@"%@%@",GlobalUsu, Globalpass);
+        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
+    }
+    if (indexPath.row == 4 && admin_usr ==YES) {
+        form_Ayuda = @"MisMascotas";
+        Ayuda *view = [[Ayuda alloc] initWithNibName:@"Ayuda" bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+        
+    }
+    if (indexPath.row==5) {
+        metodo = @"Cerrar sesión";
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", @"push_token", nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr, DeviceToken, nil];
+        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
+    }
+    */
+    
+    return indexPath;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -778,6 +974,10 @@ NSString* evento;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //hides keyboard when another part of layout was touched
+    if (Show) {
+        [self ShowMenu:self];
+    }
+
     [self.view endEditing:YES];
     [super touchesBegan:touches withEvent:event];
 }

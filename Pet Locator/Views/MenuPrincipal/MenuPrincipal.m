@@ -8,6 +8,7 @@
 
 #import "MenuPrincipal.h"
 #import "MisMascotas.h"
+#import "BlogDeFido.h"
 
 extern NSString* dispositivo;
 
@@ -34,6 +35,10 @@ extern NSString* dispositivo;
     [panel addSubview:btn_mis_mascotas];
     [btn_mis_mascotas addTarget:self action:@selector(MisMascotas:) forControlEvents:UIControlEventTouchUpInside];
     
+    btn_blog_fido = [[UIButton alloc] initWithFrame:contenedor_blog_fido.frame];
+    [panel addSubview:btn_blog_fido];
+    [btn_blog_fido addTarget:self action:@selector(BlogDeFido:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +48,12 @@ extern NSString* dispositivo;
 
 -(IBAction)MisMascotas:(id)sender{
     MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@",dispositivo] bundle:nil];
+    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:view animated:YES completion:nil];
+}
+
+-(IBAction)BlogDeFido:(id)sender{
+    BlogDeFido *view = [[BlogDeFido alloc] initWithNibName:[NSString stringWithFormat:@"BlogDeFido_%@",dispositivo] bundle:nil];
     view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:view animated:YES completion:nil];
 }

@@ -7,15 +7,112 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="jbP-Mf-NwS" customClass="CustomCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-sr-bSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="agregar_perro" translatesAutoresizingMaskIntoConstraints="NO" id="PvB-Pq-eFR">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xic-CZ-tvB">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <color key="textColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agregar Mascota" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW9-Lq-8Lw">
+                                <rect key="frame" x="0.0" y="90" width="180" height="90"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rYd-oP-uLg">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foto_perfil" translatesAutoresizingMaskIntoConstraints="NO" id="HD3-JX-ufY">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nanuk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAY-ty-Zmn">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="25"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-Fc-5Xs">
+                                <rect key="frame" x="0.0" y="120" width="180" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_verde_2" translatesAutoresizingMaskIntoConstraints="NO" id="UdZ-K5-yeL">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="10"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_verde_2" translatesAutoresizingMaskIntoConstraints="NO" id="nCM-HE-8A8">
+                                        <rect key="frame" x="45" y="0.0" width="45" height="10"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_verde_2" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-OZ-UL5">
+                                        <rect key="frame" x="90" y="0.0" width="45" height="10"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bateria_verde_2" translatesAutoresizingMaskIntoConstraints="NO" id="Jcf-Uv-p0l">
+                                        <rect key="frame" x="135" y="0.0" width="45" height="10"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Geocerca asignada Mi Kasa" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daf-xB-5wj">
+                                        <rect key="frame" x="30" y="30" width="150" height="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Batería 85%" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdb-hF-4iO">
+                                        <rect key="frame" x="30" y="45" width="150" height="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zx8-8h-5nD">
+                                        <rect key="frame" x="2" y="33" width="25" height="25"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2014-05-26 12:36 p.m." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z5f-A9-Ubu">
+                                        <rect key="frame" x="5" y="10" width="175" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.90000000000000002" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.51764705879999995" green="0.74117647060000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <size key="customSize" width="198" height="175"/>
-            <point key="canvasLocation" x="167" y="259"/>
+            <connections>
+                <outlet property="agregar" destination="VWg-sr-bSQ" id="BCU-Vy-Ksl"/>
+                <outlet property="battery_1" destination="UdZ-K5-yeL" id="65Y-Xk-fW5"/>
+                <outlet property="battery_2" destination="nCM-HE-8A8" id="NL3-Re-HBK"/>
+                <outlet property="battery_3" destination="tpa-OZ-UL5" id="7pG-1J-M8X"/>
+                <outlet property="battery_4" destination="Jcf-Uv-p0l" id="Pkr-33-vtj"/>
+                <outlet property="datos_mascota" destination="mcj-Fc-5Xs" id="o8q-NB-83y"/>
+                <outlet property="img_geocerca" destination="Zx8-8h-5nD" id="grP-Qh-82m"/>
+                <outlet property="img_mascota" destination="HD3-JX-ufY" id="b8D-D5-UkU"/>
+                <outlet property="lbl_bateria" destination="wdb-hF-4iO" id="kiv-Ku-lPs"/>
+                <outlet property="lbl_fecha" destination="Z5f-A9-Ubu" id="r9M-Da-WUS"/>
+                <outlet property="lbl_geocerca_asignada" destination="daf-xB-5wj" id="b7U-Mz-BGk"/>
+                <outlet property="lbl_nombre" destination="iAY-ty-Zmn" id="imD-VN-7Cj"/>
+                <outlet property="mascota" destination="rYd-oP-uLg" id="AfB-6c-nou"/>
+            </connections>
+            <point key="canvasLocation" x="186" y="155"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="agregar_perro" width="292" height="285"/>
+        <image name="bateria_verde_2" width="80" height="13"/>
+        <image name="foto_perfil" width="255" height="254"/>
+    </resources>
 </document>

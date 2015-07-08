@@ -11,7 +11,7 @@
 #import "SYSoapTool.h"
 #import "Reachability.h"
 
-@interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,SOAPToolDelegate, NSXMLParserDelegate,UISearchBarDelegate>{
+@interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,SOAPToolDelegate, NSXMLParserDelegate,UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>{
     
     Reachability* internetReachable;
     Reachability* hostReachable;
@@ -29,6 +29,12 @@
     UIActivityIndicatorView* actividad_global;
     
     __weak IBOutlet UISearchBar* searchBar_;
+    __weak IBOutlet UIButton* btn_actualizar;
+    __weak IBOutlet UIView* contenedor_vista;
+    __weak IBOutlet UIView* contenedor_menu;
+    __weak IBOutlet UIButton* btn_menu;
+    UIView* contenedor_invisible;
+    __weak IBOutlet UITableView* tbl_menu;
     
 }
 
@@ -40,5 +46,6 @@
 -(void)EscribeArchivos;
 -(void)LeeArchivos;
 -(void)LimpiaArreglosTemporales;
+-(IBAction)ShowMenu:(id)sender;
 
 @end
