@@ -10,6 +10,8 @@
 #import "CustomCollectionViewCell.h"
 #import "CustomTableViewCell.h"
 #import "UltimaPosicion.h"
+#import "MenuPrincipal.h"
+#import "Alertas.h"
 
 extern NetworkStatus returnValue;
 extern NSString* documentsDirectory;
@@ -104,6 +106,36 @@ NSString* evento;
 
 @implementation MisMascotas
 
+-(NSString*)DameHoraActual{
+    
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    
+    NSString *hora_actual = [dateFormatter stringFromDate: currentTime];
+    
+    return hora_actual;
+}
+
+-(void)LeeHoraGuardada{
+    NSString* fileName = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"Hora.txt"];
+    NSString *contents = [[NSString alloc] initWithContentsOfFile:fileName usedEncoding:nil error:nil];
+    if (contents == nil || [contents isEqualToString:@""]) {
+        
+        lbl_actualizar.text = [NSString stringWithFormat:@"Deslize para actualizar...\nUltima actualización: %@", [self DameHoraActual]];
+        [[self DameHoraActual] writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+    }
+    else{
+        lbl_actualizar.text = [NSString stringWithFormat:@"Deslize para actualizar...\nUltima actualización: %@", contents];
+    }
+}
+
+-(void)EscribeHora{
+    lbl_actualizar.text = [NSString stringWithFormat:@"Deslize para actualizar...\nUltima actualización: %@", [self DameHoraActual]];
+    NSString* fileName = [NSString stringWithFormat:@"%@/%@", documentsDirectory, @"Hora.txt"];
+    [[self DameHoraActual] writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -119,10 +151,7 @@ NSString* evento;
     [hostReachable startNotifier];
     
     // now patiently wait for the notification
-    
-    
-    
-    
+    [self LeeHoraGuardada];
 }
 
 -(void) checkNetworkStatus:(NSNotification *)notice
@@ -187,6 +216,9 @@ NSString* evento;
     
     //CollectionCell
     
+    
+
+    
     self.collectionView.backgroundColor = [UIColor clearColor];
     
   //  [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"CollectionCell"];
@@ -231,9 +263,12 @@ NSString* evento;
     soapTool = [[SYSoapTool alloc]init];
     soapTool.delegate = self;
     
-    [btn_actualizar addTarget:self action:@selector(Actualizar) forControlEvents:UIControlEventTouchUpInside];
+  //  [btn_actualizar addTarget:self action:@selector(Actualizar) forControlEvents:UIControlEventTouchUpInside];
     
     [btn_menu addTarget:self action:@selector(ShowMenu:) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    [btn_atras addTarget:self action:@selector(Atras:) forControlEvents:UIControlEventTouchUpInside];
     
     contenedor_animacion = [[UIView alloc]initWithFrame:self.view.frame];
     contenedor_animacion.backgroundColor = [UIColor colorWithRed:85.0/255.0 green:85.0/255.0 blue:85.0/255.0 alpha:0.5];
@@ -269,20 +304,26 @@ NSString* evento;
     
 }
 
+-(IBAction)Atras:(id)sender{
+    MenuPrincipal *view = [[MenuPrincipal alloc] initWithNibName:[NSString stringWithFormat:@"MenuPrincipal_%@", dispositivo] bundle:nil];
+    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:view animated:YES completion:nil];
+}
+
 -(IBAction)ShowMenu:(id)sender{
     CGRect frame_panel_menu = contenedor_menu.frame;
     CGRect frame_panel_vista = contenedor_vista.frame;
     if (Show) {
         contenedor_invisible.hidden = YES;
         Show = NO;
-        frame_panel_menu.origin.x = - (contenedor_menu.frame.size.width);
+        frame_panel_menu.origin.x = self.view.frame.size.width;
         frame_panel_vista.origin.x = 0;
     }
     else{
         Show = YES;
         contenedor_invisible.hidden = NO;
-        frame_panel_menu.origin.x = 0;
-        frame_panel_vista.origin.x = (contenedor_menu.frame.size.width);
+        frame_panel_menu.origin.x = self.view.frame.size.width - (contenedor_menu.frame.size.width);
+        frame_panel_vista.origin.x = contenedor_vista.frame.origin.x -  (contenedor_menu.frame.size.width);
     }
     
     [UIView beginAnimations:Nil context:nil];
@@ -514,6 +555,10 @@ NSString* evento;
         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, @"1234567890", @"I",nil];
         
         [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];
+        
+        lbl_actualizar.text = @"Actualizando...";
+        img_actualizar.hidden = YES;
+        
         //  contenedor_animacion.hidden = NO;
     }
     else{
@@ -687,8 +732,12 @@ NSString* evento;
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
+    
+    img_actualizar.hidden = NO;
+    
     if (code <0) {
         [message show];
+        [self LeeHoraGuardada];
     }
     else{
         if (actualiza_imagenes == YES ) {
@@ -712,6 +761,7 @@ NSString* evento;
         }
         
         [self EscribeArchivos];
+        [self EscribeHora];
     }
     
     [self.collectionView reloadData];
@@ -726,6 +776,7 @@ NSString* evento;
         actividad_global.hidden = NO;
     [refreshControl endRefreshing];
     actualizar_tabla = NO;
+    
     
     
 }
@@ -798,29 +849,31 @@ NSString* evento;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == [MAid_mascota_tem count]){
-        //Agregar Perro
+        NSLog(@"Agregar Perro");
+    }else{
+        nombre_perro = [NSString stringWithFormat:@"%@", [[MAnombre_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        raza_perro = [NSString stringWithFormat:@"%@", [[MAraza_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        aniversario_perro = [NSString stringWithFormat:@"%@", [[MAaniversario_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        fotografia_perro  = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
+        latitud_perro = [NSString stringWithFormat:@"%@", [[MAlatitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        longitud_perro = [NSString stringWithFormat:@"%@", [[MAlongitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        edad_perro = [NSString stringWithFormat:@"%@", [[MAedad_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        id_mascota = [NSString stringWithFormat:@"%@", [[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        bateria = [NSString stringWithFormat:@"%@", [[MAbateria_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        fecha_gps = [NSString stringWithFormat:@"%@", [[MAfecha_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        ubicacion = [NSString stringWithFormat:@"%@", [[MAubicacion_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        evento = [NSString stringWithFormat:@"%@", [[MAevento_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        
+        id_geocerca_asignada = [NSString stringWithFormat:@"%@", [[MAid_geocerca_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+        
+        
+        UltimaPosicion *view = [[UltimaPosicion alloc] initWithNibName:[NSString stringWithFormat:@"UltimaPosicion_%@",dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+        
     }
     
-    nombre_perro = [NSString stringWithFormat:@"%@", [[MAnombre_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    raza_perro = [NSString stringWithFormat:@"%@", [[MAraza_mascotas_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    aniversario_perro = [NSString stringWithFormat:@"%@", [[MAaniversario_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    fotografia_perro  = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
-    latitud_perro = [NSString stringWithFormat:@"%@", [[MAlatitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    longitud_perro = [NSString stringWithFormat:@"%@", [[MAlongitud_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    edad_perro = [NSString stringWithFormat:@"%@", [[MAedad_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    id_mascota = [NSString stringWithFormat:@"%@", [[MAid_mascota_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    bateria = [NSString stringWithFormat:@"%@", [[MAbateria_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    fecha_gps = [NSString stringWithFormat:@"%@", [[MAfecha_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    ubicacion = [NSString stringWithFormat:@"%@", [[MAubicacion_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    evento = [NSString stringWithFormat:@"%@", [[MAevento_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    
-    id_geocerca_asignada = [NSString stringWithFormat:@"%@", [[MAid_geocerca_tem objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    
-    
-    UltimaPosicion *view = [[UltimaPosicion alloc] initWithNibName:[NSString stringWithFormat:@"UltimaPosicion_%@",dispositivo] bundle:nil];
-    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:view animated:YES completion:nil];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -867,31 +920,17 @@ NSString* evento;
 #pragma mark - UITableViewDelegate
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   /* if (indexPath.row == 0) {
+    if (indexPath.row == 0) {
         [self ShowMenu:self];
     }
     if (indexPath.row == 1) {
-        NSString* view_name = @"Alertas";
-        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            if (screenSize.height == 568.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone5"];
-            else if (screenSize.height == 667.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone6"];
-            else if (screenSize.height == 736.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
-        }
-        else
-            view_name = [view_name stringByAppendingString:@"_iPad"];
-        
-        
-        Alertas *view = [[Alertas alloc] initWithNibName:view_name bundle:nil];
+        Alertas *view = [[Alertas alloc] initWithNibName:[NSString stringWithFormat:@"Alertas_%@", dispositivo] bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:view animated:YES completion:nil];
         
     }
     if (indexPath.row == 2) {
-        NSString* view_name = @"Geocercas";
+      /*  NSString* view_name = @"Geocercas";
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             if (screenSize.height == 568.0f)
@@ -908,16 +947,16 @@ NSString* evento;
         Geocercas *view = [[Geocercas alloc] initWithNibName:view_name bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:view animated:YES completion:nil];
-        
+        */
     }
     if (indexPath.row == 3 && admin_usr==NO) {
-        form_Ayuda = @"MisMascotas";
+    /*    form_Ayuda = @"MisMascotas";
         Ayuda *view = [[Ayuda alloc] initWithNibName:@"Ayuda" bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:view animated:YES completion:nil];
+        [self presentViewController:view animated:YES completion:nil];*/
     }
     if (indexPath.row==3 && admin_usr == YES) {
-        NSString* view_name = @"Reporte";
+    /*    NSString* view_name = @"Reporte";
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
             if (screenSize.height == 568.0f)
@@ -933,30 +972,30 @@ NSString* evento;
         
         Reporte *view = [[Reporte alloc] initWithNibName:view_name bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:view animated:YES completion:nil];
+        [self presentViewController:view animated:YES completion:nil];*/
     }
     
     if (indexPath.row == 4 && admin_usr==NO) {
-        metodo = @"Cerrar sesión";
+     /*   metodo = @"Cerrar sesión";
         NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, DeviceToken, @"I",nil];
         NSLog(@"%@%@",GlobalUsu, Globalpass);
-        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
+        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];*/
     }
     if (indexPath.row == 4 && admin_usr ==YES) {
-        form_Ayuda = @"MisMascotas";
+  /*      form_Ayuda = @"MisMascotas";
         Ayuda *view = [[Ayuda alloc] initWithNibName:@"Ayuda" bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:view animated:YES completion:nil];
+        [self presentViewController:view animated:YES completion:nil];*/
         
     }
     if (indexPath.row==5) {
-        metodo = @"Cerrar sesión";
+   /*     metodo = @"Cerrar sesión";
         NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", @"push_token", nil];
         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr, DeviceToken, nil];
-        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
+        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];*/
     }
-    */
+    
     
     return indexPath;
     

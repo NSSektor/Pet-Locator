@@ -18,6 +18,7 @@
 #import "UltimaPosicion.h"
 #import "CustomTableViewCell.h"
 #import "Annotation.h"
+#import <QuartzCore/QuartzCore.h>
 
 extern NSString* latitud_perro;
 extern NSString* longitud_perro;
@@ -78,6 +79,22 @@ int id_;
     [btn_mapa addTarget:self action:@selector(Mapa:) forControlEvents:UIControlEventTouchUpInside];
     
     [btn_tabular addTarget:self action:@selector(Tabular:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [btn_mapa.layer setBorderWidth:1];
+    [btn_mapa.layer setBorderColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1].CGColor];
+    [btn_mapa.layer setMasksToBounds:YES];
+    
+    [btn_tabular.layer setBorderWidth:1];
+    [btn_tabular.layer setBorderColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1].CGColor];
+    [btn_tabular.layer setMasksToBounds:YES];
+    
+    [btn_hoy.layer setBorderWidth:1];
+    [btn_hoy.layer setBorderColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1].CGColor];
+    [btn_hoy.layer setMasksToBounds:YES];
+    
+    [btn_ayer.layer setBorderWidth:1];
+    [btn_ayer.layer setBorderColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1].CGColor];
+    [btn_ayer.layer setMasksToBounds:YES];
     
     CGRect frame;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -516,11 +533,32 @@ didTapInfoWindowOfMarker:(GMSMarker *)marker{
 }
 
 
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+
 -(IBAction)Hoy:(id)sender{
-    lbl_hoy.textColor = [UIColor whiteColor];
-    lbl_ayer.textColor = [UIColor blackColor];
-    lbl_hoy.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1];
-    lbl_ayer.backgroundColor = [UIColor whiteColor];
+    
+    [btn_ayer setTitleColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1] forState:UIControlStateNormal];
+    
+    [btn_ayer setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    
+    
+    [btn_hoy setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn_hoy setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1]] forState:UIControlStateNormal];
+    
+    
     contenedor_animacion.hidden = NO;
     NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"idUsuario", @"idMascota", @"dia", nil];
     NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr ,id_mascota, @"0", nil];
@@ -531,10 +569,14 @@ didTapInfoWindowOfMarker:(GMSMarker *)marker{
 }
 
 -(IBAction)Ayer:(id)sender{
-    lbl_ayer.textColor = [UIColor whiteColor];
-    lbl_hoy.textColor = [UIColor blackColor];
-    lbl_ayer.backgroundColor = [UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1];
-    lbl_hoy.backgroundColor = [UIColor whiteColor];
+    [btn_hoy setTitleColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1] forState:UIControlStateNormal];
+    
+    [btn_hoy setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    
+    
+    [btn_ayer setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn_ayer setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:80.0/255.0 green:87.0/255.0 blue:89.0/255.0 alpha:1]] forState:UIControlStateNormal];
+    
     contenedor_animacion.hidden = NO;
     NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"idUsuario", @"idMascota", @"dia", nil];
     NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr ,id_mascota, @"1", nil];
@@ -543,19 +585,29 @@ didTapInfoWindowOfMarker:(GMSMarker *)marker{
 }
 
 -(IBAction)Tabular:(id)sender{
-    lbl_tabular.textColor = [UIColor whiteColor];
-    lbl_mapa.textColor = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
-    lbl_tabular.backgroundColor = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
-    lbl_mapa.backgroundColor = [UIColor whiteColor];
+    
+    [btn_mapa setTitleColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1] forState:UIControlStateNormal];
+    
+    [btn_mapa setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    
+    
+    [btn_tabular setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn_tabular setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1]] forState:UIControlStateNormal];
+    
+    
     panel_mapa.hidden = YES;
     panel_tabla.hidden = NO;
 }
 
 -(IBAction)Mapa:(id)sender{
-    lbl_tabular.textColor = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
-    lbl_mapa.textColor = [UIColor whiteColor];
-    lbl_tabular.backgroundColor = [UIColor whiteColor];
-    lbl_mapa.backgroundColor = [UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1];
+    [btn_tabular setTitleColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1] forState:UIControlStateNormal];
+    
+    [btn_tabular setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    
+    
+    [btn_mapa setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn_mapa setBackgroundImage:[self imageWithColor:[UIColor colorWithRed:132.0/255.0 green:189.0/255.0 blue:0.0/255.0 alpha:1]] forState:UIControlStateNormal];
+    
     panel_mapa.hidden = NO;
     panel_tabla.hidden = YES;
 }

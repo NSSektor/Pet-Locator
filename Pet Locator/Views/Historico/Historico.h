@@ -15,10 +15,7 @@
 
 @interface Historico : UIViewController<GMSMapViewDelegate,SOAPToolDelegate, NSXMLParserDelegate,UITableViewDataSource, UITableViewDelegate>{
     
-    __weak IBOutlet UILabel     *lbl_hoy;
-    __weak IBOutlet UILabel     *lbl_ayer;
-    __weak IBOutlet UILabel     *lbl_tabular;
-    __weak IBOutlet UILabel     *lbl_mapa;
+    
     __weak IBOutlet UIButton   *btn_hoy;
     __weak IBOutlet UIButton   *btn_ayer;
     __weak IBOutlet UIButton   *btn_tabular;
@@ -55,5 +52,7 @@
 -(IBAction)setMap:(id)sender;
 
 -(IBAction)actualizarTimer:(id)sender;
+
+-(UIImage *)imageWithColor:(UIColor *)color;
 
 @end

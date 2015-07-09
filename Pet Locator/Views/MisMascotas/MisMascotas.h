@@ -29,7 +29,10 @@
     UIActivityIndicatorView* actividad_global;
     
     __weak IBOutlet UISearchBar* searchBar_;
-    __weak IBOutlet UIButton* btn_actualizar;
+    __weak IBOutlet UILabel* lbl_actualizar;
+    __weak IBOutlet UIImageView* img_actualizar;
+  //  __weak IBOutlet UIButton* btn_actualizar;
+    __weak IBOutlet UIButton* btn_atras;
     __weak IBOutlet UIView* contenedor_vista;
     __weak IBOutlet UIView* contenedor_menu;
     __weak IBOutlet UIButton* btn_menu;
@@ -47,5 +50,9 @@
 -(void)LeeArchivos;
 -(void)LimpiaArreglosTemporales;
 -(IBAction)ShowMenu:(id)sender;
+-(NSString*)DameHoraActual;
+-(void)LeeHoraGuardada;
+-(void)EscribeHora;
+-(IBAction)Atras:(id)sender;
 
 @end

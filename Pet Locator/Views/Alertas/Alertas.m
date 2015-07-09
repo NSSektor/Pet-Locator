@@ -145,6 +145,13 @@ UIRefreshControl* refreshControl;
     
     [btn_atras addTarget:self action:@selector(MisMascotas:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    [btn_marcar_leidas setTitle:@"Marcar\ncomo leidas" forState:UIControlStateNormal];
+    
+    btn_marcar_leidas.titleLabel. numberOfLines = 2; // Dynamic number of lines
+    btn_marcar_leidas.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [btn_marcar_leidas.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    
     [btn_marcar_leidas addTarget:self action:@selector(MarcarLeidas:) forControlEvents:UIControlEventTouchUpInside];
 }
 

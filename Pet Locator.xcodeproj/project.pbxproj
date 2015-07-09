@@ -59,6 +59,12 @@
 		884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */; };
 		884315861B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */; };
 		884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */; };
+		885B145D1B4F2BA200859004 /* Geocercas.m in Sources */ = {isa = PBXBuildFile; fileRef = 885B145C1B4F2BA200859004 /* Geocercas.m */; };
+		885B14601B4F2BD400859004 /* Geocercas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B145F1B4F2BD400859004 /* Geocercas_iPhone.xib */; };
+		885B14621B4F2BFB00859004 /* Geocercas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14611B4F2BFB00859004 /* Geocercas_iPhone5.xib */; };
+		885B14641B4F2C2700859004 /* Geocercas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14631B4F2C2700859004 /* Geocercas_iPhone6.xib */; };
+		885B14661B4F2C4700859004 /* Geocercas_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14651B4F2C4700859004 /* Geocercas_iPhone6plus.xib */; };
+		885B14681B4F2CB000859004 /* Geocercas_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14671B4F2CB000859004 /* Geocercas_iPad.xib */; };
 		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
 		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
@@ -168,6 +174,13 @@
 		884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6.xib; sourceTree = "<group>"; };
 		884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6plus.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6plus.xib; sourceTree = "<group>"; };
 		884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPad.xib; path = Views/BlogDeFido/BlogDeFido_iPad.xib; sourceTree = "<group>"; };
+		885B145B1B4F2BA200859004 /* Geocercas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geocercas.h; path = Views/Geocercas/Geocercas.h; sourceTree = "<group>"; };
+		885B145C1B4F2BA200859004 /* Geocercas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geocercas.m; path = Views/Geocercas/Geocercas.m; sourceTree = "<group>"; };
+		885B145F1B4F2BD400859004 /* Geocercas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone.xib; path = Views/Geocercas/Geocercas_iPhone.xib; sourceTree = "<group>"; };
+		885B14611B4F2BFB00859004 /* Geocercas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone5.xib; path = Views/Geocercas/Geocercas_iPhone5.xib; sourceTree = "<group>"; };
+		885B14631B4F2C2700859004 /* Geocercas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone6.xib; path = Views/Geocercas/Geocercas_iPhone6.xib; sourceTree = "<group>"; };
+		885B14651B4F2C4700859004 /* Geocercas_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone6plus.xib; path = Views/Geocercas/Geocercas_iPhone6plus.xib; sourceTree = "<group>"; };
+		885B14671B4F2CB000859004 /* Geocercas_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPad.xib; path = Views/Geocercas/Geocercas_iPad.xib; sourceTree = "<group>"; };
 		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
 		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
@@ -399,6 +412,20 @@
 			name = BlogDeFido;
 			sourceTree = "<group>";
 		};
+		885B145E1B4F2BA900859004 /* Geocercas */ = {
+			isa = PBXGroup;
+			children = (
+				885B145B1B4F2BA200859004 /* Geocercas.h */,
+				885B145C1B4F2BA200859004 /* Geocercas.m */,
+				885B145F1B4F2BD400859004 /* Geocercas_iPhone.xib */,
+				885B14611B4F2BFB00859004 /* Geocercas_iPhone5.xib */,
+				885B14631B4F2C2700859004 /* Geocercas_iPhone6.xib */,
+				885B14651B4F2C4700859004 /* Geocercas_iPhone6plus.xib */,
+				885B14671B4F2CB000859004 /* Geocercas_iPad.xib */,
+			);
+			name = Geocercas;
+			sourceTree = "<group>";
+		};
 		88C02C8D1B39AE8400DEF83A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +438,7 @@
 				88F08E971B4AD38300221DE7 /* UltimaPosicion */,
 				883D00DD1B4C89B900815C4B /* Historico */,
 				8843157E1B4B3BE10030DB6E /* BlogDeFido */,
+				885B145E1B4F2BA900859004 /* Geocercas */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -648,13 +676,16 @@
 				884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */,
 				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
 				88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */,
+				885B14681B4F2CB000859004 /* Geocercas_iPad.xib in Resources */,
 				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
 				88DE457F1B3B149C0021B866 /* Login_iPhone5.xib in Resources */,
+				885B14621B4F2BFB00859004 /* Geocercas_iPhone5.xib in Resources */,
 				884315821B4B3F800030DB6E /* BlogDeFido_iPhone5.xib in Resources */,
 				883D00BB1B4C527E00815C4B /* UltimaPosicion_iPhone6plus.xib in Resources */,
 				883D00BD1B4C535200815C4B /* UltimaPosicion_iPad.xib in Resources */,
 				88F9E5DE1B38D0C8009D68D9 /* Images.xcassets in Resources */,
 				884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */,
+				885B14641B4F2C2700859004 /* Geocercas_iPhone6.xib in Resources */,
 				883D00D71B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib in Resources */,
 				88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */,
 				883D00E71B4D9DA000815C4B /* Historico_iPad.xib in Resources */,
@@ -670,6 +701,7 @@
 				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
 				88DE45831B3B14DD0021B866 /* Login_iPhone6plus.xib in Resources */,
 				884315801B4B3C090030DB6E /* BlogDeFido_iPhone.xib in Resources */,
+				885B14661B4F2C4700859004 /* Geocercas_iPhone6plus.xib in Resources */,
 				88DE457D1B3B14740021B866 /* Login_iPhone.xib in Resources */,
 				881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */,
 				88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */,
@@ -679,6 +711,7 @@
 				883D00E31B4D9CC100815C4B /* Historico_iPhone6.xib in Resources */,
 				883D00DF1B4D915300815C4B /* Historico_iPhone.xib in Resources */,
 				88DE45851B3B14FC0021B866 /* Login_iPad.xib in Resources */,
+				885B14601B4F2BD400859004 /* Geocercas_iPhone.xib in Resources */,
 				88FCB9271B39E43B00233CFF /* Bienvenida_iPhone5.xib in Resources */,
 				883D00C31B4C6E0D00815C4B /* Alertas_iPhone.xib in Resources */,
 				883D00D31B4C831B00815C4B /* DetalleAlerta_iPhone5.xib in Resources */,
@@ -739,6 +772,7 @@
 				88FCB9231B39E32400233CFF /* Bienvenida.m in Sources */,
 				883D00C01B4C567D00815C4B /* Alertas.m in Sources */,
 				88F08E961B4AD37700221DE7 /* UltimaPosicion.m in Sources */,
+				885B145D1B4F2BA200859004 /* Geocercas.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
 				883ED6A81B41F1FD004D831A /* Reachability.m in Sources */,
 				883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */,

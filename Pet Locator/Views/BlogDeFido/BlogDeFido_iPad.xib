@@ -19,21 +19,24 @@
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="El Blog de Fido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyA-3O-hZ0">
-                            <rect key="frame" x="100" y="20" width="568" height="50"/>
+                            <rect key="frame" x="10" y="20" width="678" height="50"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="zzo-3m-moV">
-                            <rect key="frame" x="293" y="974" width="183" height="50"/>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uf1-0l-5Bc">
-                            <rect key="frame" x="0.0" y="10" width="105" height="60"/>
+                            <rect key="frame" x="0.0" y="20" width="50" height="50"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
-                            <state key="normal" title="&lt;">
+                            <state key="normal" image="back">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petlocator_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yXP-iD-54n">
+                            <rect key="frame" x="708" y="20" width="50" height="50"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="zzo-3m-moV">
+                            <rect key="frame" x="293" y="974" width="183" height="50"/>
+                        </imageView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-Oi-jEW">
                             <rect key="frame" x="0.0" y="80" width="768" height="894"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,6 +49,8 @@
         </view>
     </objects>
     <resources>
+        <image name="back" width="100" height="100"/>
         <image name="logo_horizontal" width="233" height="64"/>
+        <image name="petlocator_logo" width="112" height="107"/>
     </resources>
 </document>

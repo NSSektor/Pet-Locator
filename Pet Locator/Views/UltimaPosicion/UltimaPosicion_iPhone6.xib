@@ -31,21 +31,21 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mfu-DS-LdR">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mis Mascotas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-Vs-TMw">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-Vs-TMw">
                             <rect key="frame" x="32" y="20" width="320" height="35"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fh1-tW-kAl">
-                            <rect key="frame" x="0.0" y="20" width="46" height="30"/>
+                            <rect key="frame" x="10" y="20" width="30" height="30"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
-                            <state key="normal" title="&lt;">
+                            <state key="normal" image="back">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petlocator_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Oqy-KP-qST">
-                            <rect key="frame" x="340" y="25" width="25" height="25"/>
+                            <rect key="frame" x="335" y="20" width="30" height="30"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo_perro" translatesAutoresizingMaskIntoConstraints="NO" id="vPI-39-TLO">
                             <rect key="frame" x="0.0" y="55" width="375" height="234"/>
@@ -150,6 +150,7 @@
         </view>
     </objects>
     <resources>
+        <image name="back" width="100" height="100"/>
         <image name="fondo_mensaje" width="289" height="289"/>
         <image name="fondo_perro" width="592" height="370"/>
         <image name="petlocator_logo" width="112" height="107"/>
