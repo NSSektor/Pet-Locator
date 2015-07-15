@@ -35,6 +35,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *img_bateria;
 @property (nonatomic, weak) IBOutlet UILabel     *lbl_error;
 
+@property (nonatomic, weak) NSString* id_celda;
+
 /**Histórico**/
 
 @end

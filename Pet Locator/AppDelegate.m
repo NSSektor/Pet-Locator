@@ -52,6 +52,7 @@ NSMutableArray* MAubicacion;
 NSMutableArray* MAevento;
 NSMutableArray* MAbateria;
 NSMutableArray* MAcargando;
+NSInteger index_sel;
 
 @interface AppDelegate ()
 

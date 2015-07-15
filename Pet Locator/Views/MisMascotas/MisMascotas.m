@@ -12,6 +12,7 @@
 #import "UltimaPosicion.h"
 #import "MenuPrincipal.h"
 #import "Alertas.h"
+#import "Geocercas.h"
 
 extern NetworkStatus returnValue;
 extern NSString* documentsDirectory;
@@ -930,24 +931,10 @@ NSString* evento;
         
     }
     if (indexPath.row == 2) {
-      /*  NSString* view_name = @"Geocercas";
-        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            if (screenSize.height == 568.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone5"];
-            else if (screenSize.height == 667.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone6"];
-            else if (screenSize.height == 736.0f)
-                view_name = [view_name stringByAppendingString:@"_iPhone6plus"];
-        }
-        else
-            view_name = [view_name stringByAppendingString:@"_iPad"];
-        
-        
-        Geocercas *view = [[Geocercas alloc] initWithNibName:view_name bundle:nil];
+        Geocercas *view = [[Geocercas alloc] initWithNibName:[NSString stringWithFormat:@"Geocercas_%@", dispositivo] bundle:nil];
         view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:view animated:YES completion:nil];
-        */
+        
     }
     if (indexPath.row == 3 && admin_usr==NO) {
     /*    form_Ayuda = @"MisMascotas";
