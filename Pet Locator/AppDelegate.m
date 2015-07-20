@@ -14,6 +14,11 @@
 #import "MisMascotas.h"
 #import "MenuPrincipal.h"
 
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
+#import "Login.h"
+#import "Alertas.h"
 @import GoogleMaps;
 
 NSString* dispositivo;
@@ -22,6 +27,7 @@ NSString* GlobalString;
 NSString* GlobalUsu;
 NSString* Globalpass;
 NSString* url_webservice;
+NSString* DeviceToken;
 BOOL admin_usr;
 NSString* id_usr;
 BOOL actualizar_tabla;
@@ -63,6 +69,15 @@ NSInteger index_sel;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UAConfig *config = [UAConfig defaultConfig];
+    [UAirship takeOff:config];
+    [UAirship push].userNotificationTypes = (UIUserNotificationTypeAlert |
+                                             UIUserNotificationTypeBadge |
+                                             UIUserNotificationTypeSound);
+    
+    [UAirship push].userPushNotificationsEnabled = YES;
+    
     
     [GMSServices provideAPIKey:@"AIzaSyBYG98x3J7wd8ktdQZmkYWjLX5A_ucRs4k"];
     
@@ -131,16 +146,81 @@ NSInteger index_sel;
                                     didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    UA_LINFO(@"Received remote notification (in appDelegate): %@", userInfo);
+    
+    if ([Globalpass isEqualToString:@""] && [Globalpass isEqualToString:@""]) {
+        Login *view = [[Login alloc] initWithNibName:[NSString stringWithFormat:@"Login_%@", dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        self.window.rootViewController = view;
+        
+    }
+    else{
+        Alertas *view = [[Alertas alloc] initWithNibName:[NSString stringWithFormat:@"Alertas_%@", dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        self.window.rootViewController = view;
+    }
+    
+    
+    
+    //
+    // Optionally provide a delegate that will be used to handle notifications received while the app is running
+    // [UAPush shared].pushNotificationDelegate = your custom push delegate class conforming to the UAPushNotificationDelegate protocol
+    
+    // Reset the badge after a push is received in a active or inactive state
+    if (application.applicationState != UIApplicationStateBackground) {
+        [[UAirship push] resetBadge];
+        [[UAirship push] setBadgeNumber:0];
+    }
+    
+    completionHandler(UIBackgroundFetchResultNoData);
 }
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"content---%@", token);
+    
+}
+
+- (void)registrationSucceededForChannelID:(NSString *)channelID deviceToken:(NSString *)deviceToken{
+    DeviceToken = deviceToken;
+}
+
+// Returns YES if the application is currently registered for remote notifications, taking into account any systemwide settings; doesn't relate to connectivity.
+- (BOOL)isRegisteredForRemoteNotifications{
+    return YES;
+}
+
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    UA_LTRACE(@"Application did register with user notification types %ld", (unsigned long)notificationSettings.types);
+    // [[UAPush shared] appRegisteredUserNotificationSettings];
+    [[UAirship push] appRegisteredUserNotificationSettings];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *) error {
+    UA_LERR(@"Application failed to register for remote notifications with error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    UA_LINFO(@"Application received remote notification: %@", userInfo);
+    [[UAirship push] appReceivedRemoteNotification:userInfo applicationState:application.applicationState];
+}
+
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())handler {
+    UA_LINFO(@"Received remote notification button interaction: %@ notification: %@", identifier, userInfo);
+    [[UAirship push] appReceivedActionWithIdentifier:identifier notification:userInfo applicationState:application.applicationState completionHandler:handler];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[UAirship push] resetBadge];
+    [[UAirship push] setBadgeNumber:0];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -154,11 +234,10 @@ NSInteger index_sel;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end
+

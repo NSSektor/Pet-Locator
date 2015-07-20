@@ -284,6 +284,7 @@ extern NSMutableArray* MAcargando;
     if ([error_ isEqualToString:@""]) {
     
         NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
+        
         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:txt_usuario.text ,txt_pass.text, @"1234567890", @"I",nil];
         
         [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];

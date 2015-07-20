@@ -552,10 +552,13 @@ NSString* evento;
     
     if ([error_ isEqualToString:@""]) {
         
-        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
-        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, @"1234567890", @"I",nil];
+       // NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
+       // NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, @"1234567890", @"I",nil];
         
-        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", nil];
+         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr ,nil];
+        
+        [soapTool callSoapServiceWithParameters__functionName:@"ResumenMascotas" tags:tags vars:vars wsdlURL:url_webservice];
         
         lbl_actualizar.text = @"Actualizando...";
         img_actualizar.hidden = YES;

@@ -99,6 +99,7 @@
 		88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB9281B39E45C00233CFF /* Bienvenida_iPhone6.xib */; };
 		88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB92A1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib */; };
 		88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCB92C1B39E4A000233CFF /* Bienvenida_iPad.xib */; };
+		88FEAD751B57151E0013DDE0 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88FEAD741B57151E0013DDE0 /* AirshipConfig.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,7 @@
 		88FCB9281B39E45C00233CFF /* Bienvenida_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone6.xib; path = Views/Bienvenida/Bienvenida_iPhone6.xib; sourceTree = "<group>"; };
 		88FCB92A1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPhone6plus.xib; path = Views/Bienvenida/Bienvenida_iPhone6plus.xib; sourceTree = "<group>"; };
 		88FCB92C1B39E4A000233CFF /* Bienvenida_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Bienvenida_iPad.xib; path = Views/Bienvenida/Bienvenida_iPad.xib; sourceTree = "<group>"; };
+		88FEAD741B57151E0013DDE0 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A89EB56DF4A64B341B8C0F1B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B5BA152E9EC010532E95D790 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -555,6 +557,7 @@
 			children = (
 				88F9E5D11B38D0C7009D68D9 /* Info.plist */,
 				88F9E5D21B38D0C7009D68D9 /* main.m */,
+				88FEAD741B57151E0013DDE0 /* AirshipConfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -629,7 +632,7 @@
 						CreatedOnToolsVersion = 6.3.2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -683,6 +686,7 @@
 				883D00B91B4C516000815C4B /* UltimaPosicion_iPhone6.xib in Resources */,
 				884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */,
 				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
+				88FEAD751B57151E0013DDE0 /* AirshipConfig.plist in Resources */,
 				88FCB9291B39E45C00233CFF /* Bienvenida_iPhone6.xib in Resources */,
 				885B14681B4F2CB000859004 /* Geocercas_iPad.xib in Resources */,
 				88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */,
