@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "Reachability.h"
 
 @interface MenuPrincipal : UIViewController{
     
@@ -34,9 +35,14 @@
     __weak IBOutlet UIButton* btn_alertas;
     __weak IBOutlet UILabel*  lbl_perfil;
     __weak IBOutlet UIImageView* img_perfil;
+    
+    Reachability* internetReachable;
+    Reachability* hostReachable;
 }
 
 -(IBAction)MisMascotas:(id)sender;
 -(IBAction)BlogDeFido:(id)sender;
+-(IBAction)VetAndCare:(id)sender;
+-(IBAction)Adoptame:(id)sender;
 
 @end

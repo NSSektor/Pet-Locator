@@ -39,4 +39,18 @@
 
 /**Histórico**/
 
+
+/****vet_and_care***/
+@property (nonatomic, weak) IBOutlet UIImageView *img_vet;
+@property (nonatomic, weak) IBOutlet UIImageView *img_flecha_verde;
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_nombre_vet;
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_telefono_vet;
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_responsable_vet;
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_servicios_vet;
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_separacion_vet;
+
+/****vet_and_care***/
+
+
+
 @end

@@ -12,6 +12,7 @@
 #import "UltimaPosicion.h"
 #import "MenuPrincipal.h"
 #import "Alertas.h"
+#import "Login.h"
 #import "Geocercas.h"
 
 extern NetworkStatus returnValue;
@@ -52,6 +53,8 @@ extern NSMutableArray* MAubicacion;
 extern NSMutableArray* MAevento;
 extern NSMutableArray* MAbateria;
 extern NSMutableArray* MAcargando;
+
+extern NSString* DeviceToken;
 
 NSString* nombre_perro;
 NSString* raza_perro;
@@ -101,6 +104,7 @@ NSString* evento;
     BOOL Show;
     NSArray* array_menu;
     NSArray* array_menu_img;
+    NSString* metodo;
 }
 
 @end
@@ -200,7 +204,7 @@ NSString* evento;
     
     if (actualizar_tabla==YES) {
         contenedor_animacion.hidden = YES;
-        [self Actualizar];
+     //   [self Actualizar];
     }
     
 }
@@ -245,13 +249,14 @@ NSString* evento;
         size_collection_cell = CGSizeMake(370, 370);
     }
     
-    if (admin_usr==YES) {
+  /*  if (admin_usr==YES) {
+   Lo de admin_usr
         array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Resumen", @"Ayuda", @"Cerrar sesión", nil ];
         array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas.png", @"alertas.png", @"geocercas.png",@"icono_reporte.png", @"ayuda.png", @"cerrar_sesion.png", nil ];
-    }else{
+    }else{*/
         array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Ayuda", @"Cerrar sesión", nil ];
-        array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas.png", @"alertas.png", @"geocercas.png",@"ayuda.png", @"cerrar_sesion.png", nil ];
-    }
+        array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas_menu", @"alertas_menu", @"geocercas_menu",@"ayuda_menu", @"cerrar_sesion_menu", nil ];
+   // }
 
     
     
@@ -267,6 +272,8 @@ NSString* evento;
   //  [btn_actualizar addTarget:self action:@selector(Actualizar) forControlEvents:UIControlEventTouchUpInside];
     
     [btn_menu addTarget:self action:@selector(ShowMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [btn_esconder addTarget:self action:@selector(ShowMenu:) forControlEvents:UIControlEventTouchUpInside];
 
     
     [btn_atras addTarget:self action:@selector(Atras:) forControlEvents:UIControlEventTouchUpInside];
@@ -312,26 +319,26 @@ NSString* evento;
 }
 
 -(IBAction)ShowMenu:(id)sender{
-    CGRect frame_panel_menu = contenedor_menu.frame;
-    CGRect frame_panel_vista = contenedor_vista.frame;
+   // CGRect frame_panel_menu = contenedor_menu.frame;
+   // CGRect frame_panel_vista = contenedor_vista.frame;
     if (Show) {
-        contenedor_invisible.hidden = YES;
         Show = NO;
-        frame_panel_menu.origin.x = self.view.frame.size.width;
-        frame_panel_vista.origin.x = 0;
+        blurContainerView.hidden = YES;
     }
     else{
+        [self captureBlur];
         Show = YES;
-        contenedor_invisible.hidden = NO;
+        blurContainerView.hidden = NO;
+      /*  contenedor_invisible.hidden = NO;
         frame_panel_menu.origin.x = self.view.frame.size.width - (contenedor_menu.frame.size.width);
-        frame_panel_vista.origin.x = contenedor_vista.frame.origin.x -  (contenedor_menu.frame.size.width);
+        frame_panel_vista.origin.x = contenedor_vista.frame.origin.x -  (contenedor_menu.frame.size.width);*/
     }
     
-    [UIView beginAnimations:Nil context:nil];
+ /*   [UIView beginAnimations:Nil context:nil];
     [UIView setAnimationDuration:0.9];
     contenedor_vista.frame = frame_panel_vista;
     contenedor_menu.frame = frame_panel_menu;
-    [UIView commitAnimations];
+    [UIView commitAnimations];*/
 }
 
 -(void)EscribeArchivos{
@@ -542,6 +549,8 @@ NSString* evento;
     FileName = [NSString stringWithFormat:@"%@/MAcargando.txt", documentsDirectory];
     MAcargando = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
     MAcargando_tem = [[NSMutableArray alloc]initWithContentsOfFile:FileName];
+    
+    id_usr = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/id_usr.txt", documentsDirectory] usedEncoding:nil error:nil];
 }
 
 -(void)Actualizar{
@@ -552,18 +561,26 @@ NSString* evento;
     
     if ([error_ isEqualToString:@""]) {
         
-       // NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
-       // NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, @"1234567890", @"I",nil];
+        NSLog(@"%@",DeviceToken);
         
-        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", nil];
-         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr ,nil];
+        if ([DeviceToken isKindOfClass:[NSNull class]] || DeviceToken==NULL || DeviceToken == nil) {
+            DeviceToken = @"";
+        }
         
-        [soapTool callSoapServiceWithParameters__functionName:@"ResumenMascotas" tags:tags vars:vars wsdlURL:url_webservice];
+        
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, DeviceToken, @"I",nil];
+        
+    //    NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", nil];
+     //    NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr ,nil];
+        
+        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];
+        
+        metodo = @"Login";
         
         lbl_actualizar.text = @"Actualizando...";
         img_actualizar.hidden = YES;
-        
-        //  contenedor_animacion.hidden = NO;
+
     }
     else{
         [[[UIAlertView alloc]initWithTitle:@"Pet Locator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
@@ -598,33 +615,39 @@ NSString* evento;
 
 //xml
 -(void)parserDidStartDocument:(NSXMLParser *)parser {
+    
     NSLog(@"The XML document is now being parsed.");
-    MAid_mascota       = [[NSMutableArray alloc]init];
-    MAid_tracker       = [[NSMutableArray alloc]init];
-    MAimei             = [[NSMutableArray alloc]init];
-    MAnombre_mascotas  = [[NSMutableArray alloc]init];
-    MAespecie_mascotas = [[NSMutableArray alloc]init];
-    MAraza_mascotas    = [[NSMutableArray alloc]init];
-    MAimagen_mascotas  = [[NSMutableArray alloc]init];
-    MAaniversario      = [[NSMutableArray alloc]init];
-    MAedad             = [[NSMutableArray alloc]init];
-    MAalta             = [[NSMutableArray alloc]init];
-    MAestatus          = [[NSMutableArray alloc]init];
-    MAid_geocerca      = [[NSMutableArray alloc]init];
-    MAgeocerca         = [[NSMutableArray alloc]init];
-    MAicono_geocerca   = [[NSMutableArray alloc]init];
-    MAfecha            = [[NSMutableArray alloc]init];
-    MAlatitud          = [[NSMutableArray alloc]init];
-    MAlongitud         = [[NSMutableArray alloc]init];
-    MAvelocidad        = [[NSMutableArray alloc]init];
-    MAangulo           = [[NSMutableArray alloc]init];
-    MAmovimiento       = [[NSMutableArray alloc]init];
-    MAradio            = [[NSMutableArray alloc]init];
-    MAubicacion        = [[NSMutableArray alloc]init];
-    MAevento           = [[NSMutableArray alloc]init];
-    MAbateria          = [[NSMutableArray alloc]init];
-    MAcargando         = [[NSMutableArray alloc]init];
-    actualiza_imagenes = YES;
+    if([metodo isEqualToString:@"Login"]){
+        
+        MAid_mascota       = [[NSMutableArray alloc]init];
+        MAid_tracker       = [[NSMutableArray alloc]init];
+        MAimei             = [[NSMutableArray alloc]init];
+        MAnombre_mascotas  = [[NSMutableArray alloc]init];
+        MAespecie_mascotas = [[NSMutableArray alloc]init];
+        MAraza_mascotas    = [[NSMutableArray alloc]init];
+        MAimagen_mascotas  = [[NSMutableArray alloc]init];
+        MAaniversario      = [[NSMutableArray alloc]init];
+        MAedad             = [[NSMutableArray alloc]init];
+        MAalta             = [[NSMutableArray alloc]init];
+        MAestatus          = [[NSMutableArray alloc]init];
+        MAid_geocerca      = [[NSMutableArray alloc]init];
+        MAgeocerca         = [[NSMutableArray alloc]init];
+        MAicono_geocerca   = [[NSMutableArray alloc]init];
+        MAfecha            = [[NSMutableArray alloc]init];
+        MAlatitud          = [[NSMutableArray alloc]init];
+        MAlongitud         = [[NSMutableArray alloc]init];
+        MAvelocidad        = [[NSMutableArray alloc]init];
+        MAangulo           = [[NSMutableArray alloc]init];
+        MAmovimiento       = [[NSMutableArray alloc]init];
+        MAradio            = [[NSMutableArray alloc]init];
+        MAubicacion        = [[NSMutableArray alloc]init];
+        MAevento           = [[NSMutableArray alloc]init];
+        MAbateria          = [[NSMutableArray alloc]init];
+        MAcargando         = [[NSMutableArray alloc]init];
+        actualiza_imagenes = YES;
+    }
+    
+    
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
@@ -664,8 +687,8 @@ NSString* evento;
         GlobalUsu = [currentElementString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([elementName isEqualToString:@"pass_usr"])
         Globalpass = [currentElementString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if ([elementName isEqualToString:@"admin_usr"] && ![[currentElementString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])
-        admin_usr = YES;
+    /*if ([elementName isEqualToString:@"admin_usr"] && ![[currentElementString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""])
+        admin_usr = YES;*/
     if ([elementName isEqualToString:@"id_mascota"])
         [MAid_mascota addObject:[currentElementString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     if ([elementName isEqualToString:@"id_tracker"])
@@ -744,42 +767,61 @@ NSString* evento;
         [self LeeHoraGuardada];
     }
     else{
-        if (actualiza_imagenes == YES ) {
-            for (int i = 0; i<[MAimagen_mascotas count]; i++) {
-                
-                NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-                NSString* foofile = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
-                
-                
-                NSArray* words = [[MAimagen_mascotas objectAtIndex:i] componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                NSString* nospacestring = [words componentsJoinedByString:@""];
-                UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:nospacestring]]];
-                if (pImage==nil) {
-                    pImage = [UIImage imageNamed:@"sin_foto.png"];
+        if([metodo isEqualToString:@"Login"]){
+            if (actualiza_imagenes == YES ) {
+                for (int i = 0; i<[MAimagen_mascotas count]; i++) {
+                    
+                    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                    NSString* foofile = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@",[[MAid_mascota objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],@".png"]];
+                    
+                    
+                    NSArray* words = [[MAimagen_mascotas objectAtIndex:i] componentsSeparatedByCharactersInSet :[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    NSString* nospacestring = [words componentsJoinedByString:@""];
+                    UIImage *pImage=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:nospacestring]]];
+                    if (pImage==nil) {
+                        pImage = [UIImage imageNamed:@"sin_foto.png"];
+                    }
+                    NSData *webData = UIImagePNGRepresentation(pImage);
+                    
+                    [webData writeToFile:foofile atomically:YES];
                 }
-                NSData *webData = UIImagePNGRepresentation(pImage);
-                
-                [webData writeToFile:foofile atomically:YES];
+                actualiza_imagenes = NO;
             }
-            actualiza_imagenes = NO;
+            
+            [self EscribeArchivos];
+            [self EscribeHora];
+            
+         /*lo de admin usr
+            if (admin_usr==YES) {
+                array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Resumen", @"Ayuda", @"Cerrar sesión", nil ];
+                array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas.png", @"alertas.png", @"geocercas.png",@"icono_reporte.png", @"ayuda.png", @"cerrar_sesion.png", nil ];
+            }else{*/
+            array_menu = [[NSArray alloc]initWithObjects:@"Mis mascotas", @"Alertas", @"Geocercas", @"Ayuda", @"Cerrar sesión", nil ];
+            array_menu_img = [[NSArray alloc]initWithObjects:@"mis_mascotas_menu", @"alertas_menu", @"geocercas_menu",@"ayuda_menu", @"cerrar_sesion_menu", nil ];
+       //     }
+            
+            
+            
+        }else{
+            [@"Error" writeToFile:[NSString stringWithFormat:@"%@/ConfigFile.txt", documentsDirectory] atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+            
+            Bienvenida *view = [[Bienvenida alloc] initWithNibName:[NSString stringWithFormat:@"Bienvenida_%@",dispositivo]bundle:nil];
+            view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            [self presentViewController:view animated:YES completion:nil];
         }
         
-        [self EscribeArchivos];
-        [self EscribeHora];
+    }
+    if([metodo isEqualToString:@"Login"]){
+        [self.collectionView reloadData];
+        
+        contenedor_animacion.hidden = YES;
+        if (actividad_global.isHidden)
+            actividad_global.hidden = NO;
+        [refreshControl endRefreshing];
+        actualizar_tabla = NO;
+        [tbl_menu reloadData];
     }
     
-    [self.collectionView reloadData];
-    
-    
-   /* MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@", dispositivo] bundle:nil];
-    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:view animated:YES completion:nil];*/
-    
-    contenedor_animacion.hidden = YES;
-    if (actividad_global.isHidden)
-        actividad_global.hidden = NO;
-    [refreshControl endRefreshing];
-    actualizar_tabla = NO;
     
     
     
@@ -915,6 +957,9 @@ NSString* evento;
             cell = [nib objectAtIndex:12];
         
     }
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [UIView new];
+    cell.selectedBackgroundView = [UIView new];
     cell.lbl_menu.text = [array_menu objectAtIndex:indexPath.row];
     cell.img_menu.image = [UIImage imageNamed:[array_menu_img objectAtIndex:indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -966,11 +1011,11 @@ NSString* evento;
     }
     
     if (indexPath.row == 4 && admin_usr==NO) {
-     /*   metodo = @"Cerrar sesión";
-        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
-        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:GlobalUsu ,Globalpass, DeviceToken, @"I",nil];
-        NSLog(@"%@%@",GlobalUsu, Globalpass);
-        [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];*/
+        contenedor_animacion.hidden = NO;
+        metodo = @"Cerrar sesión";
+        NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", @"push_token", nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr, DeviceToken, nil];
+        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:url_webservice];
     }
     if (indexPath.row == 4 && admin_usr ==YES) {
   /*      form_Ayuda = @"MisMascotas";
@@ -980,10 +1025,11 @@ NSString* evento;
         
     }
     if (indexPath.row==5) {
-   /*     metodo = @"Cerrar sesión";
+        contenedor_animacion.hidden = NO;
+        metodo = @"Cerrar sesión";
         NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"id_usuario", @"push_token", nil];
         NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:id_usr, DeviceToken, nil];
-        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];*/
+        [soapTool callSoapServiceWithParameters__functionName:@"CierraSesion" tags:tags vars:vars wsdlURL:url_webservice];
     }
     
     
@@ -1121,6 +1167,33 @@ NSString* evento;
     [self.collectionView reloadData];
     
     [self->searchBar_ resignFirstResponder];
+}
+
+- (void) captureBlur {
+    
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CIFilter *gaussianBlurFilter = [CIFilter filterWithName: @"CIGaussianBlur"];
+    [gaussianBlurFilter setValue:[CIImage imageWithCGImage:viewImage.CGImage] forKey: @"inputImage"];
+    [gaussianBlurFilter setValue:[NSNumber numberWithFloat: 3] forKey: @"inputRadius"];
+    CIImage *resultImage = [gaussianBlurFilter valueForKey: @"outputImage"];
+    
+    //create UIImage from filtered image
+    blurrredImage = [[UIImage alloc] initWithCIImage:resultImage];
+    
+    
+    //Place the UIImage in a UIImageView
+    UIImageView *newView = [[UIImageView alloc] initWithFrame:CGRectMake(((self.view.frame.size.width - blurrredImage.size.width) / 2), ((self.view.frame.size.height - blurrredImage.size.height) / 2), blurrredImage.size.width, blurrredImage.size.height)];
+    newView.image = blurrredImage;
+    
+    //insert blur UIImageView below transparent view inside the blur image container
+    [blurContainerView insertSubview:newView belowSubview:transparentView];
+    blurContainerView.hidden = NO;
+    
+    
 }
 
 /*

@@ -37,6 +37,8 @@
 		883D00E71B4D9DA000815C4B /* Historico_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883D00E61B4D9DA000815C4B /* Historico_iPad.xib */; };
 		883ED6A81B41F1FD004D831A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6A71B41F1FD004D831A /* Reachability.m */; };
 		883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 883ED6AD1B41F2B2004D831A /* SYSoapTool.m */; };
+		883FB2251B86878700646063 /* VetAndCare.m in Sources */ = {isa = PBXBuildFile; fileRef = 883FB2241B86878700646063 /* VetAndCare.m */; };
+		883FB2271B86880500646063 /* VetAndCare_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883FB2261B86880500646063 /* VetAndCare_iPhone.xib */; };
 		884315561B4AE0840030DB6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884315551B4AE0840030DB6E /* Foundation.framework */; };
 		884315581B4AE0900030DB6E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884315571B4AE0900030DB6E /* AVFoundation.framework */; };
 		8843155A1B4AE0980030DB6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884315591B4AE0980030DB6E /* CoreData.framework */; };
@@ -59,12 +61,24 @@
 		884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */; };
 		884315861B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */; };
 		884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */; };
+		8858FE7A1B897E6500482F53 /* VetAndCare_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858FE791B897E6500482F53 /* VetAndCare_iPhone5.xib */; };
+		8858FE7C1B89867700482F53 /* VetAndCare_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858FE7B1B89867700482F53 /* VetAndCare_iPhone6.xib */; };
+		8858FE7E1B8A21CC00482F53 /* VetAndCare_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858FE7D1B8A21CC00482F53 /* VetAndCare_iPhone6plus.xib */; };
+		8858FE801B8A2FB800482F53 /* VetAndCare_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858FE7F1B8A2FB800482F53 /* VetAndCare_iPad.xib */; };
 		885B145D1B4F2BA200859004 /* Geocercas.m in Sources */ = {isa = PBXBuildFile; fileRef = 885B145C1B4F2BA200859004 /* Geocercas.m */; };
 		885B14601B4F2BD400859004 /* Geocercas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B145F1B4F2BD400859004 /* Geocercas_iPhone.xib */; };
 		885B14621B4F2BFB00859004 /* Geocercas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14611B4F2BFB00859004 /* Geocercas_iPhone5.xib */; };
 		885B14641B4F2C2700859004 /* Geocercas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14631B4F2C2700859004 /* Geocercas_iPhone6.xib */; };
 		885B14661B4F2C4700859004 /* Geocercas_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14651B4F2C4700859004 /* Geocercas_iPhone6plus.xib */; };
 		885B14681B4F2CB000859004 /* Geocercas_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885B14671B4F2CB000859004 /* Geocercas_iPad.xib */; };
+		887D476D1B7CFB4500CDE39A /* AsignaGeocerca.m in Sources */ = {isa = PBXBuildFile; fileRef = 887D476B1B7CFB4500CDE39A /* AsignaGeocerca.m */; };
+		887D47701B7E97D800CDE39A /* AsignaGeocerca_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887D476F1B7E97D800CDE39A /* AsignaGeocerca_iPhone.xib */; };
+		8881C0371B826B4900392A4A /* AsignaGeocerca_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8881C0361B826B4800392A4A /* AsignaGeocerca_iPhone5.xib */; };
+		8881C0391B8281B600392A4A /* AsignaGeocerca_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8881C0381B8281B600392A4A /* AsignaGeocerca_iPhone6.xib */; };
+		8881C03B1B82827200392A4A /* AsignaGeocerca_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8881C03A1B82827200392A4A /* AsignaGeocerca_iPhone6plus.xib */; };
+		8881C03D1B82847200392A4A /* AsignaGeocerca_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8881C03C1B82847200392A4A /* AsignaGeocerca_iPad.xib */; };
+		8881C0401B82A85200392A4A /* Incidencias.m in Sources */ = {isa = PBXBuildFile; fileRef = 8881C03F1B82A85200392A4A /* Incidencias.m */; };
+		8881C0421B82AFBD00392A4A /* Incidencias_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8881C0411B82AFBD00392A4A /* Incidencias_iPhone.xib */; };
 		88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */; };
 		88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */; };
 		88C02C931B39B04F00DEF83A /* MisMascotas_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */; };
@@ -81,6 +95,11 @@
 		88DE45891B3B1E430021B866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DE45881B3B1E430021B866 /* FBSDKLoginKit.framework */; };
 		88EC3DB01B431C6C00946A50 /* MenuPrincipal.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EC3DAE1B431C6C00946A50 /* MenuPrincipal.m */; };
 		88EC3DB31B431D9E00946A50 /* MenuPrincipal_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EC3DB21B431D9E00946A50 /* MenuPrincipal_iPhone.xib */; };
+		88ED90FF1B8BD4DC00395974 /* Adoptame.m in Sources */ = {isa = PBXBuildFile; fileRef = 88ED90FE1B8BD4DC00395974 /* Adoptame.m */; };
+		88ED91011B8BD51F00395974 /* Adoptame_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88ED91001B8BD51F00395974 /* Adoptame_iPhone.xib */; };
+		88ED91031B8D183B00395974 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88ED91021B8D183B00395974 /* MessageUI.framework */; };
+		88ED91051B8D213200395974 /* Adoptame_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88ED91041B8D213200395974 /* Adoptame_iPhone5.xib */; };
+		88ED91071B8D23E900395974 /* Adoptame_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88ED91061B8D23E900395974 /* Adoptame_iPhone6.xib */; };
 		88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F01B44492F002D1E7B /* MenuPrincipal_iPhone5.xib */; };
 		88EE75F51B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F41B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib */; };
 		88EE75F71B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88EE75F61B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib */; };
@@ -149,6 +168,9 @@
 		883ED6A71B41F1FD004D831A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Reachability/Reachability.m; sourceTree = "<group>"; };
 		883ED6AC1B41F2B2004D831A /* SYSoapTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SYSoapTool.h; path = Classes/SYSoapTool/SYSoapTool.h; sourceTree = "<group>"; };
 		883ED6AD1B41F2B2004D831A /* SYSoapTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SYSoapTool.m; path = Classes/SYSoapTool/SYSoapTool.m; sourceTree = "<group>"; };
+		883FB2231B86878700646063 /* VetAndCare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VetAndCare.h; path = Views/VetAndCare/VetAndCare.h; sourceTree = "<group>"; };
+		883FB2241B86878700646063 /* VetAndCare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VetAndCare.m; path = Views/VetAndCare/VetAndCare.m; sourceTree = "<group>"; };
+		883FB2261B86880500646063 /* VetAndCare_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VetAndCare_iPhone.xib; path = Views/VetAndCare/VetAndCare_iPhone.xib; sourceTree = "<group>"; };
 		884315531B4ADFA60030DB6E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 		884315551B4AE0840030DB6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		884315571B4AE0900030DB6E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -175,6 +197,10 @@
 		884315831B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6.xib; sourceTree = "<group>"; };
 		884315851B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPhone6plus.xib; path = Views/BlogDeFido/BlogDeFido_iPhone6plus.xib; sourceTree = "<group>"; };
 		884315871B4B40D00030DB6E /* BlogDeFido_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BlogDeFido_iPad.xib; path = Views/BlogDeFido/BlogDeFido_iPad.xib; sourceTree = "<group>"; };
+		8858FE791B897E6500482F53 /* VetAndCare_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VetAndCare_iPhone5.xib; path = Views/VetAndCare/VetAndCare_iPhone5.xib; sourceTree = "<group>"; };
+		8858FE7B1B89867700482F53 /* VetAndCare_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VetAndCare_iPhone6.xib; path = Views/VetAndCare/VetAndCare_iPhone6.xib; sourceTree = "<group>"; };
+		8858FE7D1B8A21CC00482F53 /* VetAndCare_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VetAndCare_iPhone6plus.xib; path = Views/VetAndCare/VetAndCare_iPhone6plus.xib; sourceTree = "<group>"; };
+		8858FE7F1B8A2FB800482F53 /* VetAndCare_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VetAndCare_iPad.xib; path = Views/VetAndCare/VetAndCare_iPad.xib; sourceTree = "<group>"; };
 		885B145B1B4F2BA200859004 /* Geocercas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geocercas.h; path = Views/Geocercas/Geocercas.h; sourceTree = "<group>"; };
 		885B145C1B4F2BA200859004 /* Geocercas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geocercas.m; path = Views/Geocercas/Geocercas.m; sourceTree = "<group>"; };
 		885B145F1B4F2BD400859004 /* Geocercas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone.xib; path = Views/Geocercas/Geocercas_iPhone.xib; sourceTree = "<group>"; };
@@ -182,6 +208,16 @@
 		885B14631B4F2C2700859004 /* Geocercas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone6.xib; path = Views/Geocercas/Geocercas_iPhone6.xib; sourceTree = "<group>"; };
 		885B14651B4F2C4700859004 /* Geocercas_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPhone6plus.xib; path = Views/Geocercas/Geocercas_iPhone6plus.xib; sourceTree = "<group>"; };
 		885B14671B4F2CB000859004 /* Geocercas_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Geocercas_iPad.xib; path = Views/Geocercas/Geocercas_iPad.xib; sourceTree = "<group>"; };
+		887D476A1B7CFB4500CDE39A /* AsignaGeocerca.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsignaGeocerca.h; path = Views/AsignaGeocerca/AsignaGeocerca.h; sourceTree = "<group>"; };
+		887D476B1B7CFB4500CDE39A /* AsignaGeocerca.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsignaGeocerca.m; path = Views/AsignaGeocerca/AsignaGeocerca.m; sourceTree = "<group>"; };
+		887D476F1B7E97D800CDE39A /* AsignaGeocerca_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AsignaGeocerca_iPhone.xib; path = Views/AsignaGeocerca/AsignaGeocerca_iPhone.xib; sourceTree = "<group>"; };
+		8881C0361B826B4800392A4A /* AsignaGeocerca_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AsignaGeocerca_iPhone5.xib; path = Views/AsignaGeocerca/AsignaGeocerca_iPhone5.xib; sourceTree = "<group>"; };
+		8881C0381B8281B600392A4A /* AsignaGeocerca_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AsignaGeocerca_iPhone6.xib; path = Views/AsignaGeocerca/AsignaGeocerca_iPhone6.xib; sourceTree = "<group>"; };
+		8881C03A1B82827200392A4A /* AsignaGeocerca_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AsignaGeocerca_iPhone6plus.xib; path = Views/AsignaGeocerca/AsignaGeocerca_iPhone6plus.xib; sourceTree = "<group>"; };
+		8881C03C1B82847200392A4A /* AsignaGeocerca_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AsignaGeocerca_iPad.xib; path = Views/AsignaGeocerca/AsignaGeocerca_iPad.xib; sourceTree = "<group>"; };
+		8881C03E1B82A85200392A4A /* Incidencias.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Incidencias.h; path = Views/Incidencias/Incidencias.h; sourceTree = "<group>"; };
+		8881C03F1B82A85200392A4A /* Incidencias.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Incidencias.m; path = Views/Incidencias/Incidencias.m; sourceTree = "<group>"; };
+		8881C0411B82AFBD00392A4A /* Incidencias_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Incidencias_iPhone.xib; path = Views/Incidencias/Incidencias_iPhone.xib; sourceTree = "<group>"; };
 		88C02C8E1B39AFBA00DEF83A /* MisMascotas_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone.xib; path = Views/MisMascotas/MisMascotas_iPhone.xib; sourceTree = "<group>"; };
 		88C02C901B39B01700DEF83A /* MisMascotas_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone5.xib; path = Views/MisMascotas/MisMascotas_iPhone5.xib; sourceTree = "<group>"; };
 		88C02C921B39B04F00DEF83A /* MisMascotas_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MisMascotas_iPhone6.xib; path = Views/MisMascotas/MisMascotas_iPhone6.xib; sourceTree = "<group>"; };
@@ -200,6 +236,12 @@
 		88EC3DAD1B431C6C00946A50 /* MenuPrincipal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPrincipal.h; path = Views/MenuPrincipal/MenuPrincipal.h; sourceTree = "<group>"; };
 		88EC3DAE1B431C6C00946A50 /* MenuPrincipal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuPrincipal.m; path = Views/MenuPrincipal/MenuPrincipal.m; sourceTree = "<group>"; };
 		88EC3DB21B431D9E00946A50 /* MenuPrincipal_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone.xib; sourceTree = "<group>"; };
+		88ED90FD1B8BD4DC00395974 /* Adoptame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Adoptame.h; path = Views/Adoptame/Adoptame.h; sourceTree = "<group>"; };
+		88ED90FE1B8BD4DC00395974 /* Adoptame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Adoptame.m; path = Views/Adoptame/Adoptame.m; sourceTree = "<group>"; };
+		88ED91001B8BD51F00395974 /* Adoptame_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Adoptame_iPhone.xib; path = Views/Adoptame/Adoptame_iPhone.xib; sourceTree = "<group>"; };
+		88ED91021B8D183B00395974 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		88ED91041B8D213200395974 /* Adoptame_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Adoptame_iPhone5.xib; path = Views/Adoptame/Adoptame_iPhone5.xib; sourceTree = "<group>"; };
+		88ED91061B8D23E900395974 /* Adoptame_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Adoptame_iPhone6.xib; path = Views/Adoptame/Adoptame_iPhone6.xib; sourceTree = "<group>"; };
 		88EE75F01B44492F002D1E7B /* MenuPrincipal_iPhone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone5.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone5.xib; sourceTree = "<group>"; };
 		88EE75F41B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone6.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone6.xib; sourceTree = "<group>"; };
 		88EE75F61B4450C7002D1E7B /* MenuPrincipal_iPhone6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuPrincipal_iPhone6plus.xib; path = Views/MenuPrincipal/MenuPrincipal_iPhone6plus.xib; sourceTree = "<group>"; };
@@ -236,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88ED91031B8D183B00395974 /* MessageUI.framework in Frameworks */,
 				8843156C1B4AE11B0030DB6E /* SystemConfiguration.framework in Frameworks */,
 				8843156A1B4AE10D0030DB6E /* OpenGLES.framework in Frameworks */,
 				884315681B4AE1050030DB6E /* libz.dylib in Frameworks */,
@@ -277,6 +320,7 @@
 		61FD27EAF1617F98EFA204EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88ED91021B8D183B00395974 /* MessageUI.framework */,
 				8843156B1B4AE11B0030DB6E /* SystemConfiguration.framework */,
 				884315691B4AE10D0030DB6E /* OpenGLES.framework */,
 				884315671B4AE1050030DB6E /* libz.dylib */,
@@ -428,6 +472,20 @@
 			name = Geocercas;
 			sourceTree = "<group>";
 		};
+		8881C0351B82696A00392A4A /* AsignaGeocerca */ = {
+			isa = PBXGroup;
+			children = (
+				887D476A1B7CFB4500CDE39A /* AsignaGeocerca.h */,
+				887D476B1B7CFB4500CDE39A /* AsignaGeocerca.m */,
+				887D476F1B7E97D800CDE39A /* AsignaGeocerca_iPhone.xib */,
+				8881C0361B826B4800392A4A /* AsignaGeocerca_iPhone5.xib */,
+				8881C0381B8281B600392A4A /* AsignaGeocerca_iPhone6.xib */,
+				8881C03A1B82827200392A4A /* AsignaGeocerca_iPhone6plus.xib */,
+				8881C03C1B82847200392A4A /* AsignaGeocerca_iPad.xib */,
+			);
+			name = AsignaGeocerca;
+			sourceTree = "<group>";
+		};
 		88C02C8D1B39AE8400DEF83A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +499,10 @@
 				883D00DD1B4C89B900815C4B /* Historico */,
 				8843157E1B4B3BE10030DB6E /* BlogDeFido */,
 				885B145E1B4F2BA900859004 /* Geocercas */,
+				8881C0351B82696A00392A4A /* AsignaGeocerca */,
+				88CFCA5C1B8389CC004BC6A0 /* Incidencias */,
+				88ED90FC1B8BD44E00395974 /* VetAndCare */,
+				88ED91081B8D299D00395974 /* Adoptame */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -457,6 +519,16 @@
 				88C02C961B39B16600DEF83A /* MisMascotas_iPad.xib */,
 			);
 			name = MisMascotas;
+			sourceTree = "<group>";
+		};
+		88CFCA5C1B8389CC004BC6A0 /* Incidencias */ = {
+			isa = PBXGroup;
+			children = (
+				8881C03E1B82A85200392A4A /* Incidencias.h */,
+				8881C03F1B82A85200392A4A /* Incidencias.m */,
+				8881C0411B82AFBD00392A4A /* Incidencias_iPhone.xib */,
+			);
+			name = Incidencias;
 			sourceTree = "<group>";
 		};
 		88DE45771B3A11B00021B866 /* Bienvenida */ = {
@@ -485,6 +557,32 @@
 				88DE45841B3B14FC0021B866 /* Login_iPad.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		88ED90FC1B8BD44E00395974 /* VetAndCare */ = {
+			isa = PBXGroup;
+			children = (
+				883FB2231B86878700646063 /* VetAndCare.h */,
+				883FB2241B86878700646063 /* VetAndCare.m */,
+				883FB2261B86880500646063 /* VetAndCare_iPhone.xib */,
+				8858FE791B897E6500482F53 /* VetAndCare_iPhone5.xib */,
+				8858FE7B1B89867700482F53 /* VetAndCare_iPhone6.xib */,
+				8858FE7D1B8A21CC00482F53 /* VetAndCare_iPhone6plus.xib */,
+				8858FE7F1B8A2FB800482F53 /* VetAndCare_iPad.xib */,
+			);
+			name = VetAndCare;
+			sourceTree = "<group>";
+		};
+		88ED91081B8D299D00395974 /* Adoptame */ = {
+			isa = PBXGroup;
+			children = (
+				88ED90FD1B8BD4DC00395974 /* Adoptame.h */,
+				88ED90FE1B8BD4DC00395974 /* Adoptame.m */,
+				88ED91001B8BD51F00395974 /* Adoptame_iPhone.xib */,
+				88ED91041B8D213200395974 /* Adoptame_iPhone5.xib */,
+				88ED91061B8D23E900395974 /* Adoptame_iPhone6.xib */,
+			);
+			name = Adoptame;
 			sourceTree = "<group>";
 		};
 		88EE75EF1B444913002D1E7B /* MenuPrincipal */ = {
@@ -669,11 +767,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8881C0371B826B4900392A4A /* AsignaGeocerca_iPhone5.xib in Resources */,
 				884315861B4B40650030DB6E /* BlogDeFido_iPhone6plus.xib in Resources */,
 				88DE45811B3B14BD0021B866 /* Login_iPhone6.xib in Resources */,
+				88ED91011B8BD51F00395974 /* Adoptame_iPhone.xib in Resources */,
 				883D00C71B4C794A00815C4B /* Alertas_iPhone6.xib in Resources */,
+				8881C03B1B82827200392A4A /* AsignaGeocerca_iPhone6plus.xib in Resources */,
+				8858FE7E1B8A21CC00482F53 /* VetAndCare_iPhone6plus.xib in Resources */,
 				883D00B71B4C4D3100815C4B /* UltimaPosicion_iPhone5.xib in Resources */,
+				8881C0391B8281B600392A4A /* AsignaGeocerca_iPhone6.xib in Resources */,
 				88EE75F51B444BE0002D1E7B /* MenuPrincipal_iPhone6.xib in Resources */,
+				8858FE7A1B897E6500482F53 /* VetAndCare_iPhone5.xib in Resources */,
 				88F9E5E11B38D0C8009D68D9 /* LaunchScreen.xib in Resources */,
 				883D00B31B4C42B000815C4B /* CustomCollectionViewCell_iPhone6plus.xib in Resources */,
 				88EE75F91B44575E002D1E7B /* MenuPrincipal_iPad.xib in Resources */,
@@ -683,6 +787,8 @@
 				88C02C971B39B16600DEF83A /* MisMascotas_iPad.xib in Resources */,
 				88FCB92D1B39E4A000233CFF /* Bienvenida_iPad.xib in Resources */,
 				881965951B3CB9FA00A92208 /* CustomCollectionViewCell_iPhone6.xib in Resources */,
+				8881C03D1B82847200392A4A /* AsignaGeocerca_iPad.xib in Resources */,
+				8881C0421B82AFBD00392A4A /* Incidencias_iPhone.xib in Resources */,
 				883D00B91B4C516000815C4B /* UltimaPosicion_iPhone6.xib in Resources */,
 				884315841B4B3FF50030DB6E /* BlogDeFido_iPhone6.xib in Resources */,
 				88FCB92B1B39E47D00233CFF /* Bienvenida_iPhone6plus.xib in Resources */,
@@ -699,6 +805,7 @@
 				884315881B4B40D00030DB6E /* BlogDeFido_iPad.xib in Resources */,
 				885B14641B4F2C2700859004 /* Geocercas_iPhone6.xib in Resources */,
 				883D00D71B4C853500815C4B /* DetalleAlerta_iPhone6plus.xib in Resources */,
+				883FB2271B86880500646063 /* VetAndCare_iPhone.xib in Resources */,
 				88EE75F11B44492F002D1E7B /* MenuPrincipal_iPhone5.xib in Resources */,
 				883D00E71B4D9DA000815C4B /* Historico_iPad.xib in Resources */,
 				883D00B51B4C450D00815C4B /* CustomCollectionViewCell_iPad.xib in Resources */,
@@ -709,13 +816,16 @@
 				883D00C91B4C7A6800815C4B /* Alertas_iPad.xib in Resources */,
 				88C02C8F1B39AFBA00DEF83A /* MisMascotas_iPhone.xib in Resources */,
 				883D00E51B4D9D3100815C4B /* Historico_iPhone6plus.xib in Resources */,
+				8858FE801B8A2FB800482F53 /* VetAndCare_iPad.xib in Resources */,
 				883D00D51B4C840000815C4B /* DetalleAlerta_iPhone6.xib in Resources */,
 				88FCB9251B39E34A00233CFF /* Bienvenida_iPhone.xib in Resources */,
 				88DE45831B3B14DD0021B866 /* Login_iPhone6plus.xib in Resources */,
 				884315801B4B3C090030DB6E /* BlogDeFido_iPhone.xib in Resources */,
+				887D47701B7E97D800CDE39A /* AsignaGeocerca_iPhone.xib in Resources */,
 				885B14661B4F2C4700859004 /* Geocercas_iPhone6plus.xib in Resources */,
 				88DE457D1B3B14740021B866 /* Login_iPhone.xib in Resources */,
 				881965931B3C9B2B00A92208 /* CustomCollectionViewCell.xib in Resources */,
+				88ED91071B8D23E900395974 /* Adoptame_iPhone6.xib in Resources */,
 				88C02C951B39B13A00DEF83A /* MisMascotas_iPhone6plus.xib in Resources */,
 				883D00D91B4C85EB00815C4B /* DetalleAlerta_iPad.xib in Resources */,
 				88C02C911B39B01700DEF83A /* MisMascotas_iPhone5.xib in Resources */,
@@ -725,9 +835,11 @@
 				88DE45851B3B14FC0021B866 /* Login_iPad.xib in Resources */,
 				885B14601B4F2BD400859004 /* Geocercas_iPhone.xib in Resources */,
 				88FCB9271B39E43B00233CFF /* Bienvenida_iPhone5.xib in Resources */,
+				8858FE7C1B89867700482F53 /* VetAndCare_iPhone6.xib in Resources */,
 				883D00C31B4C6E0D00815C4B /* Alertas_iPhone.xib in Resources */,
 				883D00D31B4C831B00815C4B /* DetalleAlerta_iPhone5.xib in Resources */,
 				88F08E991B4AD3C100221DE7 /* UltimaPosicion_iPhone.xib in Resources */,
+				88ED91051B8D213200395974 /* Adoptame_iPhone5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,12 +899,16 @@
 				885B145D1B4F2BA200859004 /* Geocercas.m in Sources */,
 				88F9E5D61B38D0C7009D68D9 /* AppDelegate.m in Sources */,
 				883ED6A81B41F1FD004D831A /* Reachability.m in Sources */,
+				8881C0401B82A85200392A4A /* Incidencias.m in Sources */,
+				88ED90FF1B8BD4DC00395974 /* Adoptame.m in Sources */,
 				883ED6AE1B41F2B2004D831A /* SYSoapTool.m in Sources */,
 				884315711B4AF7210030DB6E /* Annotation.m in Sources */,
+				883FB2251B86878700646063 /* VetAndCare.m in Sources */,
 				883D00DC1B4C89B100815C4B /* Historico.m in Sources */,
 				881965921B3C9B2B00A92208 /* CustomCollectionViewCell.m in Sources */,
 				8843157D1B4B3BD60030DB6E /* BlogDeFido.m in Sources */,
 				88F9E5F81B38D180009D68D9 /* MisMascotas.m in Sources */,
+				887D476D1B7CFB4500CDE39A /* AsignaGeocerca.m in Sources */,
 				883D00CE1B4C7D4300815C4B /* DetalleAlerta.m in Sources */,
 				88F9E5D31B38D0C7009D68D9 /* main.m in Sources */,
 			);

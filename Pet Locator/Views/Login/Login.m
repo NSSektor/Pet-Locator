@@ -8,6 +8,7 @@
 
 #import "Login.h"
 
+
 extern NetworkStatus returnValue;
 extern NSString* documentsDirectory;
 extern NSString* GlobalString;
@@ -16,6 +17,7 @@ extern NSString* Globalpass;
 extern NSString* id_usr;
 extern NSString* dispositivo;
 extern NSString* url_webservice;
+extern NSString* DeviceToken;
 NSString*  mensaje_mascota;
 
 extern BOOL admin_usr;
@@ -282,10 +284,16 @@ extern NSMutableArray* MAcargando;
         }*/
     
     if ([error_ isEqualToString:@""]) {
+        
+        NSLog(@"%@",DeviceToken);
+        
+        if ([DeviceToken isKindOfClass:[NSNull class]] || DeviceToken==NULL || DeviceToken == nil) {
+            DeviceToken = @"";
+        }
     
         NSMutableArray *tags = [[NSMutableArray alloc]initWithObjects:@"usName", @"usPassword", @"usPushToken",@"usDevice",nil];
         
-        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:txt_usuario.text ,txt_pass.text, @"1234567890", @"I",nil];
+        NSMutableArray *vars = [[NSMutableArray alloc]initWithObjects:txt_usuario.text ,txt_pass.text, @"1234567890", DeviceToken,nil];
         
         [soapTool callSoapServiceWithParameters__functionName:@"Login" tags:tags vars:vars wsdlURL:url_webservice];
         contenedor_animacion.hidden = NO;

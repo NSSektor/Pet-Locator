@@ -70,7 +70,7 @@ int id_;
     tbl_historico.dataSource = self;
     tbl_historico.delegate = self;
     
-    [btn_atras addTarget:self action:@selector(Atras:) forControlEvents:UIControlEventTouchUpInside];
+    [btn_atras addTarget:self action:@selector(UltimaPosicion:) forControlEvents:UIControlEventTouchUpInside];
     
     [btn_ayer addTarget:self action:@selector(Ayer:) forControlEvents:UIControlEventTouchUpInside];
     

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MisMascotas">
             <connections>
+                <outlet property="blurContainerView" destination="vxC-e9-z0E" id="m3H-jd-myB"/>
                 <outlet property="btn_atras" destination="JOH-5z-PHe" id="Gtq-ug-ejk"/>
+                <outlet property="btn_esconder" destination="64A-Ar-EXk" id="62b-je-yzm"/>
                 <outlet property="btn_menu" destination="Uy7-dE-GFu" id="aWs-Ko-kg3"/>
                 <outlet property="collectionView" destination="DtE-f0-PuJ" id="Udb-Kp-ysa"/>
                 <outlet property="contenedor_menu" destination="TYC-w0-Lxt" id="oqq-YN-Ttd"/>
@@ -14,7 +16,8 @@
                 <outlet property="img_actualizar" destination="rUS-yt-e4l" id="g1X-pL-psy"/>
                 <outlet property="lbl_actualizar" destination="nTw-dz-3dH" id="66e-RI-VUC"/>
                 <outlet property="searchBar_" destination="ocs-a6-77O" id="hl2-VM-Hnh"/>
-                <outlet property="tbl_menu" destination="09A-Yw-VDs" id="pBz-5z-u6s"/>
+                <outlet property="tbl_menu" destination="78f-DT-lN1" id="vax-5J-oaR"/>
+                <outlet property="transparentView" destination="yY2-oL-mjC" id="ual-xZ-WgD"/>
                 <outlet property="view" destination="iN0-l3-epB" id="JNT-3J-TYd"/>
             </connections>
         </placeholder>
@@ -98,6 +101,41 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="2Se-uv-Kgl">
                             <rect key="frame" x="105" y="538" width="110" height="30"/>
                         </imageView>
+                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxC-e9-z0E">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yY2-oL-mjC">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <subviews>
+                                        <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="78f-DT-lN1">
+                                            <rect key="frame" x="20" y="194" width="280" height="175"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOl-pL-2ps">
+                                            <rect key="frame" x="110" y="159" width="100" height="30"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64A-Ar-EXk">
+                                            <rect key="frame" x="20" y="374" width="280" height="35"/>
+                                            <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                            <state key="normal" title="Cancelar">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                 </view>
             </subviews>

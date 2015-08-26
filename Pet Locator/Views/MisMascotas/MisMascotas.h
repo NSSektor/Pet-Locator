@@ -11,6 +11,8 @@
 #import "SYSoapTool.h"
 #import "Reachability.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface MisMascotas : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,SOAPToolDelegate, NSXMLParserDelegate,UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>{
     
     Reachability* internetReachable;
@@ -39,6 +41,12 @@
     UIView* contenedor_invisible;
     __weak IBOutlet UITableView* tbl_menu;
     
+    __weak IBOutlet UIView *blurContainerView;
+    __weak IBOutlet UIView *transparentView;
+    __weak IBOutlet UIButton*  btn_esconder;
+    
+    UIImage *blurrredImage;
+    
 }
 
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
@@ -54,5 +62,6 @@
 -(void)LeeHoraGuardada;
 -(void)EscribeHora;
 -(IBAction)Atras:(id)sender;
+
 
 @end

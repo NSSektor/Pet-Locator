@@ -22,4 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel     *lbl_ubicacion_alerta;
 @property (nonatomic, weak) IBOutlet UIImageView *img_alerta;
 
+@property (nonatomic, weak) IBOutlet UILabel     *lbl_direccion;
+
+
 @end

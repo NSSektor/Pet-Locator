@@ -19,6 +19,7 @@
 #import "UAPush.h"
 #import "Login.h"
 #import "Alertas.h"
+#import "AsignaGeocerca.h"
 @import GoogleMaps;
 
 NSString* dispositivo;
@@ -70,6 +71,8 @@ NSInteger index_sel;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    
     UAConfig *config = [UAConfig defaultConfig];
     [UAirship takeOff:config];
     [UAirship push].userNotificationTypes = (UIUserNotificationTypeAlert |
@@ -78,6 +81,9 @@ NSInteger index_sel;
     
     [UAirship push].userPushNotificationsEnabled = YES;
     
+    
+    [[UAirship push] resetBadge];
+    [[UAirship push] setBadgeNumber:0];
     
     [GMSServices provideAPIKey:@"AIzaSyBYG98x3J7wd8ktdQZmkYWjLX5A_ucRs4k"];
     
@@ -101,7 +107,7 @@ NSInteger index_sel;
         }
     }
     
-    url_webservice = [NSString stringWithFormat:@"http://201.131.96.39/wbs/wbs_pet3.php?wsdl"];
+    url_webservice = [NSString stringWithFormat:@"http://www.petlocator.com.mx/wbs/wbs_pet4.php?wsdl"];
     
     contents = [[NSString alloc] initWithContentsOfFile:[NSString stringWithFormat:@"%@/url_paypal.txt", documentsDirectory] usedEncoding:nil error:nil];
     if (contents != nil && ![contents isEqualToString:@""]) {
@@ -134,6 +140,8 @@ NSInteger index_sel;
         actualizar_tabla = YES;
         MenuPrincipal *viewController = [[MenuPrincipal alloc] initWithNibName:[NSString stringWithFormat:@"MenuPrincipal_%@", dispositivo] bundle:nil];
         self.window.rootViewController = viewController;
+      /*  AsignaGeocerca *viewController = [[AsignaGeocerca alloc] initWithNibName:[NSString stringWithFormat:@"AsignaGeocerca"] bundle:nil];
+        self.window.rootViewController = viewController;*/
     }
     
     
@@ -178,14 +186,12 @@ NSInteger index_sel;
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"content---%@", token);
-    
+    DeviceToken = [[[[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""] capitalizedString];
 }
 
 - (void)registrationSucceededForChannelID:(NSString *)channelID deviceToken:(NSString *)deviceToken{
-    DeviceToken = deviceToken;
+    DeviceToken = [deviceToken capitalizedString];
+    
 }
 
 // Returns YES if the application is currently registered for remote notifications, taking into account any systemwide settings; doesn't relate to connectivity.

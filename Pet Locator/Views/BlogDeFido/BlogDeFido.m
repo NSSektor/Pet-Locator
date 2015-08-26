@@ -41,9 +41,7 @@ extern NSString* dispositivo;
      {
          if ([data length] > 0 && error == nil) [myWebView loadRequest:request];
          else if (error != nil) {
-             NSLog(@"Error: %@", error);
-             UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"PetLocator" message:@"No esta conectado a internet" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
-             [Notpermitted show];
+             [[[UIAlertView alloc] initWithTitle:@"PetLocator" message:@"No esta conectado a internet" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil] show];
              [self Animacion:2];
          }}];
     

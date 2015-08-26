@@ -9,14 +9,81 @@
 #import "MenuPrincipal.h"
 #import "MisMascotas.h"
 #import "BlogDeFido.h"
+#import "VetAndCare.h"
+#import "Adoptame.h"
 
 extern NSString* dispositivo;
+extern NetworkStatus returnValue;
 
 @interface MenuPrincipal ()
 
 @end
 
 @implementation MenuPrincipal
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
+    
+    // check if a pathway to a random host exists
+    hostReachable = [Reachability reachabilityWithHostName:@"www.apple.com"];
+    [hostReachable startNotifier];
+    
+    // now patiently wait for the notification
+    
+    
+}
+
+-(void) checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI.");
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN.");
+            break;
+        }
+    }
+    
+    NetworkStatus hostStatus = [hostReachable currentReachabilityStatus];
+    switch (hostStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"A gateway to the host server is down.");
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"A gateway to the host server is working via WIFI.");
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"A gateway to the host server is working via WWAN.");
+            break;
+        }
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +106,14 @@ extern NSString* dispositivo;
     [panel addSubview:btn_blog_fido];
     [btn_blog_fido addTarget:self action:@selector(BlogDeFido:) forControlEvents:UIControlEventTouchUpInside];
     
+    btn_vet_care = [[UIButton alloc] initWithFrame:contenedor_vet_care.frame];
+    [panel addSubview:btn_vet_care];
+    [btn_vet_care addTarget:self action:@selector(VetAndCare:) forControlEvents:UIControlEventTouchUpInside];
+    
+    btn_adoptame = [[UIButton alloc] initWithFrame:contenedor_adoptame.frame];
+    [panel addSubview:btn_adoptame];
+    [btn_adoptame addTarget:self action:@selector(Adoptame:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,15 +122,65 @@ extern NSString* dispositivo;
 }
 
 -(IBAction)MisMascotas:(id)sender{
-    MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@",dispositivo] bundle:nil];
-    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:view animated:YES completion:nil];
+    
+    NSString* error_ = @"";
+    
+    if (returnValue == NotReachable)
+        error_ = @"No existe conexión a internet para realizar la petición, intente más tarde";
+    
+    if ([error_ isEqualToString:@""]) {
+        MisMascotas *view = [[MisMascotas alloc] initWithNibName:[NSString stringWithFormat:@"MisMascotas_%@",dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }else
+        [[[UIAlertView alloc] initWithTitle:@"PetLocator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
+    
+    
 }
 
 -(IBAction)BlogDeFido:(id)sender{
-    BlogDeFido *view = [[BlogDeFido alloc] initWithNibName:[NSString stringWithFormat:@"BlogDeFido_%@",dispositivo] bundle:nil];
-    view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:view animated:YES completion:nil];
+    
+    NSString* error_ = @"";
+    
+    if (returnValue == NotReachable)
+        error_ = @"No existe conexión a internet para realizar la petición, intente más tarde";
+    
+    if ([error_ isEqualToString:@""]) {
+        BlogDeFido *view = [[BlogDeFido alloc] initWithNibName:[NSString stringWithFormat:@"BlogDeFido_%@",dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }else
+        [[[UIAlertView alloc] initWithTitle:@"PetLocator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
+    
+}
+
+-(IBAction)VetAndCare:(id)sender{
+    NSString* error_ = @"";
+    
+    if (returnValue == NotReachable)
+        error_ = @"No existe conexión a internet para realizar la petición, intente más tarde";
+    
+    if ([error_ isEqualToString:@""]) {
+        VetAndCare *view = [[VetAndCare alloc] initWithNibName:[NSString stringWithFormat:@"VetAndCare_%@",dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }else
+        [[[UIAlertView alloc] initWithTitle:@"PetLocator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
+
+}
+
+-(IBAction)Adoptame:(id)sender{
+    NSString* error_ = @"";
+    
+    if (returnValue == NotReachable)
+        error_ = @"No existe conexión a internet para realizar la petición, intente más tarde";
+    
+    if ([error_ isEqualToString:@""]) {
+        Adoptame *view = [[Adoptame alloc] initWithNibName:[NSString stringWithFormat:@"Adoptame_%@",dispositivo] bundle:nil];
+        view.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:view animated:YES completion:nil];
+    }else
+        [[[UIAlertView alloc] initWithTitle:@"PetLocator" message:error_ delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil, nil] show];
 }
 
 - (NSUInteger)supportedInterfaceOrientations {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Login">
             <connections>
                 <outlet property="btn_ayuda" destination="sqE-aE-1fR" id="TjT-F0-lFH"/>
+                <outlet property="btn_check" destination="Gnq-qH-ZG2" id="BZG-dU-Y0s"/>
                 <outlet property="btn_device_token" destination="jAL-6i-2nr" id="tcP-1K-zrl"/>
                 <outlet property="btn_iniciar_sesion" destination="jST-6o-fdH" id="MUm-JK-RTJ"/>
                 <outlet property="btn_olvidar" destination="CMn-l5-C2T" id="ZFI-Yu-Wcc"/>
@@ -37,7 +38,7 @@
                             <rect key="frame" x="10" y="468" width="748" height="90"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Usuario" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZGz-gU-eBn">
-                            <rect key="frame" x="25" y="472" width="379" height="40"/>
+                            <rect key="frame" x="25" y="472" width="715" height="40"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                         </textField>
@@ -49,7 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWf-Gf-0q4">
-                            <rect key="frame" x="25" y="513" width="379" height="45"/>
+                            <rect key="frame" x="25" y="513" width="715" height="45"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>

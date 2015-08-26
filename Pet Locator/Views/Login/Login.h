@@ -15,6 +15,10 @@
 #import "Bienvenida.h"
 #import "MenuPrincipal.h"
 
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
+
 
 @interface Login : UIViewController<UITextFieldDelegate,SOAPToolDelegate, NSXMLParserDelegate, UITableViewDelegate, UITableViewDataSource>{
     Reachability* internetReachable;

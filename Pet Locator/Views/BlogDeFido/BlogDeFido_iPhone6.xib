@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="btn_atras" destination="kyg-a7-Lm1" id="yYV-nr-eMa"/>
                 <outlet property="contenedor_webView" destination="zay-qN-JFa" id="lnB-7j-cvJ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Idf-yL-e92"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
